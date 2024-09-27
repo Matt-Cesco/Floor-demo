@@ -83,8 +83,7 @@ module.exports = {
 			spacing: generateSpacing(),
 			lineHeight: generateLineHeights(),
 			colors: {
-				background: 'var(--background)',
-				foreground: 'var(--foreground)',
+				peach: '#FFD8B1',
 			},
 		},
 	},
