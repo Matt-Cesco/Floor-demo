@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"gen": "graphql-codegen",
-		"flexible": "node generateFlexibleFragments.js"
+		"flexible": "node generateFlexibleFragments.js",
+		"generate-query": "node generatePageQuery.js"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.11.8",

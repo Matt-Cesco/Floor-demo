@@ -4791,6 +4791,29 @@ export type FlexibleContentFlexibleContentBlockNewsSliderLayout_Fields = {
   newsFields?: Maybe<FlexibleContentFlexibleNewsFields>;
 };
 
+/** The &quot;FlexibleContentFlexibleContentBlockSimpleLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleContentBlockSimpleLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockSimpleLayout_Fields & FlexibleContentFlexible_Layout & {
+  __typename?: 'FlexibleContentFlexibleContentBlockSimpleLayout';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockSimpleLayout&quot; Field Group */
+  simpleFields?: Maybe<FlexibleContentFlexibleSimpleFields>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockSimpleLayout&quot; Field Group */
+export type FlexibleContentFlexibleContentBlockSimpleLayout_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockSimpleLayout&quot; Field Group */
+  simpleFields?: Maybe<FlexibleContentFlexibleSimpleFields>;
+};
+
 /** The &quot;FlexibleContentFlexibleContentBlockWysiwygLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
 export type FlexibleContentFlexibleContentBlockWysiwygLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockWysiwygLayout_Fields & FlexibleContentFlexible_Layout & {
   __typename?: 'FlexibleContentFlexibleContentBlockWysiwygLayout';
@@ -5684,6 +5707,60 @@ export type FlexibleContentFlexibleNewsFields_Fields = {
   link?: Maybe<AcfLink>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNewsFields&quot; Field Group */
   title?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleSimpleFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleSimpleFields_Fields & {
+  __typename?: 'FlexibleContentFlexibleSimpleFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;textarea&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group */
+  titleHeading?: Maybe<FlexibleContentFlexibleSimpleFieldsTitleHeading>;
+};
+
+/** The &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleSimpleFieldsTitleHeading = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleSimpleFieldsTitleHeading_Fields & {
+  __typename?: 'FlexibleContentFlexibleSimpleFieldsTitleHeading';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group */
+export type FlexibleContentFlexibleSimpleFieldsTitleHeading_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFieldsTitleHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group */
+export type FlexibleContentFlexibleSimpleFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;textarea&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSimpleFields&quot; Field Group */
+  titleHeading?: Maybe<FlexibleContentFlexibleSimpleFieldsTitleHeading>;
 };
 
 /** Layout of the &quot;flexible&quot; Field of the &quot;FlexibleContent&quot; Field Group Field */
@@ -24373,76 +24450,291 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
-export type DefaultFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', text?: string | null, layout?: string | null, titleHeading?: { __typename?: 'FlexibleContentFlexibleContentFieldsTitleHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, link?: { __typename?: 'AcfLink', url?: string | null, title?: string | null, target?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null };
+export type CallToActionFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockCallToActionLayout', ctaFields?: { __typename?: 'FlexibleContentFlexibleCtaFields', layout?: string | null, text?: string | null, title?: string | null, backgroundImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
 
-export type LogosFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockLogosLayout', logoFields?: { __typename?: 'FlexibleContentFlexibleLogoFields', text?: string | null, title?: string | null, logos?: { __typename?: 'AcfMediaItemConnection', edges: Array<{ __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } }> } | null } | null };
+export type DefaultFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', layout?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, titleHeading?: { __typename?: 'FlexibleContentFlexibleContentFieldsTitleHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null };
 
-export type MediaItemFragment = { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null };
+export type FaqsFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockFaqsLayout', faqFields?: { __typename?: 'FlexibleContentFlexibleFaqFields', text?: string | null, title?: string | null, cta?: { __typename?: 'FlexibleContentFlexibleFaqFieldsCta', text?: string | null, title?: string | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null, faqs?: Array<{ __typename?: 'FlexibleContentFlexibleFaqFieldsFaqs', text?: string | null, title?: string | null } | null> | null } | null };
+
+export type HighlightBlockFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockHighlightBlockLayout', highlightFields?: { __typename?: 'FlexibleContentFlexibleHighlightFields', bgColour?: string | null, layout?: string | null, text?: string | null, title?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
+export type HighlightMultipleBlocksFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout', multipleHighlightFields?: { __typename?: 'FlexibleContentFlexibleMultipleHighlightFields', bgColour?: string | null, blocks?: Array<{ __typename?: 'FlexibleContentFlexibleMultipleHighlightFieldsBlocks', text?: string | null, title?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null };
+
+export type InfoCardSingleFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockInfoCardSingleLayout', infoCardFields?: { __typename?: 'FlexibleContentFlexibleInfoCardFields', layout?: string | null, text?: string | null, title?: string | null, background?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
+export type LogosFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockLogosLayout', logoFields?: { __typename?: 'FlexibleContentFlexibleLogoFields', text?: string | null, title?: string | null, logos?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null }> } | null } | null };
+
+export type MultipleImagesFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout', imageFields?: { __typename?: 'FlexibleContentFlexibleImageFields', layout?: string | null, text?: string | null, title?: string | null, blockImages?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null }> } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
+export type NewsSliderFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockNewsSliderLayout', newsFields?: { __typename?: 'FlexibleContentFlexibleNewsFields', title?: string | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
+export type SimpleFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockSimpleLayout', simpleFields?: { __typename?: 'FlexibleContentFlexibleSimpleFields', text?: string | null, titleHeading?: { __typename?: 'FlexibleContentFlexibleSimpleFieldsTitleHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null };
+
+export type WysiwygFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockWysiwygLayout', content?: Array<{ __typename?: 'FlexibleContentFlexibleContentGalleryLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentIntroTextLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentSingleImageLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentTextImageLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentTextLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentTitleLayout', fieldGroupName?: string | null } | { __typename?: 'FlexibleContentFlexibleContentTwoImagesLayout', fieldGroupName?: string | null } | null> | null };
 
 export type GetPageBySlugQueryVariables = Exact<{
   slug?: Scalars['ID']['input'];
 }>;
 
 
-export type GetPageBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', title?: string | null, flexibleContent?: { __typename?: 'FlexibleContent', flexible?: Array<{ __typename?: 'FlexibleContentFlexibleContentBlockCallToActionLayout' } | { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', text?: string | null, layout?: string | null, titleHeading?: { __typename?: 'FlexibleContentFlexibleContentFieldsTitleHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, link?: { __typename?: 'AcfLink', url?: string | null, title?: string | null, target?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename?: 'FlexibleContentFlexibleContentBlockFaqsLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockHighlightBlockLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockInfoCardSingleLayout' } | { __typename: 'FlexibleContentFlexibleContentBlockLogosLayout', logoFields?: { __typename?: 'FlexibleContentFlexibleLogoFields', text?: string | null, title?: string | null, logos?: { __typename?: 'AcfMediaItemConnection', edges: Array<{ __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } }> } | null } | null } | { __typename?: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockNewsSliderLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockWysiwygLayout' } | null> | null } | null } | null };
+export type GetPageBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', title?: string | null, flexibleContent?: { __typename?: 'FlexibleContent', flexible?: Array<{ __typename?: 'FlexibleContentFlexibleContentBlockCallToActionLayout' } | { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', layout?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, titleHeading?: { __typename?: 'FlexibleContentFlexibleContentFieldsTitleHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null } | { __typename?: 'FlexibleContentFlexibleContentBlockFaqsLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockHighlightBlockLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockInfoCardSingleLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockLogosLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockNewsSliderLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockSimpleLayout' } | { __typename?: 'FlexibleContentFlexibleContentBlockWysiwygLayout' } | null> | null } | null } | null };
 
 export type GetThemeOptionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetThemeOptionsQuery = { __typename?: 'RootQuery', themeOptions?: { __typename?: 'ThemeOptions', themeOptionsFields?: { __typename?: 'ThemeOptionsFields', address?: string | null, email?: string | null, footerText?: string | null } | null } | null };
 
-export const MediaItemFragmentDoc = gql`
-    fragment mediaItem on MediaItem {
-  id
-  altText
-  mediaItemUrl
-  title
-  mediaDetails {
-    height
-    width
+export const CallToActionFragmentFragmentDoc = gql`
+    fragment CallToActionFragment on FlexibleContentFlexibleContentBlockCallToActionLayout {
+  __typename
+  ctaFields {
+    backgroundImage {
+      node {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
+    layout
+    link {
+      target
+      title
+      url
+    }
+    text
+    title
   }
-  srcSet
 }
     `;
 export const DefaultFragmentFragmentDoc = gql`
     fragment DefaultFragment on FlexibleContentFlexibleContentBlockDefaultLayout {
   __typename
   contentFields {
+    image {
+      node {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
+    layout
+    link {
+      target
+      title
+      url
+    }
+    text
     titleHeading {
       headingTag
       headingText
     }
-    text
-    link {
-      url
+  }
+}
+    `;
+export const FaqsFragmentFragmentDoc = gql`
+    fragment FaqsFragment on FlexibleContentFlexibleContentBlockFaqsLayout {
+  __typename
+  faqFields {
+    cta {
+      link {
+        target
+        title
+        url
+      }
+      text
       title
-      target
     }
-    layout
+    faqs {
+      text
+      title
+    }
+    text
+    title
+  }
+}
+    `;
+export const HighlightBlockFragmentFragmentDoc = gql`
+    fragment HighlightBlockFragment on FlexibleContentFlexibleContentBlockHighlightBlockLayout {
+  __typename
+  highlightFields {
+    bgColour
     image {
       node {
-        ...mediaItem
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
       }
+    }
+    layout
+    link {
+      target
+      title
+      url
+    }
+    text
+    title
+  }
+}
+    `;
+export const HighlightMultipleBlocksFragmentFragmentDoc = gql`
+    fragment HighlightMultipleBlocksFragment on FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout {
+  __typename
+  multipleHighlightFields {
+    bgColour
+    blocks {
+      image {
+        node {
+          id
+          altText
+          mediaItemUrl
+          title
+          mediaDetails {
+            height
+            width
+          }
+          srcSet
+        }
+      }
+      link {
+        target
+        title
+        url
+      }
+      text
+      title
     }
   }
 }
-    ${MediaItemFragmentDoc}`;
+    `;
+export const InfoCardSingleFragmentFragmentDoc = gql`
+    fragment InfoCardSingleFragment on FlexibleContentFlexibleContentBlockInfoCardSingleLayout {
+  __typename
+  infoCardFields {
+    background {
+      node {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
+    layout
+    link {
+      target
+      title
+      url
+    }
+    text
+    title
+  }
+}
+    `;
 export const LogosFragmentFragmentDoc = gql`
     fragment LogosFragment on FlexibleContentFlexibleContentBlockLogosLayout {
   __typename
   logoFields {
+    logos {
+      nodes {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
     text
     title
-    logos {
-      edges {
-        node {
-          ...mediaItem
+  }
+}
+    `;
+export const MultipleImagesFragmentFragmentDoc = gql`
+    fragment MultipleImagesFragment on FlexibleContentFlexibleContentBlockMultipleImagesLayout {
+  __typename
+  imageFields {
+    blockImages {
+      nodes {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
         }
+        srcSet
       }
+    }
+    layout
+    link {
+      target
+      title
+      url
+    }
+    text
+    title
+  }
+}
+    `;
+export const NewsSliderFragmentFragmentDoc = gql`
+    fragment NewsSliderFragment on FlexibleContentFlexibleContentBlockNewsSliderLayout {
+  __typename
+  newsFields {
+    link {
+      target
+      title
+      url
+    }
+    title
+  }
+}
+    `;
+export const SimpleFragmentFragmentDoc = gql`
+    fragment SimpleFragment on FlexibleContentFlexibleContentBlockSimpleLayout {
+  __typename
+  simpleFields {
+    text
+    titleHeading {
+      headingTag
+      headingText
     }
   }
 }
-    ${MediaItemFragmentDoc}`;
+    `;
+export const WysiwygFragmentFragmentDoc = gql`
+    fragment WysiwygFragment on FlexibleContentFlexibleContentBlockWysiwygLayout {
+  __typename
+  content {
+    fieldGroupName
+  }
+}
+    `;
 export const GetPageBySlugDocument = gql`
     query GetPageBySlug($slug: ID! = "") {
   page(id: $slug, idType: URI) {
@@ -24450,13 +24742,11 @@ export const GetPageBySlugDocument = gql`
     flexibleContent {
       flexible {
         ...DefaultFragment
-        ...LogosFragment
       }
     }
   }
 }
-    ${DefaultFragmentFragmentDoc}
-${LogosFragmentFragmentDoc}`;
+    ${DefaultFragmentFragmentDoc}`;
 
 /**
  * __useGetPageBySlugQuery__
