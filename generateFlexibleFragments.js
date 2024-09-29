@@ -10,8 +10,15 @@ const GRAPHQL_ENDPOINT = 'https://cms-matteo.barques.dev/graphql';
 // Folder where fragments will be stored
 const FRAGMENTS_FOLDER = path.resolve(__dirname, 'src/Graphql/wordpressCMS/flexibleFragments');
 
+// MediaItem fragment template to be used when node has MediaItem type
+const mediaItemFragment = `
+  node {
+    ...mediaItem
+  }
+`;
+
 // Helper function to recursively query sub-fields, including repeaters (lists)
-// Track visited types to prevent infinite recursion
+// and applying the mediaItem fragment when necessary for fields that contain MediaItem
 const getFieldString = (field, schemaTypes, visitedTypes = new Set()) => {
   const schemaFieldType = schemaTypes.find(type => type.name === field.type.name || type.name === field.type.ofType?.name);
 
@@ -22,6 +29,18 @@ const getFieldString = (field, schemaTypes, visitedTypes = new Set()) => {
 
   // Mark this type as visited
   visitedTypes.add(schemaFieldType.name);
+
+  // Check if the field contains a node of type MediaItem (e.g., for image or backgroundImage)
+  if (schemaFieldType.fields && schemaFieldType.fields.some(subField => subField.name === 'node')) {
+    const nodeField = schemaFieldType.fields.find(subField => subField.name === 'node');
+    const nodeType = schemaTypes.find(type => type.name === 'MediaItem');
+    if (nodeField && nodeType) {
+      // Return the mediaItem fragment for any field containing a node of type MediaItem
+      return `${field.name} {
+        ${mediaItemFragment}
+      }`;
+    }
+  }
 
   if (schemaFieldType.fields) {
     // Recursively add sub-fields
