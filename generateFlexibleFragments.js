@@ -10,19 +10,33 @@ const GRAPHQL_ENDPOINT = 'https://cms-matteo.barques.dev/graphql';
 // Folder where fragments will be stored
 const FRAGMENTS_FOLDER = path.resolve(__dirname, 'src/Graphql/wordpressCMS/flexibleFragments');
 
-// MediaItem fragment template to be used when node has MediaItem type
-const mediaItemFragment = `
-  node {
-    ...mediaItem
+// MediaItem fields directly inserted
+const mediaItemFields = `
+  id
+  altText
+  mediaItemUrl
+  title
+  mediaDetails {
+    height
+    width
   }
+  srcSet
 `;
 
+// Helper function to detect if a field has "nodes", "edges", or "node"
+const isMediaField = schemaFieldType => {
+  if (!schemaFieldType || !schemaFieldType.fields) return false; // Ensure schemaFieldType and fields exist
+  const hasNodeField = schemaFieldType.fields.some(f => f.name === 'node');
+  const hasNodesField = schemaFieldType.fields.some(f => f.name === 'nodes');
+  const hasEdgesField = schemaFieldType.fields.some(f => f.name === 'edges');
+  return { hasNodeField, hasNodesField, hasEdgesField };
+};
+
 // Helper function to recursively query sub-fields, including repeaters (lists)
-// and applying the mediaItem fragment when necessary for fields that contain MediaItem
 const getFieldString = (field, schemaTypes, visitedTypes = new Set()) => {
   const schemaFieldType = schemaTypes.find(type => type.name === field.type.name || type.name === field.type.ofType?.name);
 
-  // If we encounter a circular reference, stop recursion
+  // If we encounter a circular reference, stop recursion or if schemaFieldType is null/undefined
   if (!schemaFieldType || visitedTypes.has(schemaFieldType.name)) {
     return field.name; // Return field name if circular or scalar
   }
@@ -30,22 +44,39 @@ const getFieldString = (field, schemaTypes, visitedTypes = new Set()) => {
   // Mark this type as visited
   visitedTypes.add(schemaFieldType.name);
 
-  // Check if the field contains a node of type MediaItem (e.g., for image or backgroundImage)
-  if (schemaFieldType.fields && schemaFieldType.fields.some(subField => subField.name === 'node')) {
-    const nodeField = schemaFieldType.fields.find(subField => subField.name === 'node');
-    const nodeType = schemaTypes.find(type => type.name === 'MediaItem');
-    if (nodeField && nodeType) {
-      // Return the mediaItem fragment for any field containing a node of type MediaItem
-      return `${field.name} {
-        ${mediaItemFragment}
-      }`;
-    }
+  // Dynamically handle media fields with "node", "nodes", or "edges"
+  const { hasNodeField, hasNodesField, hasEdgesField } = isMediaField(schemaFieldType);
+  
+  if (hasNodesField) {
+    return `${field.name} {
+      nodes {
+        ${mediaItemFields}
+      }
+    }`;
+  }
+  
+  if (hasEdgesField) {
+    return `${field.name} {
+      edges {
+        node {
+          ${mediaItemFields}
+        }
+      }
+    }`;
+  }
+  
+  if (hasNodeField) {
+    return `${field.name} {
+      node {
+        ${mediaItemFields}
+      }
+    }`;
   }
 
   if (schemaFieldType.fields) {
     // Recursively add sub-fields
     const subFields = schemaFieldType.fields.map(subField => getFieldString(subField, schemaTypes, visitedTypes)).join('\n      ');
-    
+
     // Check if the field is a list (repeater)
     if (field.type.kind === 'LIST') {
       return `${field.name} {
@@ -116,8 +147,10 @@ const fetchBlockTypes = async () => {
 
   // Filter for flexible content block types and exclude types with '_Fields' suffix
   const blockTypes = types.filter(
-    (type) =>
-      type.name.startsWith('FlexibleContentFlexibleContentBlock') && !type.name.endsWith('_Fields') && type.fields.length > 0
+    type =>
+      type.name.startsWith('FlexibleContentFlexibleContentBlock') &&
+      !type.name.endsWith('_Fields') &&
+      type.fields && type.fields.length > 0 // Ensure fields exist and are not empty
   );
 
   return { blockTypes, schemaTypes: types };
@@ -130,7 +163,7 @@ const generateFragmentFiles = async () => {
   // Ensure the fragment folder exists
   fs.ensureDirSync(FRAGMENTS_FOLDER);
 
-  blockTypes.forEach((block) => {
+  blockTypes.forEach(block => {
     const blockName = block.name;
     const fields = block.fields;
 
@@ -155,4 +188,4 @@ const generateFragmentFiles = async () => {
 // Run the script
 generateFragmentFiles()
   .then(() => console.log('Fragments generated successfully!'))
-  .catch((err) => console.error('Error generating fragments:', err));
+  .catch(err => console.error('Error generating fragments:', err));
