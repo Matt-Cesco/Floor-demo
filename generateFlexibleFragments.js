@@ -12,16 +12,21 @@ const FRAGMENTS_FOLDER = path.resolve(__dirname, 'src/Graphql/wordpressCMS/flexi
 
 // Template for the GraphQL fragment file
 const generateFragmentTemplate = (blockName, fields) => {
+	// Remove the 'FlexibleContentFlexibleContentBlock' and 'Layout' parts from the blockName
+	const simplifiedName = blockName
+		.replace('FlexibleContentFlexibleContentBlock', '') // Remove prefix
+		.replace('Layout', ''); // Remove 'Layout'
+
 	return `import { gql } from '@apollo/client';
 
-export const ${blockName}Fragment = gql\`
-  fragment ${blockName}Fragment on ${blockName} {
+export const ${simplifiedName}Fragment = gql\`
+  fragment ${simplifiedName}Fragment on ${blockName} {
     __typename
     ${fields.join('\n    ')}
   }
 \`;
-`;
-};
+  `;
+}; // <-- This closing bracket was missing
 
 // Fetch all available flexible content block types from WordPress GraphQL schema
 const fetchBlockTypes = async () => {
@@ -51,8 +56,10 @@ const fetchBlockTypes = async () => {
 	const result = await response.json();
 	const types = result.data.__schema.types;
 
-	// Filter for flexible content block types (based on your naming convention)
-	const blockTypes = types.filter((type) => type.name.startsWith('FlexibleContent'));
+	// Filter for flexible content block types and exclude types with '_Fields' suffix
+	const blockTypes = types.filter(
+		(type) => type.name.startsWith('FlexibleContentFlexibleContentBlock') && !type.name.endsWith('_Fields') && type.fields.length > 0
+	);
 
 	return blockTypes;
 };
@@ -69,11 +76,20 @@ const generateFragmentFiles = async () => {
 		const fields = block.fields.map((field) => field.name);
 
 		const fragmentContent = generateFragmentTemplate(blockName, fields);
-		const fragmentFilePath = path.join(FRAGMENTS_FOLDER, `${blockName}Fragment.ts`);
+		const simplifiedName = blockName
+			.replace('FlexibleContentFlexibleContentBlock', '') // Remove prefix
+			.replace('Layout', ''); // Remove 'Layout'
 
-		// Write the fragment file
-		fs.writeFileSync(fragmentFilePath, fragmentContent);
-		console.log(`Generated fragment file for block: ${blockName}`);
+		const fragmentFilePath = path.join(FRAGMENTS_FOLDER, `${simplifiedName}Fragment.ts`);
+
+		// Check if the file already exists
+		if (fs.existsSync(fragmentFilePath)) {
+			console.log(`File ${simplifiedName}Fragment.ts already exists, skipping...`);
+		} else {
+			// Write the fragment file if it does not exist
+			fs.writeFileSync(fragmentFilePath, fragmentContent);
+			console.log(`Generated fragment file for block: ${blockName}`);
+		}
 	});
 };
 
