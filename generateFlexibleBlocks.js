@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { Project } = require('ts-morph');
+const { Project, SyntaxKind } = require('ts-morph');
 
 // Define paths
 const flexibleBlocksDir = path.resolve(
@@ -37,22 +37,46 @@ const extractTypeDefinition = (fragmentType) => {
   return null;
 };
 
-// Function to extract field names from a type definition
-const extractFieldNames = (typeDefinition, fieldName = null) => {
+// Function to extract field names from a type definition using ts-morph
+const extractFieldNames = (typeDefinition, fieldPath = []) => {
   const fields = [];
   const sourceText = `type TempType = ${typeDefinition};`;
   const tempSourceFile = project.createSourceFile('temp.ts', sourceText, {
     overwrite: true,
   });
   const typeAlias = tempSourceFile.getTypeAlias('TempType');
+
   let typeNode = typeAlias.getTypeNode();
 
-  if (fieldName) {
+  // Navigate through the field path to get to the desired type node
+  for (const fieldName of fieldPath) {
     const property = typeNode.getProperty(fieldName);
     if (property) {
       typeNode = property.getTypeNode();
+      // Handle optional properties and nullables
+      if (typeNode.getKind() === SyntaxKind.UnionType) {
+        const unionTypes = typeNode.getTypeNodes();
+        // Assume the first non-nullish type
+        typeNode = unionTypes.find(
+          (t) =>
+            t.getKind() !== SyntaxKind.NullKeyword &&
+            t.getKind() !== SyntaxKind.UndefinedKeyword
+        );
+      }
+      // Handle arrays
+      if (typeNode.getKind() === SyntaxKind.ArrayType) {
+        typeNode = typeNode.getElementTypeNode();
+      }
+      // Handle type references (e.g., interfaces)
+      if (typeNode.getKind() === SyntaxKind.TypeReference) {
+        const typeName = typeNode.getText();
+        const referencedType = tempSourceFile.getTypeAlias(typeName);
+        if (referencedType) {
+          typeNode = referencedType.getTypeNode();
+        }
+      }
     } else {
-      return fields;
+      return fields; // Return empty if path is invalid
     }
   }
 
@@ -98,16 +122,25 @@ fragmentFiles.forEach((fragmentFile) => {
     return;
   }
 
-  // Extract top-level field names for destructuring
+  // Extract top-level field names
   const fieldNames = extractFieldNames(typeDefinition);
 
-  // Check if 'contentFields' is a field, and extract its fields
+  // Identify nested fields ending with 'Fields'
+  const nestedFieldNames = fieldNames.filter((name) =>
+    name.endsWith('Fields')
+  );
+
   let destructuringCode = '';
-  if (fieldNames.includes('contentFields')) {
-    const contentFieldsNames = extractFieldNames(typeDefinition, 'contentFields');
+
+  if (nestedFieldNames.length > 0) {
+    // For simplicity, we'll handle the first nested field ending with 'Fields'
+    const nestedField = nestedFieldNames[0];
+    const nestedFields = extractFieldNames(typeDefinition, [nestedField]);
+
+    // Generate destructuring code
     destructuringCode = `
-    const { contentFields } = data;
-    const { ${contentFieldsNames.join(', ')} } = contentFields || {};
+    const { ${nestedField} } = data;
+    const { ${nestedFields.join(', ')} } = ${nestedField} || {};
     `;
   } else {
     if (fieldNames.length > 0) {
@@ -121,9 +154,9 @@ fragmentFiles.forEach((fragmentFile) => {
   const interfaceFilePath = path.join(folderPath, `I${blockName}.ts`);
   if (!fs.existsSync(interfaceFilePath)) {
     const interfaceFileContent = `
-// Interface for ${blockName} block data
-export interface I${blockName} ${typeDefinition}
-`;
+    // Interface for ${blockName} block data
+    export interface I${blockName} ${typeDefinition}
+    `;
 
     fs.writeFileSync(interfaceFilePath, interfaceFileContent.trim());
     console.log(`Created file: ${interfaceFilePath}`);
@@ -135,20 +168,20 @@ export interface I${blockName} ${typeDefinition}
   const blockFilePath = path.join(folderPath, `${blockName}.tsx`);
   if (!fs.existsSync(blockFilePath)) {
     const blockFileContent = `
-import { I${blockName} } from './I${blockName}';
-import { IFlexibleBlock } from '../IFlexibleBlock';
+    import { I${blockName} } from './I${blockName}';
+    import { IFlexibleBlock } from '../IFlexibleBlock';
 
-const ${blockName} = ({ data }: IFlexibleBlock<I${blockName}>) => {
-    ${destructuringCode}
-    return (
-        <div>
-            {/* Render your block content here */}
-        </div>
-    );
-};
+    const ${blockName} = ({ data }: IFlexibleBlock<I${blockName}>) => {
+        ${destructuringCode}
+        return (
+            <div>
+                {/* Render your block content here */}
+            </div>
+        );
+    };
 
-export default ${blockName};
-`;
+    export default ${blockName};
+    `;
     fs.writeFileSync(blockFilePath, blockFileContent.trim());
     console.log(`Created file: ${blockFilePath}`);
   } else {
@@ -160,11 +193,11 @@ export default ${blockName};
 const iflexibleBlockPath = path.join(flexibleBlocksDir, 'IFlexibleBlock.ts');
 if (!fs.existsSync(iflexibleBlockPath)) {
   const iflexibleBlockContent = `
-export interface IFlexibleBlock<T> {
-    data: T;
-    // You can add more fields here if needed, like layout or options
-}
-`;
+  export interface IFlexibleBlock<T> {
+      data: T;
+      // You can add more fields here if needed, like layout or options
+  }
+  `;
   fs.writeFileSync(iflexibleBlockPath, iflexibleBlockContent.trim());
   console.log(`Created file: ${iflexibleBlockPath}`);
 } else {
