@@ -7,9 +7,10 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"gen": "graphql-codegen",
-		"flexible": "node generateFlexibleFragments.js",
-		"generate-query": "node generatePageQuery.js"
+		"fragments": "node generateFlexibleFragments.js",
+		"types": "graphql-codegen",
+		"query": "node generatePageQuery.js",
+		"blocks": "node generateFlexibleBlocks.js"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.11.8",
