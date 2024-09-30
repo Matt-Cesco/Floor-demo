@@ -1,36 +1,39 @@
 const fs = require('fs');
 const path = require('path');
+const { Project } = require('ts-morph');
 
 // Define paths
 const flexibleBlocksDir = path.resolve(__dirname, './src/Components/FlexibleBlocks');
 const fragmentsDir = path.resolve(__dirname, './src/Graphql/wordpressCMS/flexibleFragments');
 const generatedTypesFilePath = path.resolve(__dirname, './src/Graphql/generated.tsx'); // Path to generated.tsx
-const generatedTypesFileAlias = '@/Graphql/generated'; // Correct alias for the generated.tsx file
+
+// Initialize ts-morph project
+const project = new Project();
+project.addSourceFileAtPath(generatedTypesFilePath);
+const generatedSourceFile = project.getSourceFile(generatedTypesFilePath);
 
 // Get all fragment files dynamically from the fragments directory
 const fragmentFiles = fs.readdirSync(fragmentsDir).filter((file) => file.endsWith('Fragment.ts'));
 
-// Function to extract full type definition from generated.tsx
-const extractFieldsFromGeneratedTypes = (fragmentType) => {
-	const generatedFileContent = fs.readFileSync(generatedTypesFilePath, 'utf-8');
+// Function to extract the entire type definition from generated.tsx
+const extractTypeDefinition = (fragmentType) => {
+	const typeAlias = generatedSourceFile.getTypeAlias(fragmentType);
 
-	// Match the type definition in generated.tsx for the fragment
-	const typeRegex = new RegExp(`export type ${fragmentType} = {([^}]+)};`, 'gs');
-	const typeMatch = generatedFileContent.match(typeRegex);
-
-	if (typeMatch) {
-		const typeContent = typeMatch[1];
-
-		// Extract field names from the type definition
-		const fields = typeContent
-			.match(/\b\w+\??:/g)
-			.map((field) => field.replace(/[:?]/g, ''))
-			.filter((field) => field !== '__typename');
-
-		return fields.length > 0 ? fields : null;
+	if (typeAlias) {
+		const typeText = typeAlias.getTypeNode().getText();
+		return typeText;
 	}
-
 	return null;
+};
+
+// Ensure a directory exists, create it if it doesn't
+const ensureDirectoryExists = (dirPath) => {
+	if (!fs.existsSync(dirPath)) {
+		fs.mkdirSync(dirPath, { recursive: true });
+		console.log(`Created folder: ${dirPath}`);
+	} else {
+		console.log(`Folder already exists: ${dirPath}`);
+	}
 };
 
 // Generate folder structure and files for each block
@@ -40,63 +43,53 @@ fragmentFiles.forEach((fragmentFile) => {
 	const fragmentType = `${fragmentName}Fragment`; // Use fragment type from the generated types file
 	const folderPath = path.join(flexibleBlocksDir, blockName);
 
-	// Check if the block folder already exists
-	if (fs.existsSync(folderPath)) {
-		console.log(`Skipping ${blockName}: folder already exists.`);
-		return; // Skip the block if the folder already exists
+	// Ensure the block folder exists
+	ensureDirectoryExists(folderPath);
+
+	// Extract full type definition for the block from generated.tsx
+	const typeDefinition = extractTypeDefinition(fragmentType);
+
+	if (!typeDefinition) {
+		console.log(`Skipping ${blockName}: No type definition found for ${fragmentType}`);
+		return;
 	}
 
-	// Create folder for the block
-	fs.mkdirSync(folderPath, { recursive: true });
-	console.log(`Created folder: ${folderPath}`);
-
-	// Extract fields for the block from generated.tsx
-	const fields = extractFieldsFromGeneratedTypes(fragmentType);
-
-	// Generate destructuring code dynamically based on extracted fields
-	const destructuringCode = fields ? `const { ${fields.join(', ')} } = data.contentFields || {};` : '// No recognizable content field found';
-
-	// Create .tsx file for the block
-	const blockFilePath = path.join(folderPath, `${blockName}.tsx`);
-	if (!fs.existsSync(blockFilePath)) {
-		const blockFileContent = `
-import { ${fragmentName} } from '@/Graphql/wordpressCMS/flexibleFragments/${fragmentName}';
-import { I${blockName} } from './I${blockName}';
-import { IFlexibleBlock } from '@/Components/FlexibleBlocks/IFlexibleBlock';
-
-const ${blockName} = ({ data }: IFlexibleBlock<I${blockName}>) => {
-    ${destructuringCode}
-    return (
-        <div>
-            {/* Render your block content here */}
-        </div>
-    );
-};
-
-export default ${blockName};
-`;
-		fs.writeFileSync(blockFilePath, blockFileContent.trim());
-		console.log(`Created file: ${blockFilePath}`);
-	} else {
-		console.log(`Skipping ${blockFilePath}: file already exists.`);
-	}
-
-	// Create interface .ts file for the block
+	// Create interface .ts file for the block with full type definition
 	const interfaceFilePath = path.join(folderPath, `I${blockName}.ts`);
 	if (!fs.existsSync(interfaceFilePath)) {
 		const interfaceFileContent = `
-import { ${fragmentType} } from '${generatedTypesFileAlias}';
-
-// Interface for ${blockName} block data
-export interface I${blockName} extends ${fragmentType} {
-    // You can add custom fields here if necessary, or customize existing ones
-}
-`;
+    // Interface for ${blockName} block data
+    export interface I${blockName} ${typeDefinition}
+    `;
 
 		fs.writeFileSync(interfaceFilePath, interfaceFileContent.trim());
 		console.log(`Created file: ${interfaceFilePath}`);
 	} else {
 		console.log(`Skipping ${interfaceFilePath}: file already exists.`);
+	}
+
+	// Create .tsx file for the block
+	const blockFilePath = path.join(folderPath, `${blockName}.tsx`);
+	if (!fs.existsSync(blockFilePath)) {
+		const blockFileContent = `
+    import { I${blockName} } from './I${blockName}';
+    import { IFlexibleBlock } from '../IFlexibleBlock';
+
+    const ${blockName} = ({ data }: IFlexibleBlock<I${blockName}>) => {
+        // Destructure block-specific fields if needed
+        return (
+            <div>
+                {/* Render your block content here */}
+            </div>
+        );
+    };
+
+    export default ${blockName};
+    `;
+		fs.writeFileSync(blockFilePath, blockFileContent.trim());
+		console.log(`Created file: ${blockFilePath}`);
+	} else {
+		console.log(`Skipping ${blockFilePath}: file already exists.`);
 	}
 });
 
