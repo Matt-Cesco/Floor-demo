@@ -87,6 +87,122 @@ const ensureDirectoryExists = (dirPath) => {
 	}
 };
 
+// Function to capitalize the first letter of a string
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+// Function to modify the type definition
+const modifyTypeDefinition = (typeDefinition, blockName, layoutOptionsFields = []) => {
+	const interfaceSourceText = `
+    export interface I${blockName} ${typeDefinition}
+  `;
+
+	const tempSourceFile = project.createSourceFile('tempInterface.ts', interfaceSourceText, {
+		overwrite: true,
+	});
+
+	// Get the interface
+	const interfaceDeclaration = tempSourceFile.getInterface(`I${blockName}`);
+
+	let importStatements = '';
+
+	// If there are layoutOptionsFields, proceed to modify them
+	if (layoutOptionsFields.length > 0) {
+		// Import enums in the interface
+		const enumsToImport = layoutOptionsFields.map(capitalize).join(', ');
+		importStatements += enumsToImport ? `import { ${enumsToImport} } from './${blockName}OptionsEnum';\n` : '';
+	}
+
+	// Variables to track if IDynamicImage and IDynamicHeading are used
+	let usesIDynamicImage = false;
+	let usesIDynamicHeading = false;
+
+	// Function to replace types of properties named 'node', 'nodes', or 'edges' where the type includes __typename?: 'MediaItem'
+	const replaceMediaItemWithIDynamicImage = (node) => {
+		node.forEachDescendant((child) => {
+			if (child.getKind() === SyntaxKind.PropertySignature) {
+				const propName = child.getName();
+				if (['node', 'nodes', 'edges'].includes(propName)) {
+					const propTypeNode = child.getTypeNode();
+					if (propTypeNode) {
+						const typeText = propTypeNode.getText();
+						if (typeText.includes("__typename?: 'MediaItem'")) {
+							// Determine if it's an array
+							let isArray = false;
+							let newType = 'IDynamicImage | null';
+
+							// Handle union types (e.g., Type | null)
+							let effectiveTypeNode = propTypeNode;
+							if (propTypeNode.getKind() === SyntaxKind.UnionType) {
+								const unionTypes = propTypeNode.getTypeNodes();
+								// Assume the first non-nullish type
+								effectiveTypeNode = unionTypes.find(
+									(t) => t.getKind() !== SyntaxKind.NullKeyword && t.getKind() !== SyntaxKind.UndefinedKeyword
+								);
+							}
+
+							// Check if the type is an array
+							if (
+								effectiveTypeNode.getKind() === SyntaxKind.ArrayType ||
+								(effectiveTypeNode.getKind() === SyntaxKind.TypeReference && effectiveTypeNode.getText().startsWith('Array<'))
+							) {
+								isArray = true;
+								newType = 'IDynamicImage[] | null';
+							}
+
+							// Replace the property type with the new type
+							child.setType(newType);
+
+							// Mark that IDynamicImage is used
+							usesIDynamicImage = true;
+						}
+					}
+				}
+			}
+		});
+	};
+
+	// Function to replace 'heading' with 'IDynamicHeading | null' if it includes 'headingTag' and 'headingText'
+	const replaceHeadingWithIDynamicHeading = (node) => {
+		node.forEachDescendant((child) => {
+			if (child.getKind() === SyntaxKind.PropertySignature) {
+				const propName = child.getName();
+				if (propName === 'heading') {
+					const propTypeNode = child.getTypeNode();
+					if (propTypeNode) {
+						const typeText = propTypeNode.getText();
+						if (typeText.includes('headingTag') && typeText.includes('headingText')) {
+							// Replace with IDynamicHeading | null
+							const newType = 'IDynamicHeading | null';
+
+							// Replace the property type with the new type
+							child.setType(newType);
+
+							// Mark that IDynamicHeading is used
+							usesIDynamicHeading = true;
+						}
+					}
+				}
+			}
+		});
+	};
+
+	replaceMediaItemWithIDynamicImage(interfaceDeclaration);
+	replaceHeadingWithIDynamicHeading(interfaceDeclaration);
+
+	// Conditionally add import for IDynamicImage
+	if (usesIDynamicImage) {
+		importStatements += `import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';\n`;
+	}
+
+	// Conditionally add import for IDynamicHeading
+	if (usesIDynamicHeading) {
+		importStatements += `import { IDynamicHeading } from '@/Common/DynamicHeading/IDynamicHeading';\n`;
+	}
+
+	// Return the modified type definition with import statements
+	return `${importStatements}${interfaceDeclaration.getText()}`;
+};
+
 // Generate folder structure and files for each block
 fragmentFiles.forEach((fragmentFile) => {
 	const fragmentName = fragmentFile.replace('Fragment.ts', 'Fragment');
@@ -98,7 +214,7 @@ fragmentFiles.forEach((fragmentFile) => {
 	ensureDirectoryExists(folderPath);
 
 	// Extract full type definition for the block from generated.tsx
-	const typeDefinition = extractTypeDefinition(fragmentType);
+	let typeDefinition = extractTypeDefinition(fragmentType);
 
 	if (!typeDefinition) {
 		console.log(`Skipping ${blockName}: No type definition found for ${fragmentType}`);
@@ -113,6 +229,7 @@ fragmentFiles.forEach((fragmentFile) => {
 
 	let destructuringCode = '';
 	let typeAliasesCode = ''; // To store type aliases for choices fields
+	let layoutOptionsFieldsFiltered = []; // To store the names of the fields inside layoutOptions
 
 	if (nestedFieldNames.length > 0) {
 		// For simplicity, we'll handle the first nested field ending with 'Fields'
@@ -121,8 +238,7 @@ fragmentFiles.forEach((fragmentFile) => {
 
 		// Generate destructuring code
 		destructuringCode = `
-    const { ${nestedField} } = data;
-    const { ${nestedFields.join(', ')} } = ${nestedField} || {};
+    const { ${nestedFields.join(', ')} } = data.${nestedField} || {};
     `;
 
 		// Check for fields starting with 'choices'
@@ -135,6 +251,40 @@ fragmentFiles.forEach((fragmentFile) => {
     type ${fieldName}Options = /* "option1" | "option2" | "option3" */;
     `;
 			});
+		}
+
+		// Handle 'layoutOptions' field
+		if (nestedFields.includes('layoutOptions')) {
+			// Extract fields inside 'layoutOptions'
+			const layoutOptionsFields = extractFieldNames(typeDefinition, [nestedField, 'layoutOptions']);
+
+			// Exclude '__typename'
+			layoutOptionsFieldsFiltered = layoutOptionsFields.filter((name) => name !== '__typename');
+
+			if (layoutOptionsFieldsFiltered.length > 0) {
+				// Generate enums for each field inside 'layoutOptions'
+				let enumsFileContent = '';
+				layoutOptionsFieldsFiltered.forEach((fieldName) => {
+					const enumName = capitalize(fieldName);
+					enumsFileContent += `
+    // Enum placeholder for ${enumName}. Adjust the values as needed.
+    export enum ${enumName} {
+        // Add enum values here
+    }
+    `;
+				});
+
+				// Write the enums to a file named after the block with 'OptionsEnum' appended
+				const enumsFileName = `${blockName}OptionsEnum.ts`;
+				const enumsFilePath = path.join(folderPath, enumsFileName);
+				fs.writeFileSync(enumsFilePath, enumsFileContent.trim());
+				console.log(`Created file: ${enumsFilePath}`);
+			}
+
+			// Update the destructuring code to include layoutOptions fields
+			destructuringCode += `
+    const { ${layoutOptionsFieldsFiltered.join(', ')} } = layoutOptions || {};
+    `;
 		}
 	} else {
 		if (fieldNames.length > 0) {
@@ -156,12 +306,15 @@ fragmentFiles.forEach((fragmentFile) => {
 		}
 	}
 
+	// Always modify the interface to replace MediaItem and heading with respective interfaces
+	typeDefinition = modifyTypeDefinition(typeDefinition, blockName, layoutOptionsFieldsFiltered);
+
 	// Create interface .ts file for the block with full type definition
 	const interfaceFilePath = path.join(folderPath, `I${blockName}.ts`);
 	if (!fs.existsSync(interfaceFilePath)) {
 		const interfaceFileContent = `
     // Interface for ${blockName} block data
-    export interface I${blockName} ${typeDefinition}
+    ${typeDefinition}
     `;
 		fs.writeFileSync(interfaceFilePath, interfaceFileContent.trim());
 		console.log(`Created file: ${interfaceFilePath}`);
@@ -172,10 +325,13 @@ fragmentFiles.forEach((fragmentFile) => {
 	// Create .tsx file for the block
 	const blockFilePath = path.join(folderPath, `${blockName}.tsx`);
 	if (!fs.existsSync(blockFilePath)) {
+		const enumsToImport = layoutOptionsFieldsFiltered.length > 0 ? layoutOptionsFieldsFiltered.map(capitalize).join(', ') : '';
+		const enumsImport = enumsToImport ? `import { ${enumsToImport} } from './${blockName}OptionsEnum';` : '';
+
 		const blockFileContent = `
     import { I${blockName} } from './I${blockName}';
     import { IFlexibleBlock } from '../IFlexibleBlock';
-
+    ${enumsImport}
     ${typeAliasesCode}
 
     const ${blockName} = ({ data }: IFlexibleBlock<I${blockName}>) => {
