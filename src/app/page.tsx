@@ -1,16 +1,29 @@
-import { getPageBySlug } from '@/Utils/Queries/getPageBySlug';
-import FlexibleBlocks from '@/Commons/FlexibleBlocks/FlexibleBlocks';
 
-const PageComponent = async ({ slug }) => {
-    const pageData = await getPageBySlug(slug);
+import { getPageBySlug } from '@/Graphql/wordpressCMS/getPageBySlug';
+import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
 
-    return (
-        <div>
-            <h1>{pageData.title}</h1>
-            <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />
-        </div>
-    );
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const PageComponent = async ({ params }: PageProps) => {
+  const { slug } = params;
+  const pageData = await getPageBySlug(slug);
+  console.log(pageData.flexibleContent.flexible);
+
+  if (!pageData) {
+    return <div>Page not found</div>;
+  }
+
+  return (
+		<div>
+			<h1>{pageData.title}</h1>
+			{/* {JSON.stringify(pageData.flexibleContent.flexible)} */}
+			<FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />
+		</div>
+  );
 };
 
 export default PageComponent;
-

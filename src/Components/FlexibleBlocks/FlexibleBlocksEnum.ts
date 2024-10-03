@@ -1,15 +1,15 @@
 export enum FlexibleBlocksEnum {
-    CALLTOACTIONBLOCK = 'FlexibleContentCallToAction',
-    DEFAULTBLOCK = 'FlexibleContentDefault',
-    FAQSBLOCK = 'FlexibleContentFaqs',
-    HIGHLIGHTBLOCKBLOCK = 'FlexibleContentHighlightBlock',
-    HIGHLIGHTMULTIPLEBLOCKSBLOCK = 'FlexibleContentHighlightMultipleBlocks',
-    INFOCARDSINGLEBLOCK = 'FlexibleContentInfoCardSingle',
-    LOGOSBLOCK = 'FlexibleContentLogos',
-    MULTIPLEIMAGESBLOCK = 'FlexibleContentMultipleImages',
-    NEWSSLIDERBLOCK = 'FlexibleContentNewsSlider',
-    SIMPLEBLOCK = 'FlexibleContentSimple',
-    WYSIWYGBLOCK = 'FlexibleContentWysiwyg'
+    CALLTOACTIONBLOCK = 'FlexibleContentFlexibleContentBlockCallToActionLayout',
+    DEFAULTBLOCK = 'FlexibleContentFlexibleContentBlockDefaultLayout',
+    FAQSBLOCK = 'FlexibleContentFlexibleContentBlockFaqsLayout',
+    HIGHLIGHTBLOCKBLOCK = 'FlexibleContentFlexibleContentBlockHighlightBlockLayout',
+    HIGHLIGHTMULTIPLEBLOCKSBLOCK = 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout',
+    INFOCARDSINGLEBLOCK = 'FlexibleContentFlexibleContentBlockInfoCardSingleLayout',
+    LOGOSBLOCK = 'FlexibleContentFlexibleContentBlockLogosLayout',
+    MULTIPLEIMAGESBLOCK = 'FlexibleContentFlexibleContentBlockMultipleImagesLayout',
+    NEWSSLIDERBLOCK = 'FlexibleContentFlexibleContentBlockNewsSliderLayout',
+    SIMPLEBLOCK = 'FlexibleContentFlexibleContentBlockSimpleLayout',
+    WYSIWYGBLOCK = 'FlexibleContentFlexibleContentBlockWysiwygLayout'
 }
 
 export default FlexibleBlocksEnum;
