@@ -14,45 +14,64 @@ import { SimpleFragment } from '@/Graphql/wordpressCMS/flexibleFragments/SimpleF
 import { WysiwygFragment } from '@/Graphql/wordpressCMS/flexibleFragments/WysiwygFragment';
 
 export const getPageBySlug = async (slug: string) => {
-    const response = await cmsClient.query({
-		query: gql`
-			${CallToActionFragment}
-			${DefaultFragment}
-			${FaqsFragment}
-			${HighlightBlockFragment}
-			${HighlightMultipleBlocksFragment}
-			${InfoCardSingleFragment}
-			${LogosFragment}
-			${MultipleImagesFragment}
-			${NewsSliderFragment}
-			${SimpleFragment}
-			${WysiwygFragment}
-			query GetPageBySlug($slug: ID!) {
-				page(id: $slug, idType: URI) {
-					id
-					title
-					flexibleContent {
-						flexible {
-							...CallToActionFragment
-							...DefaultFragment
-							...FaqsFragment
-							...HighlightBlockFragment
-							...HighlightMultipleBlocksFragment
-							...InfoCardSingleFragment
-							...LogosFragment
-							...MultipleImagesFragment
-							...NewsSliderFragment
-							...SimpleFragment
-							...WysiwygFragment
+	try {
+		const response = await cmsClient.query({
+			query: gql`
+				${CallToActionFragment}
+				${DefaultFragment}
+				${FaqsFragment}
+				${HighlightBlockFragment}
+				${HighlightMultipleBlocksFragment}
+				${InfoCardSingleFragment}
+				${LogosFragment}
+				${MultipleImagesFragment}
+				${NewsSliderFragment}
+				${SimpleFragment}
+				${WysiwygFragment}
+				query GetPageBySlug($slug: ID!) {
+					page(id: $slug, idType: URI) {
+						id
+						title
+						flexibleContent {
+							flexible {
+								...CallToActionFragment
+								...DefaultFragment
+								...FaqsFragment
+								...HighlightBlockFragment
+								...HighlightMultipleBlocksFragment
+								...InfoCardSingleFragment
+								...LogosFragment
+								...MultipleImagesFragment
+								...NewsSliderFragment
+								...SimpleFragment
+								...WysiwygFragment
+							}
 						}
 					}
 				}
-			}
-		`,
-		variables: {
-			slug,
-		},
-	});
+			`,
+			variables: {
+				slug,
+			},
+		});
 
-    return response.data.page;
+		// Check for GraphQL errors
+		if (response.errors && response.errors.length > 0) {
+			console.error('GraphQL Errors:', response.errors);
+			throw new Error(`GraphQL error: ${response.errors[0].message}`);
+		}
+
+		// Check if the page data exists
+		if (!response.data || !response.data.page) {
+			console.error('No page data returned:', response);
+			throw new Error(`No page found with slug "${slug}".`);
+		}
+
+		return response.data.page;
+	} catch (error) {
+		console.error('Fuck sake Error fetching page by slug:', error);
+
+		// Re-throw the error with additional context if needed
+		throw new Error(`Failed to fetch page with slug "${slug}": ${error.message}`);
+	}
 };

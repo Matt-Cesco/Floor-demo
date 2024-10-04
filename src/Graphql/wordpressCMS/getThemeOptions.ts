@@ -17,10 +17,9 @@ export const getThemeOptions = async () => {
 			`,
 		});
 
-		console.log(response);
 		return response.data.themeOptions;
 	} catch (error) {
 		console.error('Error fetching theme options:', error);
-		return null; // Return null or handle the error as needed
+		return null;
 	}
 };

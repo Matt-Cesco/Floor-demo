@@ -1,0 +1,18 @@
+// Interface for HighlightBlockBlock block data
+import { BackgroundColorOptions, ImageOptions } from './HighlightBlockBlockOptionsEnum';
+import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';
+export default interface IHighlightBlockBlock {
+	__typename: 'FlexibleContentFlexibleContentBlockHighlightBlockLayout';
+	highlightFields?: {
+		__typename?: 'FlexibleContentFlexibleHighlightFields';
+		text?: string | null;
+		title?: string | null;
+		image?: { __typename?: 'AcfMediaItemConnectionEdge'; node: IDynamicImage | null } | null;
+		layoutOptions?: {
+			__typename?: 'FlexibleContentFlexibleHighlightFieldsLayoutOptions';
+			backgroundColorOptions?: string | null;
+			imageOptions?: string | null;
+		} | null;
+		link?: { __typename?: 'AcfLink'; target?: string | null; title?: string | null; url?: string | null } | null;
+	} | null;
+}

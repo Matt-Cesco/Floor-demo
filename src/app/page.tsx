@@ -5,18 +5,18 @@ import { notFound } from 'next/navigation';
 import Banner from '@/Components/Banner/Banner';
 
 const PageComponent = async () => {
-const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getBannerBySlug('/')]);
+	const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getBannerBySlug('/')]);
 
-  if (!pageData) {
-    return notFound();
-  }
+	if (!pageData) {
+		return notFound();
+	}
 
-  return (
+	return (
 		<div>
 			{bannerData?.banner && <Banner data={bannerData.banner} />}
-      {pageData.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
+			{pageData.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
 		</div>
-  );
+	);
 };
 
 export default PageComponent;

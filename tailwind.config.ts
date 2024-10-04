@@ -68,8 +68,20 @@ const generateLineHeights = (): LineHeightMap => {
 
 	// Standard line-height classes (for example: leading-120 for line-height: 120%)
 	for (let i = 1; i <= 600; i++) {
-		const percentageValue = i.toString(); // Convert the value to a string for percentage
-		lineHeights[i.toString()] = `${percentageValue}%`;
+		const maxPercentage = i.toString(); // Max value as a percentage
+		const minPercentage = Math.max(i * 0.8, 100).toFixed(2); // Ensure the min value doesn't go below 100%
+		const middleVw = ((i / baseWidth) * 100).toFixed(8); // Calculate middle value in vw
+		lineHeights[i.toString()] = `clamp(${minPercentage}%, ${middleVw}vw, ${maxPercentage}%)`;
+	}
+
+	// Extended line-height classes (for example: leading-100-120)
+	for (let max = 1; max <= 600; max++) {
+		for (let min = 1; min < max; min++) {
+			const maxPercentage = max.toString(); // Max value as a percentage
+			const minPercentage = min.toString(); // Min value as a percentage
+			const middleVw = ((max / baseWidth) * 100).toFixed(8); // Calculate middle value in vw
+			lineHeights[`${min}-${max}`] = `clamp(${minPercentage}%, ${middleVw}vw, ${maxPercentage}%)`;
+		}
 	}
 
 	return lineHeights;

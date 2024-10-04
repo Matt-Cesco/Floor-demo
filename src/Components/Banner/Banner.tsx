@@ -3,24 +3,24 @@ import React from 'react';
 import IBanner from './IBanner';
 
 interface IBannerProps {
-  data: IBanner;
+	data: IBanner;
 }
 
 const Banner: React.FC<IBannerProps> = ({ data }) => {
-  const { bannerFields } = data;
+	const { bannerFields } = data;
 
-  if (!bannerFields) {
-    return null;
-  }
+	if (!bannerFields) {
+		return null;
+	}
 
-  const { title, text, image, layoutOptions } = bannerFields;
+	const { title, text, image, layoutOptions } = bannerFields;
 
-  return (
-    <div className={`banner ${layoutOptions?.styleOptions}`}>
-      {title && <h1>{title}</h1>}
-      {text && <p>{text}</p>}
-    </div>
-  );
+	return (
+		<div className={`banner ${layoutOptions?.styleOptions}`}>
+			{title && <h1>{title}</h1>}
+			{text && <p>{text}</p>}
+		</div>
+	);
 };
 
 export default Banner;

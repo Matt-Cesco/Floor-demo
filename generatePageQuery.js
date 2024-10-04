@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Define the path to the flexible fragments directory src\Graphql\wordpressCMS\flexibleFragments
+// Define the path to the flexible fragments directory
 const fragmentDirectory = path.resolve(__dirname, './src/Graphql/wordpressCMS/flexibleFragments');
 
 // Define the output path for the generated query file
@@ -12,16 +12,19 @@ const fragmentFiles = fs.readdirSync(fragmentDirectory).filter((file) => file.en
 
 // Generate imports for each fragment
 const importStatements = fragmentFiles
-  .map((file) => {
-    const fragmentName = file.replace('Fragment.ts', 'Fragment');
-    return `import { ${fragmentName} } from '@/Graphql/wordpressCMS/flexibleFragments/${fragmentName}';`;
-  })
-  .join('\n');
+	.map((file) => {
+		const fragmentName = file.replace('Fragment.ts', 'Fragment');
+		return `import { ${fragmentName} } from '@/Graphql/wordpressCMS/flexibleFragments/${fragmentName}';`;
+	})
+	.join('\n');
 
 // Generate the dynamic query string with all fragments
 const fragmentStrings = fragmentFiles.map((file) => `\${${file.replace('Fragment.ts', 'Fragment')}}`).join('\n');
 
-// Define the contents of the generated file
+// Generate the spread fragments inside the query
+const spreadFragments = fragmentFiles.map((file) => `...${file.replace('Fragment.ts', 'Fragment')}`).join('\n');
+
+// Define the contents of the generated file with error handling
 const fileContent = `
 import { gql } from '@apollo/client';
 import cmsClient from '@/Graphql/client/cmsClient';
@@ -29,30 +32,49 @@ import cmsClient from '@/Graphql/client/cmsClient';
 ${importStatements}
 
 export const getPageBySlug = async (slug: string) => {
-    const response = await cmsClient.query({
-        query: gql\`
-            ${fragmentStrings}
-            query GetPageBySlug(\$slug: ID!) {
-                page(id: \$slug, idType: URI) {
-                    id
-                    title
-                    flexibleContent {
-                        flexible {
-                            ${fragmentFiles.map(file => `...${file.replace('Fragment.ts', 'Fragment')}`).join('\n')}
+    try {
+        const response = await cmsClient.query({
+            query: gql\`
+                ${fragmentStrings}
+                query GetPageBySlug(\$slug: ID!) {
+                    page(id: \$slug, idType: URI) {
+                        id
+                        title
+                        flexibleContent {
+                            flexible {
+                                ${spreadFragments}
+                            }
                         }
                     }
                 }
-            }
-        \`,
-        variables: {
-            slug,
-        },
-    });
+            \`,
+            variables: {
+                slug,
+            },
+        });
 
-    return response.data.page;
+        // Check for GraphQL errors
+        if (response.errors && response.errors.length > 0) {
+            console.error('GraphQL Errors:', response.errors);
+            throw new Error(\`GraphQL error: \${response.errors[0].message}\`);
+        }
+
+        // Check if the page data exists
+        if (!response.data || !response.data.page) {
+            console.error('No page data returned:', response);
+            throw new Error(\`No page found with slug "\${slug}".\`);
+        }
+
+        return response.data.page;
+    } catch (error) {
+        console.error('Fuck sake Error fetching page by slug:', error);
+
+        // Re-throw the error with additional context if needed
+        throw new Error(\`Failed to fetch page with slug "\${slug}": \${error.message}\`);
+    }
 };
 `;
 
 // Write (or overwrite) the generated content to the getPageBySlug.ts file
-fs.writeFileSync(outputPath, fileContent);
+fs.writeFileSync(outputPath, fileContent.trim());
 console.log('getPageBySlug.ts file generated and overwritten successfully!');

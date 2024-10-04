@@ -8,7 +8,7 @@ export const getBannerBySlug = async (slug: string) => {
 			${mediaItem}
 			query GetBannerBySlug($slug: ID!) {
 				page(id: $slug, idType: URI) {
-                    id
+					id
 					title
 					banner {
 						__typename
@@ -32,7 +32,6 @@ export const getBannerBySlug = async (slug: string) => {
 			slug,
 		},
 	});
-    console.log(response.data.page)
 
 	return response.data.page;
 };
