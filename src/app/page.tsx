@@ -1,27 +1,20 @@
-
 import { getPageBySlug } from '@/Graphql/wordpressCMS/getPageBySlug';
+import { getBannerBySlug } from '@/Graphql/wordpressCMS/getBannerBySlug';
 import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
+import { notFound } from 'next/navigation';
+import Banner from '@/Components/Banner/Banner';
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const PageComponent = async ({ params }: PageProps) => {
-  const { slug } = params;
-  const pageData = await getPageBySlug(slug);
-  console.log(pageData.flexibleContent.flexible);
+const PageComponent = async () => {
+const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getBannerBySlug('/')]);
 
   if (!pageData) {
-    return <div>Page not found</div>;
+    return notFound();
   }
 
   return (
 		<div>
-			<h1>{pageData.title}</h1>
-			{/* {JSON.stringify(pageData.flexibleContent.flexible)} */}
-			<FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />
+			{bannerData?.banner && <Banner data={bannerData.banner} />}
+      {pageData.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
 		</div>
   );
 };

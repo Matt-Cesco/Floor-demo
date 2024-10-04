@@ -32,8 +32,9 @@ export const getPageBySlug = async (slug: string) => {
     const response = await cmsClient.query({
         query: gql\`
             ${fragmentStrings}
-            query GetPageBySlug(\$slug: ID! = "\${slug}") {
+            query GetPageBySlug(\$slug: ID!) {
                 page(id: \$slug, idType: URI) {
+                    id
                     title
                     flexibleContent {
                         flexible {
@@ -43,6 +44,9 @@ export const getPageBySlug = async (slug: string) => {
                 }
             }
         \`,
+        variables: {
+            slug,
+        },
     });
 
     return response.data.page;

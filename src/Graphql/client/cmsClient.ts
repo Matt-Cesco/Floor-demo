@@ -24,6 +24,7 @@ const defaultOptions: DefaultOptions = {
 
 // Apollo Client instance with error handling and cache configuration
 const cmsClient = new ApolloClient({
+    //ssrMode: true,
 	uri: apiUrl, // API URL fetched from environment variable
 	cache: new InMemoryCache(), // In-memory caching strategy
 	defaultOptions, // Apply default fetch and error policies
