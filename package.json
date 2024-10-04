@@ -11,7 +11,7 @@
 		"types": "graphql-codegen",
 		"query": "node generatePageQuery.js",
 		"blocks": "node generateFlexibleBlocks.js",
-		"generate": "npm run fragments && npm run types && npm run query && npm run blocks"
+		"gen": "npm run fragments && npm run types && npm run query && npm run blocks"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.11.8",
