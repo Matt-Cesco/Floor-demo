@@ -1,5 +1,4 @@
-import React from 'react';
-import FlexibleBlocksEnum from '../Components/FlexibleBlocks/FlexibleBlocksEnum';
+import FlexibleBlocksEnum from '@/Components/FlexibleBlocks/FlexibleBlocksEnum';
 import CallToActionBlock from '../Components/FlexibleBlocks/CallToActionBlock/CallToActionBlock';
 import DefaultBlock from '../Components/FlexibleBlocks/DefaultBlock/DefaultBlock';
 import FaqsBlock from '../Components/FlexibleBlocks/FaqsBlock/FaqsBlock';

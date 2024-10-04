@@ -378,7 +378,7 @@ fragmentFiles.forEach((fragmentFile) => {
       ${destructuringCode}
       return (
           <div>
-              {/* Render your block content here */}
+              <p>block name: ${blockName}</p>
           </div>
       );
   };
@@ -455,17 +455,6 @@ export type AllBlockDataTypes =
 fs.writeFileSync(allBlockDataTypesPath, allBlockDataTypesContent.trim());
 console.log(`Created or overwritten file: ${allBlockDataTypesPath}`);
 
-// Generate IFlexibleBlockUnion.ts
-const iflexibleBlockUnionPath = path.join(flexibleBlocksDir, 'IFlexibleBlockUnion.ts');
-const iflexibleBlockUnionContent = `
-import IFlexibleBlock from './IFlexibleBlock';
-import { AllBlockDataTypes } from './AllBlockDataTypes';
-
-export type FlexibleBlock = IFlexibleBlock<AllBlockDataTypes>;
-`;
-fs.writeFileSync(iflexibleBlockUnionPath, iflexibleBlockUnionContent.trim());
-console.log(`Created or overwritten file: ${iflexibleBlockUnionPath}`);
-
 // Generate GetFlexibleBlock.tsx in the Helpers folder
 ensureDirectoryExists(helpersDir);
 const getFlexibleBlockPath = path.join(helpersDir, 'GetFlexibleBlock.tsx');
@@ -476,14 +465,17 @@ const adjustedBlockImports = blockImports.map((importStatement) =>
 );
 
 const getFlexibleBlockContent = `
-import React from 'react';
-import { FlexibleBlock } from '../Components/FlexibleBlocks/IFlexibleBlockUnion';
-import FlexibleBlocksEnum from '../Components/FlexibleBlocks/FlexibleBlocksEnum';
+import FlexibleBlocksEnum from '@/Components/FlexibleBlocks/FlexibleBlocksEnum';
+import { AllBlockDataTypes } from '@/Components/FlexibleBlocks/AllBlockDataTypes';
+import IFlexibleBlock from '@/Components/FlexibleBlocks/IFlexibleBlock';
 
 ${adjustedBlockImports.join('\n')}
 
-const GetFlexibleBlock = (flexibleBlock: FlexibleBlock) => {
-  const { data } = flexibleBlock;
+const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
+	if (!data || !data.__typename) {
+		console.warn('FlexibleBlock data is missing or __typename is undefined.');
+		return null;
+	}
 
   switch (data.__typename) {
 ${switchCases.join('\n')}
