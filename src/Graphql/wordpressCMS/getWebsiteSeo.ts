@@ -3,7 +3,7 @@ import cmsClient from '@/Graphql/client/cmsClient';
 
 export const getWebsiteSeo = async () => {
 	try {
-		let response = await cmsClient.query({
+		const response = await cmsClient.query({
 			query: gql`
 				query GetWebsiteSeo {
 					websiteSEO {
@@ -18,8 +18,14 @@ export const getWebsiteSeo = async () => {
 		});
 
 		return response.data.websiteSEO;
-	} catch (error) {
-		console.error('Error fetching website seo:', error);
-		return null;
+	} catch (error: unknown) {
+		console.error('Error fetching website SEO:', error);
+
+		// Check if error is an instance of Error before accessing `message`
+		if (error instanceof Error) {
+			throw new Error(`Failed to fetch website SEO: ${error.message}`);
+		} else {
+			throw new Error('Failed to fetch website SEO due to an unknown error.');
+		}
 	}
 };
