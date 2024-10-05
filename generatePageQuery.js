@@ -66,12 +66,17 @@ export const getPageBySlug = async (slug: string) => {
         }
 
         return response.data.page;
-    } catch (error) {
-        console.error('Fuck sake Error fetching page by slug:', error);
+        } catch (error: unknown) {
+			console.error('Error fetching page by slug:', error);
 
-        // Re-throw the error with additional context if needed
-        throw new Error(\`Failed to fetch page with slug "\${slug}": \${error.message}\`);
-    }
+			if (error instanceof Error) {
+				// Re-throw the error with additional context if needed
+				throw new Error(\`Failed to fetch page with slug "\${slug}": \${error.message}\`);
+			} else {
+				// Handle non-Error objects
+				throw new Error(\`Failed to fetch page with slug "\${slug}" due to an unknown error.\`);
+			}
+		}
 };
 `;
 
