@@ -1,0 +1,4 @@
+// Interface for HighlightMultipleBlocksBlock block data
+  import { BackgroundColorOptions } from './HighlightMultipleBlocksBlockOptionsEnum';
+import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';
+export default interface IHighlightMultipleBlocksBlock { __typename: 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout', multipleHighlightFields?: { __typename?: 'FlexibleContentFlexibleMultipleHighlightFields', blocks?: Array<{ __typename?: 'FlexibleContentFlexibleMultipleHighlightFieldsBlocks', text?: string | null, title?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: IDynamicImage | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleMultipleHighlightFieldsLayoutOptions', backgroundColorOptions?: string | null } | null } | null }

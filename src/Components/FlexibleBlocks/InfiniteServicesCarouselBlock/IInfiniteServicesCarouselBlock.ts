@@ -1,0 +1,4 @@
+// Interface for InfiniteServicesCarouselBlock block data
+  import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';
+import { IDynamicHeading } from '@/Common/DynamicHeading/IDynamicHeading';
+export default interface IInfiniteServicesCarouselBlock { __typename: 'FlexibleContentFlexibleContentBlockInfiniteServicesCarouselLayout', infiniteServicesCarouselFields?: { __typename?: 'FlexibleContentFlexibleInfiniteServicesCarouselFields', serviceTitleAndImage?: Array<{ __typename?: 'FlexibleContentFlexibleInfiniteServicesCarouselFieldsServiceTitleAndImage', heading?: IDynamicHeading | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: IDynamicImage | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null }
