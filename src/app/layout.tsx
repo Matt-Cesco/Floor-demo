@@ -1,7 +1,7 @@
 import { Archivo } from 'next/font/google';
 import './globals.css';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { getWebsiteSeo } from '@/Graphql/wordpressCMS/getWebsiteSeo';
+import { getWebsiteSeo } from '@/Graphql/wordpressCMS/queries/getWebsiteSeo';
 
 const archivo = Archivo({
 	subsets: ['latin'],

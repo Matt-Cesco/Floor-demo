@@ -12,16 +12,15 @@ import ISimpleBlock from './SimpleBlock/ISimpleBlock';
 import IWysiwygBlock from './WysiwygBlock/IWysiwygBlock';
 
 export type AllBlockDataTypes =
-    ICallToActionBlock |
-    IDefaultBlock |
-    IFaqsBlock |
-    IHighlightBlockBlock |
-    IHighlightMultipleBlocksBlock |
-    IInfiniteServicesCarouselBlock |
-    IInfoCardSingleBlock |
-    ILogosBlock |
-    IMultipleImagesBlock |
-    INewsSliderBlock |
-    ISimpleBlock |
-    IWysiwygBlock
-    ;
+	| ICallToActionBlock
+	| IDefaultBlock
+	| IFaqsBlock
+	| IHighlightBlockBlock
+	| IHighlightMultipleBlocksBlock
+	| IInfiniteServicesCarouselBlock
+	| IInfoCardSingleBlock
+	| ILogosBlock
+	| IMultipleImagesBlock
+	| INewsSliderBlock
+	| ISimpleBlock
+	| IWysiwygBlock;

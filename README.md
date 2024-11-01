@@ -18,13 +18,15 @@ bun dev
 
 options in wordpress must be named Layout Options (graphQL field layoutOptions) and every option must be stored there and named Options (like Image Options, Color Options, etc)
 
-You MUST call the group Layout Options for the automation
+You MUST call the group Layout Options for the automation.
 
 ## Heading
 
 The DynamicHeading component in wordpress will be Heading. Inside the heading in ACF there will be Heading Text and Heading Tag.
 There will be an Enum for that so when you create the content don't put title. it will work only if you write heading with inside the select for Heading Tag and the text field for Heading Text. 
 
-You MUST respect this structure adn naming for the automation
+In ACF the Heading must be a group and inside Heading Text will be a Text filed and Heading Tag will be a Select field.
+
+You MUST respect this structure and naming for the automation.
 
 
