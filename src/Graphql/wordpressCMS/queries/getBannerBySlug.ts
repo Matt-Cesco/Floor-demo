@@ -13,16 +13,8 @@ export const getBannerBySlug = async (slug: string) => {
 					banner {
 						__typename
 						bannerFields {
-							layoutOptions {
-								styleOptions
-							}
 							title
 							text
-							image {
-								node {
-									...mediaItem
-								}
-							}
 						}
 					}
 				}

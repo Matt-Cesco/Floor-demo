@@ -30,3 +30,10 @@ In ACF the Heading must be a group and inside Heading Text will be a Text filed 
 You MUST respect this structure and naming for the automation.
 
 
+## Link
+
+if you have to create a link must be named link or Link. There must be the word link inside capital or not. Example: 'link' - 'pageLink' - 'projectLink'
+
+## Image
+
+if you have to create an image must be named image or Image. There must be the word image inside capital or not. Example: 'image' - 'pageImage' - 'projectImage'

@@ -34,64 +34,99 @@ const isMediaField = (schemaFieldType) => {
 
 // Helper function to recursively query sub-fields, including repeaters (lists)
 const getFieldString = (field, schemaTypes, visitedTypes = new Set()) => {
-	const schemaFieldType = schemaTypes.find((type) => type.name === field.type.name || type.name === field.type.ofType?.name);
+  const schemaFieldType = schemaTypes.find(
+    (type) =>
+      type.name === field.type.name ||
+      type.name === field.type.ofType?.name ||
+      type.name === field.type.ofType?.ofType?.name // Handle nested ofType
+  );
 
-	// If we encounter a circular reference, stop recursion or if schemaFieldType is null/undefined
-	if (!schemaFieldType || visitedTypes.has(schemaFieldType.name)) {
-		return field.name; // Return field name if circular or scalar
-	}
+  // If we encounter a circular reference or scalar type, stop recursion
+  if (!schemaFieldType || visitedTypes.has(schemaFieldType.name)) {
+    return field.name;
+  }
 
-	// Mark this type as visited
-	visitedTypes.add(schemaFieldType.name);
+  // Mark this type as visited to avoid circular references
+  visitedTypes.add(schemaFieldType.name);
 
-	// Dynamically handle media fields with "node", "nodes", or "edges"
-	const { hasNodeField, hasNodesField, hasEdgesField } = isMediaField(schemaFieldType);
+  // Dynamically handle media fields with "node", "nodes", or "edges"
+  const { hasNodeField, hasNodesField, hasEdgesField } = isMediaField(schemaFieldType);
 
-	if (hasNodesField) {
-		return `${field.name} {
+  if (hasNodesField) {
+    return `${field.name} {
       nodes {
         ${mediaItemFields}
       }
     }`;
-	}
+  }
 
-	if (hasEdgesField) {
-		return `${field.name} {
+  if (hasEdgesField) {
+    return `${field.name} {
       edges {
         node {
           ${mediaItemFields}
         }
       }
     }`;
-	}
+  }
 
-	if (hasNodeField) {
-		return `${field.name} {
+  if (hasNodeField) {
+    return `${field.name} {
       node {
         ${mediaItemFields}
       }
     }`;
-	}
+  }
 
-	if (schemaFieldType.fields) {
-		// Recursively add sub-fields
-		const subFields = schemaFieldType.fields.map((subField) => getFieldString(subField, schemaTypes, visitedTypes)).join('\n      ');
+  // Handle fields containing "Link" (case-insensitive) to add target, title, and url
+  if (field.name.toLowerCase().includes('link')) {
+    return `${field.name} {
+      target
+      title
+      url
+    }`;
+  }
 
-		// Check if the field is a list (repeater)
-		if (field.type.kind === 'LIST') {
-			return `${field.name} {
+  // Handle fields containing "Image" (case-insensitive) that are not media fields
+  if (field.name.toLowerCase().includes('image')) {
+    // Check if the field type is MediaItem or if it has "id" field (simplified check)
+    if (schemaFieldType.name === 'MediaItem' || schemaFieldType.fields?.some((f) => f.name === 'id')) {
+      return `${field.name} {
+        ${mediaItemFields}
+      }`;
+    } else if (schemaFieldType.fields) {
+      // Recursively process sub-fields
+      const subFields = schemaFieldType.fields
+        .map((subField) => getFieldString(subField, schemaTypes, new Set(visitedTypes)))
+        .join('\n      ');
+      return `${field.name} {
         ${subFields}
       }`;
-		} else {
-			return `${field.name} {
+    }
+  }
+
+  // Process sub-fields for other cases
+  if (schemaFieldType.fields) {
+    const subFields = schemaFieldType.fields
+      .map((subField) => getFieldString(subField, schemaTypes, new Set(visitedTypes)))
+      .join('\n      ');
+
+    // Handle lists (repeaters)
+    if (field.type.kind === 'LIST') {
+      return `${field.name} {
         ${subFields}
       }`;
-		}
-	} else {
-		// It's a scalar type or has no sub-fields
-		return field.name;
-	}
+    } else {
+      return `${field.name} {
+        ${subFields}
+      }`;
+    }
+  } else {
+    // Scalar type or no sub-fields
+    return field.name;
+  }
 };
+
 
 // Template for the GraphQL fragment file
 const generateFragmentTemplate = (blockName, fields, schemaTypes) => {

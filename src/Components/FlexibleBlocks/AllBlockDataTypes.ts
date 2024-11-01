@@ -1,26 +1,21 @@
+import IBigCenterHeadingBlock from './BigCenterHeadingBlock/IBigCenterHeadingBlock';
+import IBigParagraphBlock from './BigParagraphBlock/IBigParagraphBlock';
 import ICallToActionBlock from './CallToActionBlock/ICallToActionBlock';
 import IDefaultBlock from './DefaultBlock/IDefaultBlock';
-import IFaqsBlock from './FaqsBlock/IFaqsBlock';
-import IHighlightBlockBlock from './HighlightBlockBlock/IHighlightBlockBlock';
-import IHighlightMultipleBlocksBlock from './HighlightMultipleBlocksBlock/IHighlightMultipleBlocksBlock';
-import IInfiniteServicesCarouselBlock from './InfiniteServicesCarouselBlock/IInfiniteServicesCarouselBlock';
-import IInfoCardSingleBlock from './InfoCardSingleBlock/IInfoCardSingleBlock';
-import ILogosBlock from './LogosBlock/ILogosBlock';
+import IImageTextBlock from './ImageTextBlock/IImageTextBlock';
+import IInfiniteScrollTextBlock from './InfiniteScrollTextBlock/IInfiniteScrollTextBlock';
 import IMultipleImagesBlock from './MultipleImagesBlock/IMultipleImagesBlock';
-import INewsSliderBlock from './NewsSliderBlock/INewsSliderBlock';
-import ISimpleBlock from './SimpleBlock/ISimpleBlock';
-import IWysiwygBlock from './WysiwygBlock/IWysiwygBlock';
+import ISelectedWorkBlock from './SelectedWorkBlock/ISelectedWorkBlock';
+import IServicesRowsBlock from './ServicesRowsBlock/IServicesRowsBlock';
 
 export type AllBlockDataTypes =
-	| ICallToActionBlock
-	| IDefaultBlock
-	| IFaqsBlock
-	| IHighlightBlockBlock
-	| IHighlightMultipleBlocksBlock
-	| IInfiniteServicesCarouselBlock
-	| IInfoCardSingleBlock
-	| ILogosBlock
-	| IMultipleImagesBlock
-	| INewsSliderBlock
-	| ISimpleBlock
-	| IWysiwygBlock;
+    IBigCenterHeadingBlock |
+    IBigParagraphBlock |
+    ICallToActionBlock |
+    IDefaultBlock |
+    IImageTextBlock |
+    IInfiniteScrollTextBlock |
+    IMultipleImagesBlock |
+    ISelectedWorkBlock |
+    IServicesRowsBlock
+    ;

@@ -1,16 +1,13 @@
 export enum FlexibleBlocksEnum {
-	CALLTOACTIONBLOCK = 'FlexibleContentFlexibleContentBlockCallToActionLayout',
-	DEFAULTBLOCK = 'FlexibleContentFlexibleContentBlockDefaultLayout',
-	FAQSBLOCK = 'FlexibleContentFlexibleContentBlockFaqsLayout',
-	HIGHLIGHTBLOCKBLOCK = 'FlexibleContentFlexibleContentBlockHighlightBlockLayout',
-	HIGHLIGHTMULTIPLEBLOCKSBLOCK = 'FlexibleContentFlexibleContentBlockHighlightMultipleBlocksLayout',
-	INFINITESERVICESCAROUSELBLOCK = 'FlexibleContentFlexibleContentBlockInfiniteServicesCarouselLayout',
-	INFOCARDSINGLEBLOCK = 'FlexibleContentFlexibleContentBlockInfoCardSingleLayout',
-	LOGOSBLOCK = 'FlexibleContentFlexibleContentBlockLogosLayout',
-	MULTIPLEIMAGESBLOCK = 'FlexibleContentFlexibleContentBlockMultipleImagesLayout',
-	NEWSSLIDERBLOCK = 'FlexibleContentFlexibleContentBlockNewsSliderLayout',
-	SIMPLEBLOCK = 'FlexibleContentFlexibleContentBlockSimpleLayout',
-	WYSIWYGBLOCK = 'FlexibleContentFlexibleContentBlockWysiwygLayout',
+    BIGCENTERHEADINGBLOCK = 'FlexibleContentFlexibleContentBlockBigCenterHeadingLayout',
+    BIGPARAGRAPHBLOCK = 'FlexibleContentFlexibleContentBlockBigParagraphLayout',
+    CALLTOACTIONBLOCK = 'FlexibleContentFlexibleContentBlockCallToActionLayout',
+    DEFAULTBLOCK = 'FlexibleContentFlexibleContentBlockDefaultLayout',
+    IMAGETEXTBLOCK = 'FlexibleContentFlexibleContentBlockImageTextLayout',
+    INFINITESCROLLTEXTBLOCK = 'FlexibleContentFlexibleContentBlockInfiniteScrollTextLayout',
+    MULTIPLEIMAGESBLOCK = 'FlexibleContentFlexibleContentBlockMultipleImagesLayout',
+    SELECTEDWORKBLOCK = 'FlexibleContentFlexibleContentBlockSelectedWorkLayout',
+    SERVICESROWSBLOCK = 'FlexibleContentFlexibleContentBlockServicesRowsLayout'
 }
 
 export default FlexibleBlocksEnum;
