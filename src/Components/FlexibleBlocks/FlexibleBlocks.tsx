@@ -1,14 +1,13 @@
-// FlexibleBlocks.tsx
-import IFlexibleBlockCollection from '@/Components/FlexibleBlocks/IFlexibleBlockCollection';
-import GetFlexibleBlock from '@/Helpers/GetFlexibleBlocks';
+import { AllBlockDataTypes } from './AllBlockDataTypes';
+import GetFlexibleBlock from '@/Helpers/GetFlexibleBlock';
 
-const FlexibleBlocks = ({ allBlocks }: IFlexibleBlockCollection) => {
+const FlexibleBlocks = ({ allBlocks }: { allBlocks: AllBlockDataTypes[] }) => {
 	return (
-		<div>
-			{allBlocks.map((flexibleBlock, index) => (
-				<div key={index}>{GetFlexibleBlock(flexibleBlock)}</div>
+		<>
+			{allBlocks.map((block, index) => (
+				<GetFlexibleBlock key={index} data={block} />
 			))}
-		</div>
+		</>
 	);
 };
 

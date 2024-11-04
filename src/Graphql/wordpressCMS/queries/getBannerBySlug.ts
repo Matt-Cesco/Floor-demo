@@ -1,0 +1,29 @@
+import { gql } from '@apollo/client';
+import cmsClient from '@/Graphql/client/cmsClient';
+import { mediaItem } from '@/Graphql/wordpressCMS/fragments/mediaItemFragment';
+
+export const getBannerBySlug = async (slug: string) => {
+	const response = await cmsClient.query({
+		query: gql`
+			${mediaItem}
+			query GetBannerBySlug($slug: ID!) {
+				page(id: $slug, idType: URI) {
+					id
+					title
+					banner {
+						__typename
+						bannerFields {
+							title
+							text
+						}
+					}
+				}
+			}
+		`,
+		variables: {
+			slug,
+		},
+	});
+
+	return response.data.page;
+};

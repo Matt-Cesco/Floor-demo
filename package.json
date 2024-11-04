@@ -7,15 +7,19 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"gen": "graphql-codegen",
-		"flexible": "node generateFlexibleFragments.js",
-		"generate-query": "node generatePageQuery.js"
+		"format": "prettier --write .",
+		"fragments": "node generateFlexibleFragments.js",
+		"types": "graphql-codegen",
+		"query": "node generatePageQuery.js",
+		"blocks": "node generateFlexibleBlocks.js",
+		"gen": "npm run fragments && npm run types && npm run query && npm run blocks"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.11.8",
-		"fs-extra": "^11.2.0",
+		"@next/third-parties": "^14.2.15",
+		"framer-motion": "^11.11.1",
 		"graphql": "^16.9.0",
-		"next": "14.2.13",
+		"next": "^14.2.15",
 		"react": "^18",
 		"react-dom": "^18",
 		"swiper": "^11.1.14"
@@ -33,10 +37,12 @@
 		"eslint": "^8",
 		"eslint-config-next": "14.2.13",
 		"eslint-config-prettier": "^9.1.0",
+		"fs-extra": "^11.2.0",
 		"postcss": "^8",
 		"prettier": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"tailwindcss": "^3.4.1",
+		"ts-morph": "^23.0.0",
 		"typescript": "^5"
 	}
 }

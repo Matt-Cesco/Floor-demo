@@ -3,13 +3,8 @@
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": "tsconfig.json"
-	},
-	"extends": [
-		"eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-		"plugin:@next/next/recommended",
-		"prettier"
-	]
+	}
+	// "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@next/next/recommended", "prettier"]
 	// "rules": {
 	// 	"no-console": 1,
 	// 	"prettier/prettier": 2,
@@ -28,6 +23,6 @@
 	// 			"allow": ["__typename"]
 	// 		}
 	// 	],
-		
+
 	// }
 }

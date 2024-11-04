@@ -1,4 +1,5 @@
-import { ApolloClient, InMemoryCache, DefaultOptions } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloLink, HttpLink, DefaultOptions } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
@@ -6,6 +7,21 @@ const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 if (!apiUrl) {
 	throw new Error('CMS API URL is not defined. Please set NEXT_PUBLIC_CMS_API_URL in your environment variables.');
 }
+
+// Error handling link
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+	if (graphQLErrors) {
+		graphQLErrors.forEach(({ message, locations, path }) => {
+			console.error(`[GraphQL error]: Message: ${message}, Location: ${JSON.stringify(locations)}, Path: ${path}`);
+		});
+	}
+	if (networkError) {
+		console.error(`[Network error]: ${networkError}`);
+	}
+});
+
+// HTTP link
+const httpLink = new HttpLink({ uri: apiUrl });
 
 // Default options for Apollo Client
 const defaultOptions: DefaultOptions = {
@@ -24,7 +40,7 @@ const defaultOptions: DefaultOptions = {
 
 // Apollo Client instance with error handling and cache configuration
 const cmsClient = new ApolloClient({
-	uri: apiUrl, // API URL fetched from environment variable
+	link: ApolloLink.from([errorLink, httpLink]),
 	cache: new InMemoryCache(), // In-memory caching strategy
 	defaultOptions, // Apply default fetch and error policies
 });

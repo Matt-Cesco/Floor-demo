@@ -14,23 +14,26 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Layout Options
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+options in wordpress must be named Layout Options (graphQL field layoutOptions) and every option must be stored there and named Options (like Image Options, Color Options, etc)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You MUST call the group Layout Options for the automation.
 
-## Learn More
+## Heading
 
-To learn more about Next.js, take a look at the following resources:
+The DynamicHeading component in wordpress will be Heading. Inside the heading in ACF there will be Heading Text and Heading Tag.
+There will be an Enum for that so when you create the content don't put title. it will work only if you write heading with inside the select for Heading Tag and the text field for Heading Text. 
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In ACF the Heading must be a group and inside Heading Text will be a Text filed and Heading Tag will be a Select field.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You MUST respect this structure and naming for the automation.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Link
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+if you have to create a link must be named link or Link. There must be the word link inside capital or not. Example: 'link' - 'pageLink' - 'projectLink'
+
+## Image
+
+if you have to create an image must be named image or Image. There must be the word image inside capital or not. Example: 'image' - 'pageImage' - 'projectImage'
