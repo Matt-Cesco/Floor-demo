@@ -1,4 +1,14 @@
 // Interface for MultipleImagesBlock block data
-  import { ImageOptions } from './MultipleImagesBlockOptionsEnum';
+import { ImageOptions } from './MultipleImagesBlockOptionsEnum';
 import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';
-export default interface IMultipleImagesBlock { __typename: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout', imageFields?: { __typename?: 'FlexibleContentFlexibleImageFields', text?: string | null, title?: string | null, blockImages?: { __typename?: 'AcfMediaItemConnection', nodes: IDynamicImage[] | null } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageFieldsLayoutOptions', imageOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null }
+export default interface IMultipleImagesBlock {
+	__typename: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout';
+	imageFields?: {
+		__typename?: 'FlexibleContentFlexibleImageFields';
+		text?: string | null;
+		title?: string | null;
+		blockImages?: { __typename?: 'AcfMediaItemConnection'; nodes: IDynamicImage[] | null } | null;
+		layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageFieldsLayoutOptions'; imageOptions?: string | null } | null;
+		link?: { __typename?: 'AcfLink'; target?: string | null; title?: string | null; url?: string | null } | null;
+	} | null;
+}
