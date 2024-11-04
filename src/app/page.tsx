@@ -1,11 +1,11 @@
 import { getPageBySlug } from '@/Graphql/wordpressCMS/queries/getPageBySlug';
-import { getBannerBySlug } from '@/Graphql/wordpressCMS/queries/getBannerBySlug';
+import { getHomepageBanner } from '@/Graphql/wordpressCMS/queries/getHomepageBanner';
 import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
 import { notFound } from 'next/navigation';
 import Banner from '@/Components/Banner/Banner';
 
 const PageComponent = async () => {
-	const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getBannerBySlug('/')]);
+	const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getHomepageBanner()]);
 
 	if (!pageData) {
 		return notFound();
