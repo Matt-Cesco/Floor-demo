@@ -6,6 +6,6 @@ export interface IDynamicHeading {
 }
 
 export interface IDynamicHeadingProps {
-	data: IDynamicHeading;
+	data: IDynamicHeading | null | undefined;
 	className?: string;
 }
