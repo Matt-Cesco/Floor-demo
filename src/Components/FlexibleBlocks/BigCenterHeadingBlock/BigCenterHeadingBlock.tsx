@@ -1,14 +1,17 @@
 import IBigCenterHeadingBlock from './IBigCenterHeadingBlock'; // Updated import
-import IFlexibleBlock from '../IFlexibleBlock';
+  import IFlexibleBlock from '../IFlexibleBlock';
+  
+  
 
-const BigCenterHeadingBlock = ({ data }: IFlexibleBlock<IBigCenterHeadingBlock>) => {
-	const { text } = data.bigCenterHeadingFields || {};
+  const BigCenterHeadingBlock = ({ data }: IFlexibleBlock<IBigCenterHeadingBlock>) => {
+      
+    const { text } = data.bigCenterHeadingFields || {};
+    
+      return (
+          <div>
+              <p>block name: BigCenterHeadingBlock</p>
+          </div>
+      );
+  };
 
-	return (
-		<div>
-			<p>block name: BigCenterHeadingBlock</p>
-		</div>
-	);
-};
-
-export default BigCenterHeadingBlock;
+  export default BigCenterHeadingBlock;

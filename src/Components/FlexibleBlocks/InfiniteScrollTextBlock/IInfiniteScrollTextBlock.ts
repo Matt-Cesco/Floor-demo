@@ -1,5 +1,2 @@
 // Interface for InfiniteScrollTextBlock block data
-export default interface IInfiniteScrollTextBlock {
-	__typename: 'FlexibleContentFlexibleContentBlockInfiniteScrollTextLayout';
-	infiniteScrollTextFields?: { __typename?: 'FlexibleContentFlexibleInfiniteScrollTextFields'; text?: string | null } | null;
-}
+  export default interface IInfiniteScrollTextBlock { __typename: 'FlexibleContentFlexibleContentBlockInfiniteScrollTextLayout', infiniteScrollTextFields?: { __typename?: 'FlexibleContentFlexibleInfiniteScrollTextFields', text?: string | null } | null }

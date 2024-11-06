@@ -136,51 +136,55 @@ const modifyTypeDefinition = (typeDefinition, blockName, layoutOptionsFields = [
 	// Variables to track if IDynamicImage and IDynamicHeading are used
 	let usesIDynamicImage = false;
 	let usesIDynamicHeading = false;
+    let usesMediaItem = false;
 
 	// Function to replace types of properties named 'node', 'nodes', or 'edges' where the type includes __typename?: 'MediaItem'
 	const replaceMediaItemWithIDynamicImage = (node) => {
-		node.forEachDescendant((child) => {
-			if (child.getKind() === SyntaxKind.PropertySignature) {
-				const propName = child.getName();
-				if (['node', 'nodes', 'edges'].includes(propName)) {
-					const propTypeNode = child.getTypeNode();
-					if (propTypeNode) {
-						const typeText = propTypeNode.getText();
-						if (typeText.includes("__typename?: 'MediaItem'")) {
-							// Determine if it's an array
-							let isArray = false;
-							let newType = 'IDynamicImage | null';
+  node.forEachDescendant((child) => {
+    if (child.getKind() === SyntaxKind.PropertySignature) {
+      const propName = child.getName();
+      if (['node', 'nodes', 'edges'].includes(propName)) {
+        const propTypeNode = child.getTypeNode();
+        if (propTypeNode) {
+          const typeText = propTypeNode.getText();
+          if (typeText.includes("__typename?: 'MediaItem'")) {
+            // Determine if it's an array
+            let isArray = false;
+            let newType = 'MediaItem | null';
 
-							// Handle union types (e.g., Type | null)
-							let effectiveTypeNode = propTypeNode;
-							if (propTypeNode.getKind() === SyntaxKind.UnionType) {
-								const unionTypes = propTypeNode.getTypeNodes();
-								// Assume the first non-nullish type
-								effectiveTypeNode = unionTypes.find(
-									(t) => t.getKind() !== SyntaxKind.NullKeyword && t.getKind() !== SyntaxKind.UndefinedKeyword
-								);
-							}
+            // Handle union types (e.g., Type | null)
+            let effectiveTypeNode = propTypeNode;
+            if (propTypeNode.getKind() === SyntaxKind.UnionType) {
+              const unionTypes = propTypeNode.getTypeNodes();
+              // Assume the first non-nullish type
+              effectiveTypeNode = unionTypes.find(
+                (t) =>
+                  t.getKind() !== SyntaxKind.NullKeyword &&
+                  t.getKind() !== SyntaxKind.UndefinedKeyword
+              );
+            }
 
-							// Check if the type is an array
-							if (
-								effectiveTypeNode.getKind() === SyntaxKind.ArrayType ||
-								(effectiveTypeNode.getKind() === SyntaxKind.TypeReference && effectiveTypeNode.getText().startsWith('Array<'))
-							) {
-								isArray = true;
-								newType = 'IDynamicImage[] | null';
-							}
+            // Check if the type is an array
+            if (
+              effectiveTypeNode.getKind() === SyntaxKind.ArrayType ||
+              (effectiveTypeNode.getKind() === SyntaxKind.TypeReference &&
+                effectiveTypeNode.getText().startsWith('Array<'))
+            ) {
+              isArray = true;
+              newType = 'MediaItem[] | null';
+            }
 
-							// Replace the property type with the new type
-							child.setType(newType);
+            // Replace the property type with the new type
+            child.setType(newType);
 
-							// Mark that IDynamicImage is used
-							usesIDynamicImage = true;
-						}
-					}
-				}
-			}
-		});
-	};
+            // Mark that MediaItem is used
+            usesMediaItem = true;
+          }
+        }
+      }
+    }
+  });
+};
 
 	// Function to replace 'heading' with 'IDynamicHeading | null' if it includes 'headingTag' and 'headingText'
 	const replaceHeadingWithIDynamicHeading = (node) => {
@@ -211,8 +215,10 @@ const modifyTypeDefinition = (typeDefinition, blockName, layoutOptionsFields = [
 	replaceHeadingWithIDynamicHeading(interfaceDeclaration);
 
 	// Conditionally add import for IDynamicImage
-	if (usesIDynamicImage) {
-		importStatements += `import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';\n`;
+	
+
+    if (usesMediaItem) {
+		importStatements += `import { MediaItem } from '@/Graphql/generated';\n`;
 	}
 
 	// Conditionally add import for IDynamicHeading

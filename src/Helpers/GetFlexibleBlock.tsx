@@ -18,29 +18,29 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
 		return null;
 	}
 
-	switch (data.__typename) {
-		case FlexibleBlocksEnum.BIGCENTERHEADINGBLOCK:
-			return <BigCenterHeadingBlock data={data} />;
-		case FlexibleBlocksEnum.BIGPARAGRAPHBLOCK:
-			return <BigParagraphBlock data={data} />;
-		case FlexibleBlocksEnum.CALLTOACTIONBLOCK:
-			return <CallToActionBlock data={data} />;
-		case FlexibleBlocksEnum.DEFAULTBLOCK:
-			return <DefaultBlock data={data} />;
-		case FlexibleBlocksEnum.IMAGETEXTBLOCK:
-			return <ImageTextBlock data={data} />;
-		case FlexibleBlocksEnum.INFINITESCROLLTEXTBLOCK:
-			return <InfiniteScrollTextBlock data={data} />;
-		case FlexibleBlocksEnum.MULTIPLEIMAGESBLOCK:
-			return <MultipleImagesBlock data={data} />;
-		case FlexibleBlocksEnum.SELECTEDWORKBLOCK:
-			return <SelectedWorkBlock data={data} />;
-		case FlexibleBlocksEnum.SERVICESROWSBLOCK:
-			return <ServicesRowsBlock data={data} />;
-		default:
-			console.warn(`Unknown block type: ${data.__typename}`);
-			return null;
-	}
+  switch (data.__typename) {
+    case FlexibleBlocksEnum.BIGCENTERHEADINGBLOCK:
+            return <BigCenterHeadingBlock data={data} />;
+    case FlexibleBlocksEnum.BIGPARAGRAPHBLOCK:
+            return <BigParagraphBlock data={data} />;
+    case FlexibleBlocksEnum.CALLTOACTIONBLOCK:
+            return <CallToActionBlock data={data} />;
+    case FlexibleBlocksEnum.DEFAULTBLOCK:
+            return <DefaultBlock data={data} />;
+    case FlexibleBlocksEnum.IMAGETEXTBLOCK:
+            return <ImageTextBlock data={data} />;
+    case FlexibleBlocksEnum.INFINITESCROLLTEXTBLOCK:
+            return <InfiniteScrollTextBlock data={data} />;
+    case FlexibleBlocksEnum.MULTIPLEIMAGESBLOCK:
+            return <MultipleImagesBlock data={data} />;
+    case FlexibleBlocksEnum.SELECTEDWORKBLOCK:
+            return <SelectedWorkBlock data={data} />;
+    case FlexibleBlocksEnum.SERVICESROWSBLOCK:
+            return <ServicesRowsBlock data={data} />;
+      default:
+        console.warn(`Unknown block type: ${data.__typename}`);
+        return null;
+  }
 };
 
 export default GetFlexibleBlock;

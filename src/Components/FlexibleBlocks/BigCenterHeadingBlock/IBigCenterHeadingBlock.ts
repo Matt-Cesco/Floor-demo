@@ -1,5 +1,2 @@
 // Interface for BigCenterHeadingBlock block data
-export default interface IBigCenterHeadingBlock {
-	__typename: 'FlexibleContentFlexibleContentBlockBigCenterHeadingLayout';
-	bigCenterHeadingFields?: { __typename?: 'FlexibleContentFlexibleBigCenterHeadingFields'; text?: string | null } | null;
-}
+  export default interface IBigCenterHeadingBlock { __typename: 'FlexibleContentFlexibleContentBlockBigCenterHeadingLayout', bigCenterHeadingFields?: { __typename?: 'FlexibleContentFlexibleBigCenterHeadingFields', text?: string | null } | null }

@@ -9,12 +9,13 @@ import ISelectedWorkBlock from './SelectedWorkBlock/ISelectedWorkBlock';
 import IServicesRowsBlock from './ServicesRowsBlock/IServicesRowsBlock';
 
 export type AllBlockDataTypes =
-	| IBigCenterHeadingBlock
-	| IBigParagraphBlock
-	| ICallToActionBlock
-	| IDefaultBlock
-	| IImageTextBlock
-	| IInfiniteScrollTextBlock
-	| IMultipleImagesBlock
-	| ISelectedWorkBlock
-	| IServicesRowsBlock;
+    IBigCenterHeadingBlock |
+    IBigParagraphBlock |
+    ICallToActionBlock |
+    IDefaultBlock |
+    IImageTextBlock |
+    IInfiniteScrollTextBlock |
+    IMultipleImagesBlock |
+    ISelectedWorkBlock |
+    IServicesRowsBlock
+    ;
