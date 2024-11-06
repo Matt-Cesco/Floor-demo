@@ -38,9 +38,7 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 			<div className='mb-162'>
 				<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='order-2 col-span-10 col-start-2 lg:order-1 lg:col-span-15 lg:col-start-3'>
-						<div className='aspect-[660/700]'>
-							<DynamicImage data={selectedWorkCards[0].image} />
-						</div>
+						<div className='aspect-[660/700]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[0]?.image} />}</div>
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-8 lg:col-start-19'>
 						<div>
@@ -65,18 +63,14 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 						</div>
 					</div>
 					<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-19'>
-						<div className='aspect-[700/400]'>
-							<DynamicImage data={selectedWorkCards[1]?.image} />
-						</div>
+						<div className='aspect-[700/400]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[1]?.image} />}</div>
 					</div>
 				</div>
 			</div>
 			<div className='mb-162'>
 				<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='order-2 col-span-10 col-start-2 lg:order-1 lg:col-span-14 lg:col-start-3'>
-						<div className='aspect-[530/530]'>
-							<DynamicImage data={selectedWorkCards[2]?.image} />
-						</div>
+						<div className='aspect-[530/530]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[2]?.image} />}</div>
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-6 lg:col-start-18'>
 						<div>
