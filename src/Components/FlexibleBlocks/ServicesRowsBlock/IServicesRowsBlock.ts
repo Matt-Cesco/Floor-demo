@@ -1,5 +1,5 @@
 // Interface for ServicesRowsBlock block data
-import { IDynamicImage } from '@/Common/DynamicImage/IDynamicImage';
+import { MediaItem } from '@/Graphql/generated';
 import { IDynamicHeading } from '@/Common/DynamicHeading/IDynamicHeading';
 export default interface IServicesRowsBlock {
 	__typename: 'FlexibleContentFlexibleContentBlockServicesRowsLayout';
@@ -12,7 +12,7 @@ export default interface IServicesRowsBlock {
 			__typename?: 'FlexibleContentFlexibleServicesRowsFieldsServicesRowsCards';
 			serviceNumber?: number | null;
 			serviceTitle?: string | null;
-			image?: { __typename?: 'AcfMediaItemConnectionEdge'; node: IDynamicImage | null } | null;
+			image?: { __typename?: 'AcfMediaItemConnectionEdge'; node: MediaItem | null } | null;
 			projectPageLink?: { __typename?: 'AcfLink'; target?: string | null; title?: string | null; url?: string | null } | null;
 		} | null> | null;
 	} | null;
