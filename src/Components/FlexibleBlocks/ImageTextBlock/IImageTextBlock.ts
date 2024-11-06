@@ -8,7 +8,7 @@ export default interface IImageTextBlock {
 		textFirst?: string | null;
 		textSecond?: string | null;
 		bigImage?: { __typename?: 'AcfMediaItemConnectionEdge'; node: MediaItem | null } | null;
-		layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageTextFieldsLayoutOptions'; variationsOptions?: string | null } | null;
+		layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageTextFieldsLayoutOptions'; variationsOptions?: VariationsOptions | null } | null;
 		smallImage?: { __typename?: 'AcfMediaItemConnectionEdge'; node: MediaItem | null } | null;
 	} | null;
 }
