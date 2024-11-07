@@ -19,41 +19,41 @@ interface GridColumnMap {
 	[key: string]: string;
 }
 
-const generateGridColumns = (
-	maxColumns: number
-): {
-	gridColumnsSpan: GridColumnMap;
-	gridColumnsStart: GridColumnMap;
-	gridColumnsEnd: GridColumnMap;
-} => {
-	const gridColumnsSpan: GridColumnMap = {};
-	const gridColumnsStart: GridColumnMap = {};
-	const gridColumnsEnd: GridColumnMap = {};
+// const generateGridColumns = (
+// 	maxColumns: number
+// ): {
+// 	gridColumnsSpan: GridColumnMap;
+// 	gridColumnsStart: GridColumnMap;
+// 	gridColumnsEnd: GridColumnMap;
+// } => {
+// 	const gridColumnsSpan: GridColumnMap = {};
+// 	const gridColumnsStart: GridColumnMap = {};
+// 	const gridColumnsEnd: GridColumnMap = {};
 
-	// Generate `col-span-X` classes (for example: col-span-1, col-span-2, ..., col-span-36)
-	for (let i = 1; i <= maxColumns; i++) {
-		gridColumnsSpan[`span-${i}`] = `span ${i} / span ${i}`; // Generates col-span-X classes
-	}
+// 	// Generate `col-span-X` classes (for example: col-span-1, col-span-2, ..., col-span-36)
+// 	for (let i = 1; i <= maxColumns; i++) {
+// 		gridColumnsSpan[`span-${i}`] = `span ${i} / span ${i}`; // Generates col-span-X classes
+// 	}
 
-	// Generate `col-start-X` classes
-	for (let i = 1; i <= maxColumns; i++) {
-		gridColumnsStart[i.toString()] = `${i}`; // Generates col-start-X classes
-	}
+// 	// Generate `col-start-X` classes
+// 	for (let i = 1; i <= maxColumns; i++) {
+// 		gridColumnsStart[i.toString()] = `${i}`; // Generates col-start-X classes
+// 	}
 
-	// Generate `col-end-X` classes
-	for (let i = 1; i <= maxColumns; i++) {
-		gridColumnsEnd[i.toString()] = `${i}`; // Generates col-end-X classes
-	}
+// 	// Generate `col-end-X` classes
+// 	for (let i = 1; i <= maxColumns; i++) {
+// 		gridColumnsEnd[i.toString()] = `${i}`; // Generates col-end-X classes
+// 	}
 
-	// Add auto classes
-	gridColumnsStart['auto'] = 'auto';
-	gridColumnsEnd['auto'] = 'auto';
-	gridColumnsSpan['full'] = '1 / -1'; // Full-span class
+// 	// Add auto classes
+// 	gridColumnsStart['auto'] = 'auto';
+// 	gridColumnsEnd['auto'] = 'auto';
+// 	gridColumnsSpan['full'] = '1 / -1'; // Full-span class
 
-	return { gridColumnsSpan, gridColumnsStart, gridColumnsEnd };
-};
+// 	return { gridColumnsSpan, gridColumnsStart, gridColumnsEnd };
+// };
 
-const { gridColumnsSpan, gridColumnsStart, gridColumnsEnd } = generateGridColumns(36);
+// const { gridColumnsSpan, gridColumnsStart, gridColumnsEnd } = generateGridColumns(36);
 
 const generateFontSize = (): FontSizeMap => {
 	const fontSize: FontSizeMap = {};
@@ -118,11 +118,11 @@ const generateLineHeights = (): LineHeightMap => {
 module.exports = {
 	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
+        fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            playfair: ['Playfair Display', 'sans-serif'],
+        },
 		extend: {
-			fontFamily: {
-				montserrat: ['Montserrat', 'sans-serif'],
-				playfair: ['Playfair Display', 'sans-serif'],
-			},
 			// gridTemplateColumns: {
 			// 	36: 'repeat(36, minmax(0, 1fr))', // creates a 36-column grid
 			// },
