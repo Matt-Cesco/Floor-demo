@@ -1,17 +1,31 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import ISelectedWorkBlock from './ISelectedWorkBlock'; // Updated import
 import IFlexibleBlock from '../IFlexibleBlock';
 import DynamicHeading from '@/Common/DynamicHeading/DynamicHeading';
 import DynamicImage from '@/Common/DynamicImage/DynamicImage';
 import DynamicText from '@/Common/DynamicText/DynamicText';
+import Line from '@/Components/Line/Line';
+import { gsapSelectedWork } from './gsapSelectedWork';
 
 const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 	const { sideLeftText, text, topTextLeft, topTextRight, heading, link, selectedWorkCards } = data.selectedWorkFields || {};
+
+	// Refs for images to animate
+	const firstImage = useRef(null);
+    const secondImage = useRef(null);
+    const thirdImage = useRef(null);
+
+	useEffect(() => {
+		gsapSelectedWork(firstImage, secondImage, thirdImage);
+	}, []);
 
 	return (
 		<section>
 			<div className='mb-162'>
 				<div className='grid grid-cols-12 lg:grid-cols-36'>
-					<span className='col-start-2 col-end-12 border-t border-gray lg:col-start-3 lg:col-end-35'></span>
+					<Line />
 				</div>
 				<div className='mt-24 grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='col-span-4 col-start-2 lg:col-start-3'>
@@ -38,7 +52,7 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 			<div className='mb-162'>
 				<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='order-2 col-span-10 col-start-2 lg:order-1 lg:col-span-15 lg:col-start-3'>
-						<div className='aspect-[660/700]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[0]?.image} />}</div>
+						{selectedWorkCards && <DynamicImage data={selectedWorkCards[0]?.image} ref={firstImage} className='aspect-[660/700] object-cover' />}
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-8 lg:col-start-19'>
 						<div>
@@ -63,14 +77,14 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 						</div>
 					</div>
 					<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-19'>
-						<div className='aspect-[700/400]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[1]?.image} />}</div>
+						{selectedWorkCards && <DynamicImage data={selectedWorkCards[1]?.image} ref={secondImage} className='aspect-[700/400]' />}
 					</div>
 				</div>
 			</div>
 			<div className='mb-162'>
 				<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='order-2 col-span-10 col-start-2 lg:order-1 lg:col-span-14 lg:col-start-3'>
-						<div className='aspect-[530/530]'>{selectedWorkCards && <DynamicImage data={selectedWorkCards[2]?.image} />}</div>
+						{selectedWorkCards && <DynamicImage data={selectedWorkCards[2]?.image} ref={thirdImage} className='aspect-[530/530]' />}
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-6 lg:col-start-18'>
 						<div>
