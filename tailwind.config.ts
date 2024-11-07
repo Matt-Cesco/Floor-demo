@@ -123,18 +123,18 @@ module.exports = {
 				montserrat: ['Montserrat', 'sans-serif'],
 				playfair: ['Playfair Display', 'sans-serif'],
 			},
-			gridTemplateColumns: {
-				36: 'repeat(36, minmax(0, 1fr))', // creates a 36-column grid
-			},
-			gridColumnStart: {
-				...gridColumnsStart, // Generates col-start-X classes
-			},
-			gridColumnEnd: {
-				...gridColumnsEnd, // Generates col-end-X classes
-			},
-			gridColumn: {
-				...gridColumnsSpan, // Generates col-span-X classes
-			},
+			// gridTemplateColumns: {
+			// 	36: 'repeat(36, minmax(0, 1fr))', // creates a 36-column grid
+			// },
+			// gridColumnStart: {
+			// 	...gridColumnsStart, // Generates col-start-X classes
+			// },
+			// gridColumnEnd: {
+			// 	...gridColumnsEnd, // Generates col-end-X classes
+			// },
+			// gridColumn: {
+			// 	...gridColumnsSpan, // Generates col-span-X classes
+			// },
 			fontSize: generateFontSize(),
 			spacing: generateSpacing(),
 			lineHeight: generateLineHeights(),
