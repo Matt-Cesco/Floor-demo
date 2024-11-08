@@ -1,4 +1,4 @@
-/** @type {import("tailwindcss").Config} */
+import type { Config } from "tailwindcss";
 
 const baseWidth: number = 2000;
 const rootFontSize: number = 10;
@@ -115,8 +115,8 @@ const generateLineHeights = (): LineHeightMap => {
 	return lineHeights;
 };
 
-module.exports = {
-	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+export default {
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
         fontFamily: {
             montserrat: ['Montserrat', 'sans-serif'],
@@ -154,5 +154,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: ['prettier-plugin-tailwindcss'],
-};
+	plugins: [],
+} satisfies Config;
