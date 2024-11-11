@@ -34,7 +34,7 @@ const ServicesRowsBlock = ({ data }: IFlexibleBlock<IServicesRowsBlock>) => {
 							<Link href={card?.projectPageLink?.url || '#'} target={card?.projectPageLink?.target || '_self'}>
 								<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 									<div className='col-span-1 col-start-2 mt-22 lg:col-start-3'>
-										<p className='text-16 text-yellow'>{card?.serviceNumber}</p>
+										<p className='text-16 text-blue dark:text-yellow'>{card?.serviceNumber}</p>
 									</div>
 									<div className='col-span-10 col-start-2 mb-42 mt-22 overflow-hidden lg:col-span-28 lg:col-start-7 lg:my-44-80'>
 										{/* Single text div, visible by default */}

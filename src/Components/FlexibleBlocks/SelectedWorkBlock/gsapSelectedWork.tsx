@@ -8,9 +8,9 @@ export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secon
 	if (firstImage.current) {
 		gsap.fromTo(
 			firstImage.current,
-			{ y: 150 },
+			{ y: 120 },
 			{
-				y: -150,
+				y: -120,
 				scrollTrigger: {
 					trigger: firstImage.current,
 					start: 'top bottom',
@@ -23,9 +23,9 @@ export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secon
     if (secondImage.current) {
 		gsap.fromTo(
 			secondImage.current,
-			{ y: 150 },
+			{ y: 120 },
 			{
-				y: -150,
+				y: -120,
 				scrollTrigger: {
 					trigger: secondImage.current,
 					start: 'top bottom',
@@ -38,9 +38,9 @@ export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secon
     if (thirdImage.current) {
 		gsap.fromTo(
 			thirdImage.current,
-			{ y: 150 },
+			{ y: 120 },
 			{
-				y: -150,
+				y: -120,
 				scrollTrigger: {
 					trigger: thirdImage.current,
 					start: 'top bottom',

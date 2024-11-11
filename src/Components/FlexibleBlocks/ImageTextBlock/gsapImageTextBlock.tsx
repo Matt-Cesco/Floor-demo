@@ -8,9 +8,9 @@ export const gsapImageTextBlock = (bigImageRef: React.RefObject<HTMLElement>, sm
 	if (bigImageRef.current) {
 		gsap.fromTo(
 			bigImageRef.current,
-			{ y: 150 },
+			{ y: 120 },
 			{
-				y: -150,
+				y: -120,
 				scrollTrigger: {
 					trigger: bigImageRef.current,
 					start: 'top bottom',
@@ -24,9 +24,9 @@ export const gsapImageTextBlock = (bigImageRef: React.RefObject<HTMLElement>, sm
 	if (smallImageRef.current) {
 		gsap.fromTo(
 			smallImageRef.current,
-			{ y: 100 },
+			{ y: 88 },
 			{
-				y: -100,
+				y: -88,
 				scrollTrigger: {
 					trigger: smallImageRef.current,
 					start: 'top bottom',

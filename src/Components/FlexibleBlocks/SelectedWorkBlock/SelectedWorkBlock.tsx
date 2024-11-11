@@ -56,7 +56,7 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-8 lg:col-start-19'>
 						<div>
-							<p className='text-22 text-yellow'>01</p>
+							<p className='text-22 text-blue dark:text-yellow'>01</p>
 						</div>
 						<div>
 							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>TYPHOO WARF (BBC)</p>
@@ -69,7 +69,7 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 				<div className='grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='col-span-10 col-start-2 flex flex-col justify-between lg:col-span-15 lg:col-start-3'>
 						<div className='flex justify-end'>
-							<p className='text-22 text-yellow'>02</p>
+							<p className='text-22 text-blue dark:text-yellow'>02</p>
 						</div>
 						<div className='flex flex-col items-end'>
 							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>WEBB GRAY</p>
@@ -88,7 +88,7 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 					</div>
 					<div className='order-1 col-span-10 col-start-2 flex flex-col justify-between lg:order-2 lg:col-span-6 lg:col-start-18'>
 						<div>
-							<p className='text-22 text-yellow'>03</p>
+							<p className='text-22 text-blue dark:text-yellow'>03</p>
 						</div>
 						<div>
 							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>BARQUES DIGITAL</p>

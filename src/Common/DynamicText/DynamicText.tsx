@@ -16,7 +16,7 @@ const DynamicText = ({ data, className }: DynamicTextProps) => {
 					return <p className='text-black dark:text-gray'>{domToReact(domNode.children as DOMNode[], options)}</p>;
 				}
 				if (domNode.tagName === 'strong') {
-					return <strong className='font-playfair text-yellow font-light'>{domToReact(domNode.children as DOMNode[], options)}</strong>;
+					return <strong className='font-playfair text-blue dark:text-yellow font-light'>{domToReact(domNode.children as DOMNode[], options)}</strong>;
 				}
 			}
 		},

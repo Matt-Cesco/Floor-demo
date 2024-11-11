@@ -143,6 +143,7 @@ export default {
 				yellow: '#D3F900',
 				black: '#010101',
 				gray: '#D9D9D9',
+				blue: '#0437F2',
 			},
 			animation: {
 				scroll: 'scroll 10s linear infinite',
