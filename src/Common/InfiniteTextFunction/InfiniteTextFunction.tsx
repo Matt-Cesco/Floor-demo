@@ -43,9 +43,15 @@ export default function InfiniteTextFunction({ baseVelocity = 100, className = '
 		<div className='overflow-hidden'>
 			<motion.div className={className} style={{ x }}>
 				<h2>
-					<span className='text-gray font-extrabold'>Not only <span className='text-yellow font-normal'>Creative </span></span>
-                    <span className='text-gray font-extrabold'>Not only <span className='text-yellow font-normal'>Creative </span></span>
-                    <span className='text-gray font-extrabold'>Not only <span className='text-yellow font-normal'>Creative </span></span>
+					<span className='font-extrabold text-gray'>
+						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+					</span>
+					<span className='font-extrabold text-gray'>
+						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+					</span>
+					<span className='font-extrabold text-gray'>
+						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+					</span>
 				</h2>
 			</motion.div>
 		</div>
