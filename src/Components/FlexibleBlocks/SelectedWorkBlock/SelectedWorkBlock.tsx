@@ -29,20 +29,20 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 				</div>
 				<div className='mt-24 grid grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='col-span-4 col-start-2 lg:col-start-3'>
-						<p className='text-16 uppercase text-gray'>{sideLeftText}</p>
+						<p className='text-16 uppercase text-black dark:text-gray'>{sideLeftText}</p>
 					</div>
 					<div className='col-span-4 col-start-8 flex justify-end lg:col-start-31'>
-						<p className='text-16 uppercase text-gray'>{topTextLeft}</p>
+						<p className='text-16 uppercase text-black dark:text-gray'>{topTextLeft}</p>
 					</div>
 				</div>
 				<div className='mb-120 mt-138 grid max-w-full grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-11'>
-						<DynamicHeading data={heading} className='text-44-75 font-normal leading-100 tracking-tight text-gray' />
+						<DynamicHeading data={heading} className='text-44-75 font-normal leading-100 tracking-tight text-black dark:text-gray' />
 					</div>
 				</div>
 				<div className='mb-120-262 mt-120 grid max-w-full grid-cols-12 gap-0 lg:grid-cols-36'>
 					<div className='col-span-10 col-start-2 mb-44 lg:col-span-4 lg:col-start-3 lg:mb-0'>
-						<p className='text-16 uppercase text-gray'>{topTextRight}</p>
+						<p className='text-16 uppercase text-black dark:text-gray'>{topTextRight}</p>
 					</div>
 					<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-13'>
 						<DynamicText data={text} className='text-22' />
@@ -59,8 +59,8 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 							<p className='text-22 text-yellow'>01</p>
 						</div>
 						<div>
-							<p className='text-44-75 leading-115 tracking-tight text-gray'>TYPHOO WARF (BBC)</p>
-							<p className='mb-44 mt-22 font-playfair text-22 text-gray lg:mb-0'>Development</p>
+							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>TYPHOO WARF (BBC)</p>
+							<p className='mb-44 mt-22 font-playfair text-22 text-black lg:mb-0 dark:text-gray'>Development</p>
 						</div>
 					</div>
 				</div>
@@ -72,8 +72,8 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 							<p className='text-22 text-yellow'>02</p>
 						</div>
 						<div className='flex flex-col items-end'>
-							<p className='text-44-75 leading-115 tracking-tight text-gray'>WEBB GRAY</p>
-							<p className='mb-44 mt-22 font-playfair text-22 text-gray lg:mb-0'>Strategy, Development, Motion</p>
+							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>WEBB GRAY</p>
+							<p className='mb-44 mt-22 font-playfair text-22 text-black lg:mb-0 dark:text-gray'>Strategy, Development, Motion</p>
 						</div>
 					</div>
 					<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-19'>
@@ -91,8 +91,8 @@ const SelectedWorkBlock = ({ data }: IFlexibleBlock<ISelectedWorkBlock>) => {
 							<p className='text-22 text-yellow'>03</p>
 						</div>
 						<div>
-							<p className='text-44-75 leading-115 tracking-tight text-gray'>BARQUES DIGITAL</p>
-							<p className='mb-44 mt-22 font-playfair text-22 text-gray lg:mb-0'>CRO Strategy, UX, Development</p>
+							<p className='text-44-75 leading-115 tracking-tight text-black dark:text-gray'>BARQUES DIGITAL</p>
+							<p className='mb-44 mt-22 font-playfair text-22 text-black lg:mb-0 dark:text-gray'>CRO Strategy, UX, Development</p>
 						</div>
 					</div>
 				</div>

@@ -8,7 +8,7 @@ const BigCenterHeadingBlock = ({ data }: IFlexibleBlock<IBigCenterHeadingBlock>)
 	return (
 		<div className='my-120-262 grid max-w-full grid-cols-12 gap-0 lg:grid-cols-36'>
 			<div className='col-span-10 col-start-2 lg:col-span-16 lg:col-start-11'>
-				<DynamicText data={text} className='text-44-75 leading-103 tracking-tight text-gray' />
+				<DynamicText data={text} className='text-44-75 leading-103 tracking-tight' />
 			</div>
 		</div>
 	);

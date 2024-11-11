@@ -109,8 +109,8 @@ export default function Line() {
 					}}
 					className='relative top-[-40px] z-10 h-44 w-full'
 				></div>
-				<svg className='absolute top-[-250px] h-[350px] w-full -z-20'>
-					<path ref={path} className='fill-none stroke-current stroke-[1px] text-white'></path>
+				<svg className='absolute top-[-250px] -z-20 h-[350px] w-full'>
+					<path ref={path} className='fill-none stroke-current stroke-[1px] text-black dark:text-gray'></path>
 				</svg>
 			</div>
 		</div>

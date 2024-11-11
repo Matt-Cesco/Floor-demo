@@ -116,12 +116,13 @@ const generateLineHeights = (): LineHeightMap => {
 };
 
 export default {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/Components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/Components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+	darkMode: 'selector',
 	theme: {
-        fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif'],
-            playfair: ['Playfair Display', 'sans-serif'],
-        },
+		fontFamily: {
+			montserrat: ['Montserrat', 'sans-serif'],
+			playfair: ['Playfair Display', 'sans-serif'],
+		},
 		extend: {
 			gridTemplateColumns: {
 				36: 'repeat(36, minmax(0, 1fr))', // creates a 36-column grid
