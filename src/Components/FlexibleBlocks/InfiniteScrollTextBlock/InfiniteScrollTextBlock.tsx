@@ -8,7 +8,10 @@ const InfiniteScrollTextBlock = ({ data }: IFlexibleBlock<IInfiniteScrollTextBlo
 
 	return (
 		<section className='my-262 hidden xl:block'>
-			<InfiniteTextFunction baseVelocity={-3} className='flex w-full whitespace-nowrap text-128-210 leading-120 text-black dark:text-gray tracking-tighter' />
+			<InfiniteTextFunction
+				baseVelocity={-3}
+				className='flex w-full whitespace-nowrap text-128-210 leading-120 tracking-tighter text-black dark:text-gray'
+			/>
 		</section>
 	);
 };

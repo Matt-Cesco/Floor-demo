@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const baseWidth: number = 2000;
 const rootFontSize: number = 10;

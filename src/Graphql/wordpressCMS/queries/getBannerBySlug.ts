@@ -15,6 +15,11 @@ export const getBannerBySlug = async (slug: string) => {
 						bannerFields {
 							title
 							text
+							image {
+								node {
+									...mediaItem
+								}
+							}
 						}
 					}
 				}
@@ -24,6 +29,5 @@ export const getBannerBySlug = async (slug: string) => {
 			slug,
 		},
 	});
-
 	return response.data.page;
 };

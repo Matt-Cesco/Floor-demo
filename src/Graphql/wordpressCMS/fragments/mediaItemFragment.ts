@@ -2,7 +2,8 @@ import { gql } from '@apollo/client';
 
 export const mediaItem = gql`
 	fragment mediaItem on MediaItem {
-		id
+       
+            id
 		altText
 		mediaItemUrl
 		title
@@ -11,5 +12,7 @@ export const mediaItem = gql`
 			width
 		}
 		srcSet
+        
+		
 	}
 `;

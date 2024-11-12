@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from 'framer-motion';
@@ -44,13 +44,13 @@ export default function InfiniteTextFunction({ baseVelocity = 100, className = '
 			<motion.div className={className} style={{ x }}>
 				<h2>
 					<span className='font-extrabold text-gray'>
-						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+						Not only <span className='font-normal text-blue dark:text-yellow'>Creative </span>
 					</span>
 					<span className='font-extrabold text-gray'>
-						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+						Not only <span className='font-normal text-blue dark:text-yellow'>Creative </span>
 					</span>
 					<span className='font-extrabold text-gray'>
-						Not only <span className='text-blue font-normal dark:text-yellow'>Creative </span>
+						Not only <span className='font-normal text-blue dark:text-yellow'>Creative </span>
 					</span>
 				</h2>
 			</motion.div>

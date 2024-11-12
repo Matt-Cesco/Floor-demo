@@ -826,6 +826,8 @@ export type BannerBannerFields = AcfFieldGroup & AcfFieldGroupFields & BannerBan
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
@@ -839,6 +841,8 @@ export type BannerBannerFields_Fields = {
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
@@ -24140,7 +24144,7 @@ export type GetBannerBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetBannerBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, banner?: { __typename: 'Banner', bannerFields?: { __typename?: 'BannerBannerFields', title?: string | null, text?: string | null } | null } | null } | null };
+export type GetBannerBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, banner?: { __typename: 'Banner', bannerFields?: { __typename?: 'BannerBannerFields', title?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | null } | null };
 
 export type GetHomepageBannerQueryVariables = Exact<{
   slug?: Scalars['ID']['input'];
@@ -24478,11 +24482,16 @@ export const GetBannerBySlugDocument = gql`
       bannerFields {
         title
         text
+        image {
+          node {
+            ...mediaItem
+          }
+        }
       }
     }
   }
 }
-    `;
+    ${MediaItemFragmentDoc}`;
 
 /**
  * __useGetBannerBySlugQuery__

@@ -18,7 +18,7 @@ const ServicesRowsBlock = ({ data }: IFlexibleBlock<IServicesRowsBlock>) => {
 			</div>
 			<div className='mb-162 grid max-w-full grid-cols-12 gap-0 lg:grid-cols-36'>
 				<div className='col-span-6 col-start-2 lg:col-span-4 lg:col-start-3'>
-					<p className='mb-44 text-16 font-normal leading-120 tracking-tight text-black dark:text-gray lg:mb-0'>{sideLeftText}</p>
+					<p className='mb-44 text-16 font-normal leading-120 tracking-tight text-black lg:mb-0 dark:text-gray'>{sideLeftText}</p>
 				</div>
 				<div className='col-span-10 col-start-2 lg:col-span-14 lg:col-start-13'>
 					<DynamicText data={text} className='text-22 leading-150 tracking-tight' />
@@ -38,22 +38,24 @@ const ServicesRowsBlock = ({ data }: IFlexibleBlock<IServicesRowsBlock>) => {
 									</div>
 									<div className='col-span-10 col-start-2 mb-42 mt-22 overflow-hidden lg:col-span-28 lg:col-start-7 lg:my-44-80'>
 										{/* Single text div, visible by default */}
-										<div className='text-30-75 leading-111 tracking-tight text-black dark:text-gray group-hover:hidden'>{card?.serviceTitle}</div>
+										<div className='text-30-75 leading-111 tracking-tight text-black group-hover:hidden dark:text-gray'>
+											{card?.serviceTitle}
+										</div>
 										{/* Repeated text div, hidden by default and shown on hover */}
-										<div className='group-hover:animate-scroll hidden whitespace-nowrap group-hover:flex'>
-											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray mix-blend-difference'>
+										<div className='hidden whitespace-nowrap group-hover:flex group-hover:animate-scroll'>
+											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black mix-blend-difference dark:text-gray'>
 												{card?.serviceTitle} &nbsp;•&nbsp;
 											</span>
-											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray mix-blend-difference'>
+											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black mix-blend-difference dark:text-gray'>
 												{card?.serviceTitle} &nbsp;•&nbsp;
 											</span>
-											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray mix-blend-difference'>
+											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black mix-blend-difference dark:text-gray'>
 												{card?.serviceTitle} &nbsp;•&nbsp;
 											</span>
-											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray mix-blend-difference'>
+											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black mix-blend-difference dark:text-gray'>
 												{card?.serviceTitle} &nbsp;•&nbsp;
 											</span>
-											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray mix-blend-difference'>
+											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black mix-blend-difference dark:text-gray'>
 												{card?.serviceTitle} &nbsp;•&nbsp;
 											</span>
 											<span className='relative z-20 inline-block text-30-75 leading-111 tracking-tight text-black dark:text-gray'>
