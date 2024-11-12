@@ -1,0 +1,3 @@
+// Interface for NextProjectBlock block data
+  import { MediaItem } from '@/Graphql/generated';
+export default interface INextProjectBlock { __typename: 'FlexibleContentFlexibleContentBlockNextProjectLayout', nextProjectFields?: { __typename?: 'FlexibleContentFlexibleNextProjectFields', topTextLeft?: string | null, topTextRight?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: MediaItem | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null }

@@ -826,6 +826,8 @@ export type BannerBannerFields = AcfFieldGroup & AcfFieldGroupFields & BannerBan
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
@@ -839,6 +841,8 @@ export type BannerBannerFields_Fields = {
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;BannerBannerFields&quot; Field Group */
@@ -4768,6 +4772,52 @@ export type FlexibleContentFlexibleContentBlockDefaultLayout_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
 };
 
+/** The &quot;FlexibleContentFlexibleContentBlockFullSizeImageLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleContentBlockFullSizeImageLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockFullSizeImageLayout_Fields & FlexibleContentFlexible_Layout & {
+  __typename?: 'FlexibleContentFlexibleContentBlockFullSizeImageLayout';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockFullSizeImageLayout&quot; Field Group */
+  fullSizeImageFields?: Maybe<FlexibleContentFlexibleFullSizeImageFields>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockFullSizeImageLayout&quot; Field Group */
+export type FlexibleContentFlexibleContentBlockFullSizeImageLayout_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockFullSizeImageLayout&quot; Field Group */
+  fullSizeImageFields?: Maybe<FlexibleContentFlexibleFullSizeImageFields>;
+};
+
+/** The &quot;FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout_Fields & FlexibleContentFlexible_Layout & {
+  __typename?: 'FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout&quot; Field Group */
+  headingTextButtonFields?: Maybe<FlexibleContentFlexibleHeadingTextButtonFields>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout&quot; Field Group */
+export type FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout&quot; Field Group */
+  headingTextButtonFields?: Maybe<FlexibleContentFlexibleHeadingTextButtonFields>;
+};
+
 /** The &quot;FlexibleContentFlexibleContentBlockImageTextLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
 export type FlexibleContentFlexibleContentBlockImageTextLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockImageTextLayout_Fields & FlexibleContentFlexible_Layout & {
   __typename?: 'FlexibleContentFlexibleContentBlockImageTextLayout';
@@ -4837,6 +4887,29 @@ export type FlexibleContentFlexibleContentBlockMultipleImagesLayout_Fields = {
   imageFields?: Maybe<FlexibleContentFlexibleImageFields>;
 };
 
+/** The &quot;FlexibleContentFlexibleContentBlockNextProjectLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleContentBlockNextProjectLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockNextProjectLayout_Fields & FlexibleContentFlexible_Layout & {
+  __typename?: 'FlexibleContentFlexibleContentBlockNextProjectLayout';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockNextProjectLayout&quot; Field Group */
+  nextProjectFields?: Maybe<FlexibleContentFlexibleNextProjectFields>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockNextProjectLayout&quot; Field Group */
+export type FlexibleContentFlexibleContentBlockNextProjectLayout_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockNextProjectLayout&quot; Field Group */
+  nextProjectFields?: Maybe<FlexibleContentFlexibleNextProjectFields>;
+};
+
 /** The &quot;FlexibleContentFlexibleContentBlockSelectedWorkLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
 export type FlexibleContentFlexibleContentBlockSelectedWorkLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockSelectedWorkLayout_Fields & FlexibleContentFlexible_Layout & {
   __typename?: 'FlexibleContentFlexibleContentBlockSelectedWorkLayout';
@@ -4881,6 +4954,29 @@ export type FlexibleContentFlexibleContentBlockServicesRowsLayout_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockServicesRowsLayout&quot; Field Group */
   servicesRowsFields?: Maybe<FlexibleContentFlexibleServicesRowsFields>;
+};
+
+/** The &quot;FlexibleContentFlexibleContentBlockSummaryLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleContentBlockSummaryLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockSummaryLayout_Fields & FlexibleContentFlexible_Layout & {
+  __typename?: 'FlexibleContentFlexibleContentBlockSummaryLayout';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockSummaryLayout&quot; Field Group */
+  summaryFields?: Maybe<FlexibleContentFlexibleSummaryFields>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockSummaryLayout&quot; Field Group */
+export type FlexibleContentFlexibleContentBlockSummaryLayout_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockSummaryLayout&quot; Field Group */
+  summaryFields?: Maybe<FlexibleContentFlexibleSummaryFields>;
 };
 
 /** The &quot;FlexibleContentFlexibleContentFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -5036,6 +5132,87 @@ export type FlexibleContentFlexibleCtaFields_Fields = {
   text?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleCtaFields&quot; Field Group */
   title?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleFullSizeImageFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleFullSizeImageFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleFullSizeImageFields_Fields & {
+  __typename?: 'FlexibleContentFlexibleFullSizeImageFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleFullSizeImageFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleFullSizeImageFields&quot; Field Group */
+export type FlexibleContentFlexibleFullSizeImageFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleFullSizeImageFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
+};
+
+/** The &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleHeadingTextButtonFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleHeadingTextButtonFields_Fields & {
+  __typename?: 'FlexibleContentFlexibleHeadingTextButtonFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  heading?: Maybe<FlexibleContentFlexibleHeadingTextButtonFieldsHeading>;
+  /** Field of the &quot;link&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  link?: Maybe<AcfLink>;
+  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleHeadingTextButtonFieldsHeading = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleHeadingTextButtonFieldsHeading_Fields & {
+  __typename?: 'FlexibleContentFlexibleHeadingTextButtonFieldsHeading';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group */
+export type FlexibleContentFlexibleHeadingTextButtonFieldsHeading_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFieldsHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+export type FlexibleContentFlexibleHeadingTextButtonFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  heading?: Maybe<FlexibleContentFlexibleHeadingTextButtonFieldsHeading>;
+  /** Field of the &quot;link&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  link?: Maybe<AcfLink>;
+  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTextButtonFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
 };
 
 /** The &quot;FlexibleContentFlexibleImageFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -5201,6 +5378,41 @@ export type FlexibleContentFlexibleInfiniteScrollTextFields_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleInfiniteScrollTextFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleNextProjectFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleNextProjectFields_Fields & {
+  __typename?: 'FlexibleContentFlexibleNextProjectFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
+  /** Field of the &quot;link&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  link?: Maybe<AcfLink>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  topTextLeft?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  topTextRight?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+export type FlexibleContentFlexibleNextProjectFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  image?: Maybe<AcfMediaItemConnectionEdge>;
+  /** Field of the &quot;link&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  link?: Maybe<AcfLink>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  topTextLeft?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleNextProjectFields&quot; Field Group */
+  topTextRight?: Maybe<Scalars['String']['output']>;
 };
 
 /** The &quot;FlexibleContentFlexibleSelectedWorkFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -5410,6 +5622,60 @@ export type FlexibleContentFlexibleServicesRowsFields_Fields = {
   /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleServicesRowsFields&quot; Field Group */
   sideLeftText?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleServicesRowsFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleSummaryFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleSummaryFields_Fields & {
+  __typename?: 'FlexibleContentFlexibleSummaryFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group */
+  heading?: Maybe<FlexibleContentFlexibleSummaryFieldsHeading>;
+  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group */
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FlexibleContentFlexibleSummaryFieldsHeading = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleSummaryFieldsHeading_Fields & {
+  __typename?: 'FlexibleContentFlexibleSummaryFieldsHeading';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group */
+export type FlexibleContentFlexibleSummaryFieldsHeading_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;select&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group */
+  headingTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFieldsHeading&quot; Field Group */
+  headingText?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group */
+export type FlexibleContentFlexibleSummaryFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group */
+  heading?: Maybe<FlexibleContentFlexibleSummaryFieldsHeading>;
+  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleSummaryFields&quot; Field Group */
   text?: Maybe<Scalars['String']['output']>;
 };
 
@@ -24116,31 +24382,32 @@ export type CallToActionFragmentFragment = { __typename: 'FlexibleContentFlexibl
 
 export type DefaultFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleContentFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleContentFieldsLayoutOptions', imageOptions?: string | null, titleColorOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
 
+export type FullSizeImageFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockFullSizeImageLayout', fullSizeImageFields?: { __typename?: 'FlexibleContentFlexibleFullSizeImageFields', image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null };
+
+export type HeadingtextbuttonFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout', headingTextButtonFields?: { __typename?: 'FlexibleContentFlexibleHeadingTextButtonFields', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleHeadingTextButtonFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
 export type ImageTextFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockImageTextLayout', imageTextFields?: { __typename?: 'FlexibleContentFlexibleImageTextFields', textFirst?: string | null, textSecond?: string | null, bigImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageTextFieldsLayoutOptions', variationsOptions?: string | null } | null, smallImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null };
 
 export type InfiniteScrollTextFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockInfiniteScrollTextLayout', infiniteScrollTextFields?: { __typename?: 'FlexibleContentFlexibleInfiniteScrollTextFields', text?: string | null } | null };
 
 export type MultipleImagesFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout', imageFields?: { __typename?: 'FlexibleContentFlexibleImageFields', text?: string | null, title?: string | null, blockImages?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null }> } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageFieldsLayoutOptions', imageOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
 
+export type NextProjectFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockNextProjectLayout', nextProjectFields?: { __typename?: 'FlexibleContentFlexibleNextProjectFields', topTextLeft?: string | null, topTextRight?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null };
+
 export type SelectedWorkFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockSelectedWorkLayout', selectedWorkFields?: { __typename?: 'FlexibleContentFlexibleSelectedWorkFields', sideLeftText?: string | null, text?: string | null, topTextLeft?: string | null, topTextRight?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleSelectedWorkFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, selectedWorkCards?: Array<{ __typename?: 'FlexibleContentFlexibleSelectedWorkFieldsSelectedWorkCards', projectNumber?: number | null, projectTitle?: string | null, servicesProvided?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, projectPageLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null };
 
 export type ServicesRowsFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockServicesRowsLayout', servicesRowsFields?: { __typename?: 'FlexibleContentFlexibleServicesRowsFields', sideLeftText?: string | null, text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleServicesRowsFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, servicesRowsCards?: Array<{ __typename?: 'FlexibleContentFlexibleServicesRowsFieldsServicesRowsCards', serviceNumber?: number | null, serviceTitle?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, projectPageLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null };
 
+export type SummaryFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockSummaryLayout', summaryFields?: { __typename?: 'FlexibleContentFlexibleSummaryFields', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleSummaryFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null };
+
 export type MediaItemFragment = { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null };
-
-export type GetPageBySlugQueryVariables = Exact<{
-  slug: Scalars['ID']['input'];
-}>;
-
-
-export type GetPageBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, flexibleContent?: { __typename?: 'FlexibleContent', flexible?: Array<{ __typename: 'FlexibleContentFlexibleContentBlockBigCenterHeadingLayout', bigCenterHeadingFields?: { __typename?: 'FlexibleContentFlexibleBigCenterHeadingFields', text?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockBigParagraphLayout', bigParagraphFields?: { __typename?: 'FlexibleContentFlexibleBigParagraphFields', text?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockCallToActionLayout', ctaFields?: { __typename?: 'FlexibleContentFlexibleCtaFields', text?: string | null, title?: string | null, backgroundImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleCtaFieldsLayoutOptions', backgroundOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockDefaultLayout', contentFields?: { __typename?: 'FlexibleContentFlexibleContentFields', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleContentFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleContentFieldsLayoutOptions', imageOptions?: string | null, titleColorOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageTextLayout', imageTextFields?: { __typename?: 'FlexibleContentFlexibleImageTextFields', textFirst?: string | null, textSecond?: string | null, bigImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageTextFieldsLayoutOptions', variationsOptions?: string | null } | null, smallImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockInfiniteScrollTextLayout', infiniteScrollTextFields?: { __typename?: 'FlexibleContentFlexibleInfiniteScrollTextFields', text?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockMultipleImagesLayout', imageFields?: { __typename?: 'FlexibleContentFlexibleImageFields', text?: string | null, title?: string | null, blockImages?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null }> } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageFieldsLayoutOptions', imageOptions?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSelectedWorkLayout', selectedWorkFields?: { __typename?: 'FlexibleContentFlexibleSelectedWorkFields', sideLeftText?: string | null, text?: string | null, topTextLeft?: string | null, topTextRight?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleSelectedWorkFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, selectedWorkCards?: Array<{ __typename?: 'FlexibleContentFlexibleSelectedWorkFieldsSelectedWorkCards', projectNumber?: number | null, projectTitle?: string | null, servicesProvided?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, projectPageLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockServicesRowsLayout', servicesRowsFields?: { __typename?: 'FlexibleContentFlexibleServicesRowsFields', sideLeftText?: string | null, text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleServicesRowsFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, servicesRowsCards?: Array<{ __typename?: 'FlexibleContentFlexibleServicesRowsFieldsServicesRowsCards', serviceNumber?: number | null, serviceTitle?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, projectPageLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null } | null> | null } | null } | null };
 
 export type GetBannerBySlugQueryVariables = Exact<{
   slug: Scalars['ID']['input'];
 }>;
 
 
-export type GetBannerBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, banner?: { __typename: 'Banner', bannerFields?: { __typename?: 'BannerBannerFields', title?: string | null, text?: string | null } | null } | null } | null };
+export type GetBannerBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, banner?: { __typename: 'Banner', bannerFields?: { __typename?: 'BannerBannerFields', title?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | null } | null };
 
 export type GetHomepageBannerQueryVariables = Exact<{
   slug?: Scalars['ID']['input'];
@@ -24239,6 +24506,43 @@ export const DefaultFragmentFragmentDoc = gql`
   }
 }
     `;
+export const FullSizeImageFragmentFragmentDoc = gql`
+    fragment FullSizeImageFragment on FlexibleContentFlexibleContentBlockFullSizeImageLayout {
+  __typename
+  fullSizeImageFields {
+    image {
+      node {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
+  }
+}
+    `;
+export const HeadingtextbuttonFragmentFragmentDoc = gql`
+    fragment HeadingtextbuttonFragment on FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout {
+  __typename
+  headingTextButtonFields {
+    heading {
+      headingTag
+      headingText
+    }
+    link {
+      target
+      title
+      url
+    }
+    text
+  }
+}
+    `;
 export const ImageTextFragmentFragmentDoc = gql`
     fragment ImageTextFragment on FlexibleContentFlexibleContentBlockImageTextLayout {
   __typename
@@ -24312,6 +24616,33 @@ export const MultipleImagesFragmentFragmentDoc = gql`
     }
     text
     title
+  }
+}
+    `;
+export const NextProjectFragmentFragmentDoc = gql`
+    fragment NextProjectFragment on FlexibleContentFlexibleContentBlockNextProjectLayout {
+  __typename
+  nextProjectFields {
+    image {
+      node {
+        id
+        altText
+        mediaItemUrl
+        title
+        mediaDetails {
+          height
+          width
+        }
+        srcSet
+      }
+    }
+    link {
+      target
+      title
+      url
+    }
+    topTextLeft
+    topTextRight
   }
 }
     `;
@@ -24393,6 +24724,18 @@ export const ServicesRowsFragmentFragmentDoc = gql`
   }
 }
     `;
+export const SummaryFragmentFragmentDoc = gql`
+    fragment SummaryFragment on FlexibleContentFlexibleContentBlockSummaryLayout {
+  __typename
+  summaryFields {
+    heading {
+      headingTag
+      headingText
+    }
+    text
+  }
+}
+    `;
 export const MediaItemFragmentDoc = gql`
     fragment mediaItem on MediaItem {
   id
@@ -24406,68 +24749,6 @@ export const MediaItemFragmentDoc = gql`
   srcSet
 }
     `;
-export const GetPageBySlugDocument = gql`
-    query GetPageBySlug($slug: ID!) {
-  page(id: $slug, idType: URI) {
-    id
-    title
-    flexibleContent {
-      flexible {
-        ...BigCenterHeadingFragment
-        ...BigParagraphFragment
-        ...CallToActionFragment
-        ...DefaultFragment
-        ...ImageTextFragment
-        ...InfiniteScrollTextFragment
-        ...MultipleImagesFragment
-        ...SelectedWorkFragment
-        ...ServicesRowsFragment
-      }
-    }
-  }
-}
-    ${BigCenterHeadingFragmentFragmentDoc}
-${BigParagraphFragmentFragmentDoc}
-${CallToActionFragmentFragmentDoc}
-${DefaultFragmentFragmentDoc}
-${ImageTextFragmentFragmentDoc}
-${InfiniteScrollTextFragmentFragmentDoc}
-${MultipleImagesFragmentFragmentDoc}
-${SelectedWorkFragmentFragmentDoc}
-${ServicesRowsFragmentFragmentDoc}`;
-
-/**
- * __useGetPageBySlugQuery__
- *
- * To run a query within a React component, call `useGetPageBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetPageBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetPageBySlugQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useGetPageBySlugQuery(baseOptions: Apollo.QueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables> & ({ variables: GetPageBySlugQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-      }
-export function useGetPageBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-        }
-export function useGetPageBySlugSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-        }
-export type GetPageBySlugQueryHookResult = ReturnType<typeof useGetPageBySlugQuery>;
-export type GetPageBySlugLazyQueryHookResult = ReturnType<typeof useGetPageBySlugLazyQuery>;
-export type GetPageBySlugSuspenseQueryHookResult = ReturnType<typeof useGetPageBySlugSuspenseQuery>;
-export type GetPageBySlugQueryResult = Apollo.QueryResult<GetPageBySlugQuery, GetPageBySlugQueryVariables>;
 export const GetBannerBySlugDocument = gql`
     query GetBannerBySlug($slug: ID!) {
   page(id: $slug, idType: URI) {
@@ -24478,11 +24759,16 @@ export const GetBannerBySlugDocument = gql`
       bannerFields {
         title
         text
+        image {
+          node {
+            ...mediaItem
+          }
+        }
       }
     }
   }
 }
-    `;
+    ${MediaItemFragmentDoc}`;
 
 /**
  * __useGetBannerBySlugQuery__

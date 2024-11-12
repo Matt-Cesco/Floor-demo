@@ -4,7 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secondImage: React.RefObject<HTMLElement>, thirdImage: React.RefObject<HTMLElement>) => {
+export const gsapSelectedWork = (
+	firstImage: React.RefObject<HTMLElement>,
+	secondImage: React.RefObject<HTMLElement>,
+	thirdImage: React.RefObject<HTMLElement>
+) => {
 	if (firstImage.current) {
 		gsap.fromTo(
 			firstImage.current,
@@ -20,7 +24,7 @@ export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secon
 			}
 		);
 	}
-    if (secondImage.current) {
+	if (secondImage.current) {
 		gsap.fromTo(
 			secondImage.current,
 			{ y: 120 },
@@ -35,7 +39,7 @@ export const gsapSelectedWork = (firstImage: React.RefObject<HTMLElement>, secon
 			}
 		);
 	}
-    if (thirdImage.current) {
+	if (thirdImage.current) {
 		gsap.fromTo(
 			thirdImage.current,
 			{ y: 120 },

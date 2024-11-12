@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 html {
-    font-size: 10px;
+	font-size: 10px;
 }
 
 @media (max-width: 460px) {
-    html {
-        font-size: 2.174vw;
-    }
+	html {
+		font-size: 2.174vw;
+	}
+}
+
+strong {
+    font-weight: lighter;
+}
+
+ul{
+    list-style-type: square;
+    list-style-position: inside;
 }
