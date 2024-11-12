@@ -1,4 +1,4 @@
-import { getPageBySlug } from '@/Graphql/wordpressCMS/queries/getPageBySlug';
+import { getPageBySlug } from '@/Graphql/wordpressCMS/getPageBySlug';
 import { getHomepageBanner } from '@/Graphql/wordpressCMS/queries/getHomepageBanner';
 import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
 import { notFound } from 'next/navigation';

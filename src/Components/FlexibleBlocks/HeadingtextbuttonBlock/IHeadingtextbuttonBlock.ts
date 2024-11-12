@@ -1,0 +1,3 @@
+// Interface for HeadingtextbuttonBlock block data
+  import { IDynamicHeading } from '@/Common/DynamicHeading/IDynamicHeading';
+export default interface IHeadingtextbuttonBlock { __typename: 'FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout', headingTextButtonFields?: { __typename?: 'FlexibleContentFlexibleHeadingTextButtonFields', text?: string | null, heading?: IDynamicHeading | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null }

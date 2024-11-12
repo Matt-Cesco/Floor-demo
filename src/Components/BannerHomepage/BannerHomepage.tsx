@@ -15,7 +15,7 @@ const BannerHomepage = ({ data }: BannerHomepageProps) => {
 					<span className='text-44-210 font-normal leading-98 tracking-tighter text-black dark:text-gray'>{titleFirstLine}</span>
 				</span>
 				<span className='col-span-10 col-start-2 overflow-hidden whitespace-nowrap max-sm:flex max-sm:justify-end max-sm:text-right lg:col-span-20 lg:col-start-7'>
-					<span className='font-playfair text-44-210 font-extrabold leading-90 tracking-tight text-blue lg:leading-75 dark:text-yellow'>
+					<span className='font-playfair text-44-210 font-normal leading-90 tracking-tight text-blue lg:leading-75 dark:text-yellow'>
 						{titleSecondLine}
 					</span>
 				</span>

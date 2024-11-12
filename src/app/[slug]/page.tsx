@@ -1,4 +1,4 @@
-import { getPageBySlug } from '@/Graphql/wordpressCMS/queries/getPageBySlug';
+import { getPageBySlug } from '@/Graphql/wordpressCMS/getPageBySlug';
 import { getBannerBySlug } from '@/Graphql/wordpressCMS/queries/getBannerBySlug';
 import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
 import Banner from '@/Components/Banner/Banner';

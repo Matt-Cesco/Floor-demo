@@ -12,9 +12,11 @@ html {
 	}
 }
 
+strong {
+    font-weight: lighter;
+}
 
 ul{
     list-style-type: square;
     list-style-position: inside;
-    margin-top: 44px;
 }
