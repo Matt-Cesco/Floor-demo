@@ -6,7 +6,7 @@ const { Project, SyntaxKind } = require("ts-morph");
 const flexibleBlocksDir = path.resolve(__dirname, "./src/Components/FlexibleBlocks");
 const fragmentsDir = path.resolve(__dirname, "./src/Graphql/wordpressCMS/flexibleFragments");
 const helpersDir = path.resolve(__dirname, "./src/Helpers");
-const generatedTypesFilePath = path.resolve(__dirname, "./src/Graphql/generated.tsx"); // this is the path to generated.tsx
+const generatedTypesFilePath = path.resolve(__dirname, "./src/Graphql/generated.tsx");
 
 // Initialize ts-morph project
 const project = new Project();
