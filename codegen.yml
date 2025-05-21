@@ -1,16 +1,16 @@
 overwrite: true
-schema: 'https://cms-matteo.barques.dev/graphql' # Your GraphQL API URL from environment variables
-documents: 'src/Graphql/wordpressCMS/**/*.ts' # This points to where your GraphQL queries/mutations are located
+schema: "https://cms-matteo.barques.dev/graphql" # Refactor this and use the env file
+documents: "src/Graphql/wordpressCMS/**/*.ts" # Here is were GraphQL queries are located
 generates:
-    src/graphql/generated.tsx: # The output file for the generated types
+    src/graphql/generated.tsx: # generated output file for the generated types
         plugins:
-            - 'typescript'
-            - 'typescript-operations'
-            - 'typescript-react-apollo'
+            - "typescript"
+            - "typescript-operations"
+            - "typescript-react-apollo"
         config:
             withHooks: true # This generates React Apollo hooks like `useQuery` and `useMutation`
             withComponent: false
             withHOC: false
     ./graphql.schema.json:
         plugins:
-            - 'introspection'
+            - "introspection"

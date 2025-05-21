@@ -1,5 +1,5 @@
 namespace NodeJS {
-	interface ProcessEnv {
-		NEXT_LIVE_URL: string;
-	}
+    interface ProcessEnv {
+        NEXT_FRONTEND_URL: string;
+    }
 }

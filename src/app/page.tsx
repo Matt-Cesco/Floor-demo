@@ -1,22 +1,23 @@
-import { getPageBySlug } from '@/Graphql/wordpressCMS/getPageBySlug';
-import { getHomepageBanner } from '@/Graphql/wordpressCMS/queries/getHomepageBanner';
-import FlexibleBlocks from '@/Components/FlexibleBlocks/FlexibleBlocks';
-import { notFound } from 'next/navigation';
-import BannerHomepage from '@/Components/BannerHomepage/BannerHomepage';
+import type { Metadata } from "next";
+import { generateYoastMetadata } from "@/Helpers/seoHelpers";
+import { getPageBySlug } from "@/Graphql/wordpressCMS/getPageBySlug";
+import FlexibleBlocks from "@/Components/FlexibleBlocks/FlexibleBlocks";
+import HomepageBanner from "@/Components/HomepageBanner/HomepageBanner";
+import { getHomepageBanner } from "@/Graphql/wordpressCMS/queries/getHomepageBanner";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return generateYoastMetadata({ slug: "/" });
+}
 
 const PageComponent = async () => {
-	const [pageData, bannerData] = await Promise.all([getPageBySlug('/'), getHomepageBanner()]);
+    const [pageData, bannerData] = await Promise.all([getPageBySlug("/"), getHomepageBanner()]);
 
-	if (!pageData) {
-		return notFound();
-	}
-
-	return (
-		<div>
-			{bannerData?.bannerHomepage && <BannerHomepage data={bannerData.bannerHomepage} />}
-			{pageData.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
-		</div>
-	);
+    return (
+        <>
+            <HomepageBanner data={bannerData} />
+            {pageData?.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
+        </>
+    );
 };
 
 export default PageComponent;

@@ -1,26 +1,30 @@
-import Image from 'next/image';
-import { forwardRef, Ref } from 'react';
-import { IDynamicImage } from './IDynamicImage';
+import Image from "next/image";
+import { forwardRef, Ref } from "react";
+import { IDynamicImage } from "./IDynamicImage";
 
 const DynamicImage = forwardRef(({ data, className }: IDynamicImage, ref: Ref<HTMLImageElement>) => {
-	if (!data?.node) {
-		return null;
-	}
+    if (!data?.node) {
+        return null;
+    }
 
-	const mediaItemUrl = data.node.mediaItemUrl;
-	if (!mediaItemUrl) {
-		return null;
-	}
+    const { mediaItemUrl, altText, mimeType, mediaDetails } = data.node;
 
-	const altText = data.node.altText ?? '';
-	const srcSet = data.node.srcSet ?? '';
+    if (!mediaItemUrl) {
+        return null;
+    }
 
-	const imageWidth = data.node.mediaDetails?.width ?? 300;
-	const imageHeight = data.node.mediaDetails?.height ?? 300;
+    // This will handle the svg images
+    if (mimeType === "image/svg+xml") {
+        return <img src={mediaItemUrl} alt={altText || "Image"} className={className} ref={ref} />;
+    }
 
-	return <Image src={mediaItemUrl} className={className} ref={ref} width={imageWidth} height={imageHeight} alt={altText} sizes={srcSet} quality={100} />;
+    // This is the default for other images format
+    const imageWidth = mediaDetails?.width ?? 300;
+    const imageHeight = mediaDetails?.height ?? 300;
+
+    return <Image src={mediaItemUrl} alt={altText || "Image"} className={className} ref={ref} width={imageWidth} height={imageHeight} quality={100} />;
 });
 
-DynamicImage.displayName = 'DynamicImage';
+DynamicImage.displayName = "DynamicImage";
 
 export default DynamicImage;

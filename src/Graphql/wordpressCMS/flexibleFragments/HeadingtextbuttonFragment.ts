@@ -1,18 +1,19 @@
 import { gql } from '@apollo/client';
 
-export const HeadingtextbuttonFragment = gql`
-  fragment HeadingtextbuttonFragment on FlexibleContentFlexibleContentBlockHeadingtextbuttonLayout {
+export const HeadingTextButtonFragment = gql`
+  fragment HeadingTextButtonFragment on FlexibleContentFlexibleContentBlockHeadingTextButtonLayout {
     __typename
     headingTextButtonFields {
-        heading {
-        headingTag
-      headingText
-      }
-      link {
+        buttonLinkContent {
       target
       title
       url
     }
+      buttonStyleOptions
+      heading {
+        headingTag
+      headingText
+      }
       text
       }
   }

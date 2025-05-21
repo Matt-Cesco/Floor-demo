@@ -1,4 +1,4 @@
 export interface IDynamicText {
-	data?: string | null;
-	className?: string;
+  data?: string | null;
+  className?: string;
 }
