@@ -1,6 +1,6 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
-const redirectsList = require("./redirects.json");
+// const redirectsList = require("./redirects.json");
 
 const nextConfig = {
     images: {
@@ -12,9 +12,9 @@ const nextConfig = {
             },
         ],
     },
-    async redirects() {
-        return redirectsList;
-    },
+    // async redirects() {
+    //     return redirectsList;
+    // },
 };
 
 module.exports = nextConfig;
