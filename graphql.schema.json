@@ -357,6 +357,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout",
             "ofType": null
           },
@@ -518,6 +523,11 @@
           {
             "kind": "OBJECT",
             "name": "FlexibleContentFlexibleHeadingSubheadingTwoColTextFieldsHeading",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
             "ofType": null
           },
           {
@@ -832,6 +842,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout",
             "ofType": null
           },
@@ -993,6 +1008,11 @@
           {
             "kind": "OBJECT",
             "name": "FlexibleContentFlexibleHeadingSubheadingTwoColTextFieldsHeading",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
             "ofType": null
           },
           {
@@ -18322,6 +18342,121 @@
       },
       {
         "kind": "OBJECT",
+        "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout",
+        "description": "The &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;.",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "fieldGroupName",
+            "description": "The name of the field group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "Use __typename instead"
+          },
+          {
+            "name": "headingTwoImgTwoTextFields",
+            "description": "Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroup",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroupFields",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout_Fields",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "FlexibleContentFlexible_Layout",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout_Fields",
+        "description": "Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "fieldGroupName",
+            "description": "The name of the field group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "Use __typename instead"
+          },
+          {
+            "name": "headingTwoImgTwoTextFields",
+            "description": "Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroup",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroupFields",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "FlexibleContentFlexible_Layout",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
         "name": "FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout",
         "description": "The &quot;FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;.",
         "isOneOf": null,
@@ -22975,6 +23110,231 @@
       },
       {
         "kind": "OBJECT",
+        "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
+        "description": "The &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;.",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "fieldGroupName",
+            "description": "The name of the field group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "Use __typename instead"
+          },
+          {
+            "name": "firstImage",
+            "description": "Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AcfMediaItemConnectionEdge",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "firstTextCol",
+            "description": "Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondImage",
+            "description": "Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AcfMediaItemConnectionEdge",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondTextCol",
+            "description": "Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": "Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "topText",
+            "description": "Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroup",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroupFields",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields_Fields",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields_Fields",
+        "description": "Interface representing fields of the ACF &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+        "isOneOf": null,
+        "fields": [
+          {
+            "name": "fieldGroupName",
+            "description": "The name of the field group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": true,
+            "deprecationReason": "Use __typename instead"
+          },
+          {
+            "name": "firstImage",
+            "description": "Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AcfMediaItemConnectionEdge",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "firstTextCol",
+            "description": "Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondImage",
+            "description": "Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "AcfMediaItemConnectionEdge",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondTextCol",
+            "description": "Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": "Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "topText",
+            "description": "Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroup",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "AcfFieldGroupFields",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleHeadingTwoImgTwoTextFields",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
         "name": "FlexibleContentFlexibleImageOnHorizontalButtonHoverFields",
         "description": "The &quot;FlexibleContentFlexibleImageOnHorizontalButtonHoverFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;.",
         "isOneOf": null,
@@ -27114,6 +27474,11 @@
           {
             "kind": "OBJECT",
             "name": "FlexibleContentFlexibleContentBlockHeadingSubheadingTwoColTextLayout",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout",
             "ofType": null
           },
           {

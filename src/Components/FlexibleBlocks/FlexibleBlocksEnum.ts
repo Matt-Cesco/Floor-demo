@@ -9,6 +9,7 @@ export enum FlexibleBlocksEnum {
     HEADINGINDENTBLOCK = 'FlexibleContentFlexibleContentBlockHeadingIndentLayout',
     HEADINGSUBHEADINGIMAGETEXTBLOCK = 'FlexibleContentFlexibleContentBlockHeadingSubheadingImageTextLayout',
     HEADINGSUBHEADINGTWOCOLTEXTBLOCK = 'FlexibleContentFlexibleContentBlockHeadingSubheadingTwoColTextLayout',
+    HEADINGTWOIMGTWOTEXTBLOCK = 'FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout',
     IMAGEONHORIZONTALBUTTONHOVERBLOCK = 'FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout',
     IMAGEONTEXTHOVERBLOCK = 'FlexibleContentFlexibleContentBlockImageOnTextHoverLayout',
     IMAGEONVERTICALBUTTONHOVERBLOCK = 'FlexibleContentFlexibleContentBlockImageOnVerticalButtonHoverLayout',
