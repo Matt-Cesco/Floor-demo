@@ -8,7 +8,6 @@ import IHeadingIndent2ColTextBlock from "./HeadingIndent2ColTextBlock/IHeadingIn
 import IHeadingIndentBlock from "./HeadingIndentBlock/IHeadingIndentBlock";
 import IHeadingSubheadingImageTextBlock from "./HeadingSubheadingImageTextBlock/IHeadingSubheadingImageTextBlock";
 import IHeadingSubheadingTwoColTextBlock from "./HeadingSubheadingTwoColTextBlock/IHeadingSubheadingTwoColTextBlock";
-import IHeadingTextButtonBlock from "./HeadingTextButtonBlock/HeadingTextButtonBlock";
 import IImageOnHorizontalButtonHoverBlock from "./ImageOnHorizontalButtonHoverBlock/IImageOnHorizontalButtonHoverBlock";
 import IImageOnTextHoverBlock from "./ImageOnTextHoverBlock/IImageOnTextHoverBlock";
 import IImageOnVerticalButtonHoverBlock from "./ImageOnVerticalButtonHoverBlock/IImageOnVerticalButtonHoverBlock";
@@ -39,7 +38,6 @@ export type AllBlockDataTypes =
     | IHeadingIndentBlock
     | IHeadingSubheadingImageTextBlock
     | IHeadingSubheadingTwoColTextBlock
-    | IHeadingTextButtonBlock
     | IImageOnHorizontalButtonHoverBlock
     | IImageOnTextHoverBlock
     | IImageOnVerticalButtonHoverBlock

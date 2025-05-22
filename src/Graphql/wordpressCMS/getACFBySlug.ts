@@ -16,7 +16,6 @@ import { HeadingIndent2ColTextFragment } from '@/Graphql/wordpressCMS/flexibleFr
 import { HeadingIndentFragment } from '@/Graphql/wordpressCMS/flexibleFragments/HeadingIndentFragment';
 import { HeadingSubheadingImageTextFragment } from '@/Graphql/wordpressCMS/flexibleFragments/HeadingSubheadingImageTextFragment';
 import { HeadingSubheadingTwoColTextFragment } from '@/Graphql/wordpressCMS/flexibleFragments/HeadingSubheadingTwoColTextFragment';
-import { HeadingTextButtonFragment } from '@/Graphql/wordpressCMS/flexibleFragments/HeadingTextButtonFragment';
 import { ImageOnHorizontalButtonHoverFragment } from '@/Graphql/wordpressCMS/flexibleFragments/ImageOnHorizontalButtonHoverFragment';
 import { ImageOnTextHoverFragment } from '@/Graphql/wordpressCMS/flexibleFragments/ImageOnTextHoverFragment';
 import { ImageOnVerticalButtonHoverFragment } from '@/Graphql/wordpressCMS/flexibleFragments/ImageOnVerticalButtonHoverFragment';
@@ -54,7 +53,6 @@ ${HeadingIndent2ColTextFragment}
 ${HeadingIndentFragment}
 ${HeadingSubheadingImageTextFragment}
 ${HeadingSubheadingTwoColTextFragment}
-${HeadingTextButtonFragment}
 ${ImageOnHorizontalButtonHoverFragment}
 ${ImageOnTextHoverFragment}
 ${ImageOnVerticalButtonHoverFragment}
