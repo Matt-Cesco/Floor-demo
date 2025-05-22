@@ -88,7 +88,6 @@ ${TestimonialHeadingIndentFragment}
 ...HeadingIndentFragment
 ...HeadingSubheadingImageTextFragment
 ...HeadingSubheadingTwoColTextFragment
-...HeadingTextButtonFragment
 ...ImageOnHorizontalButtonHoverFragment
 ...ImageOnTextHoverFragment
 ...ImageOnVerticalButtonHoverFragment
