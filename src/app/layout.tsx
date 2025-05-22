@@ -5,7 +5,6 @@ import { getWebsiteSeo } from "@/Graphql/wordpressCMS/queries/getWebsiteSeo";
 import { getThemeOptions } from "@/Graphql/wordpressCMS/queries/getThemeOptions";
 import Header from "@/Components/Layout/Header/Header";
 import Footer from "@/Components/Layout/Footer/Footer";
-import MorphingBackground from "@/Components/Layout/MorphingBackground/MorphingBackground";
 import ScrollProvider from "@/Components/ScrollProvider";
 
 export const revalidate = 120;
@@ -23,8 +22,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </head>
             <body className="bg-white dark:bg-blue-dark">
                 <Header />
-                {/* <PageTransitionOverlay /> */}
-                <MorphingBackground />
                 <ScrollProvider>
                     {children}
                     {footerData && <Footer {...footerData} />}
