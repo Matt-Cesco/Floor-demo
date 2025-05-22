@@ -1,4 +1,4 @@
-import IHeadingTextButtonBlock from "./IHeadingTextButtonBlock";
+import IHeadingTextButtonBlock from "./HeadingTextButtonBlock";
 import IFlexibleBlock from "../IFlexibleBlock";
 import DynamicButton from "@/Common/DynamicButton/DynamicButton";
 import DynamicHeading from "@/Common/DynamicHeading/DynamicHeading";

@@ -14,32 +14,32 @@ export const FourAsymetricProjectCardsFragment = gql`
                 url
             }
             project {
-                imageOrVideoOptions
+                brandDesign
+                brandStrategy
+                comms
+                copywriting
+                emailMarketing
                 image {
                     node {
                         ...mediaItem
                     }
                 }
-                video {
-                    node {
-                        ...mediaItem
-                    }
-                }
+                imageOrVideoOptions
+                pr
                 projectLink {
                     target
                     title
                     url
                 }
-                brandDesign
-                brandStrategy
-                webDesign
-                pr
-                comms
-                webDevelopment
-                socialMediaManagement
-                emailMarketing
-                copywriting
                 seo
+                socialMediaManagement
+                video {
+                    node {
+                        ...mediaItem
+                    }
+                }
+                webDesign
+                webDevelopment
             }
             showTitleBlock
         }
