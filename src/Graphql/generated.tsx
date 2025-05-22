@@ -2843,29 +2843,6 @@ export type FlexibleContentFlexibleContentBlockHeadingSubheadingTwoColTextLayout
   headingSubheadingTwoColTextFields?: Maybe<FlexibleContentFlexibleHeadingSubheadingTwoColTextFields>;
 };
 
-/** The &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
-export type FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout_Fields & FlexibleContentFlexible_Layout & {
-  __typename?: 'FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout';
-  /**
-   * The name of the field group
-   * @deprecated Use __typename instead
-   */
-  fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group */
-  headingTwoImgTwoTextFields?: Maybe<FlexibleContentFlexibleHeadingTwoImgTwoTextFields>;
-};
-
-/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group */
-export type FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout_Fields = {
-  /**
-   * The name of the field group
-   * @deprecated Use __typename instead
-   */
-  fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;group&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout&quot; Field Group */
-  headingTwoImgTwoTextFields?: Maybe<FlexibleContentFlexibleHeadingTwoImgTwoTextFields>;
-};
-
 /** The &quot;FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
 export type FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout_Fields & FlexibleContentFlexible_Layout & {
   __typename?: 'FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout';
@@ -3779,49 +3756,6 @@ export type FlexibleContentFlexibleHeadingSubheadingTwoColTextFields_Fields = {
   textFirstColumn?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingSubheadingTwoColTextFields&quot; Field Group */
   textSecondColumn?: Maybe<Scalars['String']['output']>;
-};
-
-/** The &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
-export type FlexibleContentFlexibleHeadingTwoImgTwoTextFields = AcfFieldGroup & AcfFieldGroupFields & FlexibleContentFlexibleHeadingTwoImgTwoTextFields_Fields & {
-  __typename?: 'FlexibleContentFlexibleHeadingTwoImgTwoTextFields';
-  /**
-   * The name of the field group
-   * @deprecated Use __typename instead
-   */
-  fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  firstImage?: Maybe<AcfMediaItemConnectionEdge>;
-  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  firstTextCol?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  secondImage?: Maybe<AcfMediaItemConnectionEdge>;
-  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  secondTextCol?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  topText?: Maybe<Scalars['String']['output']>;
-};
-
-/** Interface representing fields of the ACF &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-export type FlexibleContentFlexibleHeadingTwoImgTwoTextFields_Fields = {
-  /**
-   * The name of the field group
-   * @deprecated Use __typename instead
-   */
-  fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  firstImage?: Maybe<AcfMediaItemConnectionEdge>;
-  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  firstTextCol?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  secondImage?: Maybe<AcfMediaItemConnectionEdge>;
-  /** Field of the &quot;wysiwyg&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  secondTextCol?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Field of the &quot;text&quot; Field Type added to the schema as part of the &quot;FlexibleContentFlexibleHeadingTwoImgTwoTextFields&quot; Field Group */
-  topText?: Maybe<Scalars['String']['output']>;
 };
 
 /** The &quot;FlexibleContentFlexibleImageOnHorizontalButtonHoverFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -13929,8 +13863,6 @@ export type HeadingSubheadingImageTextFragmentFragment = { __typename: 'Flexible
 
 export type HeadingSubheadingTwoColTextFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockHeadingSubheadingTwoColTextLayout', headingSubheadingTwoColTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingTwoColTextFields', subheading?: string | null, textFirstColumn?: string | null, textSecondColumn?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingTwoColTextFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null };
 
-export type HeadingTwoImgTwoTextFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout', headingTwoImgTwoTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingTwoImgTwoTextFields', firstTextCol?: string | null, secondTextCol?: string | null, title?: string | null, topText?: string | null, firstImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, secondImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null };
-
 export type ImageOnHorizontalButtonHoverFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout', imageOnHorizontalButtonHoverFields?: { __typename?: 'FlexibleContentFlexibleImageOnHorizontalButtonHoverFields', rows?: Array<{ __typename?: 'FlexibleContentFlexibleImageOnHorizontalButtonHoverFieldsRows', titleColor?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null };
 
 export type ImageOnTextHoverFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockImageOnTextHoverLayout', imageOnTextHoverFields?: { __typename?: 'FlexibleContentFlexibleImageOnTextHoverFields', heading?: { __typename?: 'FlexibleContentFlexibleImageOnTextHoverFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, rows?: Array<{ __typename?: 'FlexibleContentFlexibleImageOnTextHoverFieldsRows', department?: Array<string | null> | null, fullName?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null> | null } | null };
@@ -13968,13 +13900,6 @@ export type SubheadingTwoColTextFragmentFragment = { __typename: 'FlexibleConten
 export type TestimonialHeadingIndentFragmentFragment = { __typename: 'FlexibleContentFlexibleContentBlockTestimonialHeadingIndentLayout', testimonialHeadingIndentFields?: { __typename?: 'FlexibleContentFlexibleTestimonialHeadingIndentFields', content?: string | null, testimonialCompany?: string | null, testimonialJobRole?: string | null, testimonialNameSurname?: string | null } | null };
 
 export type MediaItemFragment = { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null };
-
-export type GetPageBySlugQueryVariables = Exact<{
-  slug: Scalars['ID']['input'];
-}>;
-
-
-export type GetPageBySlugQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', id: string, title?: string | null, flexibleContent?: { __typename?: 'FlexibleContent', flexible?: Array<{ __typename: 'FlexibleContentFlexibleContentBlockCallToActionLayout', ctaFields?: { __typename?: 'FlexibleContentFlexibleCtaFields', backgroundColorOptions?: Array<string | null> | null, buttonLinkContent?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, heading?: { __typename?: 'FlexibleContentFlexibleCtaFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockCenteredImageLayout', centeredImageFields?: { __typename?: 'FlexibleContentFlexibleCenteredImageFields', image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockCenteredTextLayout', centeredTextFields?: { __typename?: 'FlexibleContentFlexibleCenteredTextFields', text?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockContactLayout', contactFields?: { __typename?: 'FlexibleContentFlexibleContactFields', title?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockFourAsymetricProjectCardsLayout', fourAsymetricProjectCardsFields?: { __typename?: 'FlexibleContentFlexibleFourAsymetricProjectCardsFields', showTitleBlock?: boolean | null, headingBlock?: { __typename?: 'FlexibleContentFlexibleFourAsymetricProjectCardsFieldsHeadingBlock', headingTag?: Array<string | null> | null, headingText?: string | null } | null, linkBlock?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, project?: Array<{ __typename?: 'FlexibleContentFlexibleFourAsymetricProjectCardsFieldsProject', brandDesign?: boolean | null, brandStrategy?: boolean | null, comms?: boolean | null, copywriting?: boolean | null, emailMarketing?: boolean | null, imageOrVideoOptions?: string | null, pr?: boolean | null, seo?: boolean | null, socialMediaManagement?: boolean | null, webDesign?: boolean | null, webDevelopment?: boolean | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, projectLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, video?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockFourCardsHeadingTextLayout', fourCardsHeadingTextFields?: { __typename?: 'FlexibleContentFlexibleFourCardsHeadingTextFields', cards?: Array<{ __typename?: 'FlexibleContentFlexibleFourCardsHeadingTextFieldsCards', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleFourCardsHeadingTextFieldsCardsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null> | null, headingBlock?: { __typename?: 'FlexibleContentFlexibleFourCardsHeadingTextFieldsHeadingBlock', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockHeadingIndent2ColTextLayout', headingIndent2ColTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingIndent2ColTextFields', columnIndentation?: string | null, content?: string | null, textFirstColumn?: string | null, textSecondColumn?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockHeadingIndentLayout', headingIndentFields?: { __typename?: 'FlexibleContentFlexibleHeadingIndentFields', columnIndentation?: string | null, content?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockHeadingSubheadingImageTextLayout', headingSubheadingImageTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingImageTextFields', orientationOptions?: string | null, subheading?: string | null, text?: string | null, videoOrImageOptions?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingImageTextFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, video?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockHeadingSubheadingTwoColTextLayout', headingSubheadingTwoColTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingTwoColTextFields', subheading?: string | null, textFirstColumn?: string | null, textSecondColumn?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleHeadingSubheadingTwoColTextFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout', headingTwoImgTwoTextFields?: { __typename?: 'FlexibleContentFlexibleHeadingTwoImgTwoTextFields', firstTextCol?: string | null, secondTextCol?: string | null, title?: string | null, topText?: string | null, firstImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, secondImage?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout', imageOnHorizontalButtonHoverFields?: { __typename?: 'FlexibleContentFlexibleImageOnHorizontalButtonHoverFields', rows?: Array<{ __typename?: 'FlexibleContentFlexibleImageOnHorizontalButtonHoverFieldsRows', titleColor?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageOnTextHoverLayout', imageOnTextHoverFields?: { __typename?: 'FlexibleContentFlexibleImageOnTextHoverFields', heading?: { __typename?: 'FlexibleContentFlexibleImageOnTextHoverFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, rows?: Array<{ __typename?: 'FlexibleContentFlexibleImageOnTextHoverFieldsRows', department?: Array<string | null> | null, fullName?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageOnVerticalButtonHoverLayout', imageOnVerticalButtonHoverFields?: { __typename?: 'FlexibleContentFlexibleImageOnVerticalButtonHoverFields', rows?: Array<{ __typename?: 'FlexibleContentFlexibleImageOnVerticalButtonHoverFieldsRows', titleColor?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, link?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageOrVideoLayout', imageOrVideoFields?: { __typename?: 'FlexibleContentFlexibleImageOrVideoFields', spacingBottomOptions?: string | null, spacingTopOptions?: string | null, videoOrImageOptions?: string | null, widthOptions?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, video?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageRgbaHeadingButtonLayout', imageRgbaHeadingButtonFields?: { __typename?: 'FlexibleContentFlexibleImageRgbaHeadingButtonFields', buttonStyleOptions?: string | null, spacingBottomOptions?: string | null, spacingTopOptions?: string | null, buttonLinkContent?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, heading?: { __typename?: 'FlexibleContentFlexibleImageRgbaHeadingButtonFieldsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageRgbaHeadingButtonFieldsLayoutOptions', orientationOptions?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockImageTextButtonLayout', imageTextButtonFields?: { __typename?: 'FlexibleContentFlexibleImageTextButtonFields', buttonStyleOptions?: string | null, text?: string | null, buttonLinkContent?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null, layoutOptions?: { __typename?: 'FlexibleContentFlexibleImageTextButtonFieldsLayoutOptions', orientationOptions?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockInfiniteLogosLayout', infiniteLogosFields?: { __typename?: 'FlexibleContentFlexibleInfiniteLogosFields', logos?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null }> } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockLatestNewsLayout', latestNewsFields?: { __typename?: 'FlexibleContentFlexibleLatestNewsFields', optionalTitle?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockNextPageLayout', nextPageFields?: { __typename?: 'FlexibleContentFlexibleNextPageFields', projectLink?: { __typename?: 'AcfLink', target?: string | null, title?: string | null, url?: string | null } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockRgbaBgTextOverImageLayout', rgbaBgTextOverImageFields?: { __typename?: 'FlexibleContentFlexibleRgbaBgTextOverImageFields', spacingBottomOptions?: string | null, spacingTopOptions?: string | null, text?: string | null, image?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', id: string, altText?: string | null, mediaItemUrl?: string | null, title?: string | null, mimeType?: string | null, srcSet?: string | null, mediaDetails?: { __typename?: 'MediaDetails', height?: number | null, width?: number | null } | null } } | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockRightSubheadingTwoColTextLayout', rightSubheadingTwoColTextFields?: { __typename?: 'FlexibleContentFlexibleRightSubheadingTwoColTextFields', subheading?: string | null, textFirstColumn?: string | null, textSecondColumn?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockStastsRgbaLayout', statsRgbaFields?: { __typename?: 'FlexibleContentFlexibleStatsRgbaFields', statsList?: Array<{ __typename?: 'FlexibleContentFlexibleStatsRgbaFieldsStatsList', statNumberRgba?: string | null, statText?: string | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSubheadingIndent1ColsLayout', subheadingIndent1ColsFields?: { __typename?: 'FlexibleContentFlexibleSubheadingIndent1ColsFields', subheading?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSubheadingIndent2ColsLayout', subheadingIndent2ColsFields?: { __typename?: 'FlexibleContentFlexibleSubheadingIndent2ColsFields', subheading?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSubheadingOneColTextLayout', subheadingOneColTextFields?: { __typename?: 'FlexibleContentFlexibleSubheadingOneColTextFields', subheading?: string | null, text?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSubheadingRowsLayout', subheadingRowsTextFields?: { __typename?: 'FlexibleContentFlexibleSubheadingRowsTextFields', subheading?: string | null, rows?: Array<{ __typename?: 'FlexibleContentFlexibleSubheadingRowsTextFieldsRows', text?: string | null, heading?: { __typename?: 'FlexibleContentFlexibleSubheadingRowsTextFieldsRowsHeading', headingTag?: Array<string | null> | null, headingText?: string | null } | null } | null> | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockSubheadingTwoColTextLayout', subheadingTwoColTextFields?: { __typename?: 'FlexibleContentFlexibleSubheadingTwoColTextFields', subheading?: string | null, textFirstColumn?: string | null, textSecondColumn?: string | null } | null } | { __typename: 'FlexibleContentFlexibleContentBlockTestimonialHeadingIndentLayout', testimonialHeadingIndentFields?: { __typename?: 'FlexibleContentFlexibleTestimonialHeadingIndentFields', content?: string | null, testimonialCompany?: string | null, testimonialJobRole?: string | null, testimonialNameSurname?: string | null } | null } | null> | null } | null } | null };
 
 export type GetAllInsightsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -14212,27 +14137,6 @@ export const HeadingSubheadingTwoColTextFragmentFragmentDoc = gql`
   }
 }
     `;
-export const HeadingTwoImgTwoTextFragmentFragmentDoc = gql`
-    fragment HeadingTwoImgTwoTextFragment on FlexibleContentFlexibleContentBlockHeadingTwoImgTwoTextLayout {
-  __typename
-  headingTwoImgTwoTextFields {
-    firstImage {
-      node {
-        ...mediaItem
-      }
-    }
-    firstTextCol
-    secondImage {
-      node {
-        ...mediaItem
-      }
-    }
-    secondTextCol
-    title
-    topText
-  }
-}
-    ${MediaItemFragmentDoc}`;
 export const ImageOnHorizontalButtonHoverFragmentFragmentDoc = gql`
     fragment ImageOnHorizontalButtonHoverFragment on FlexibleContentFlexibleContentBlockImageOnHorizontalButtonHoverLayout {
   __typename
@@ -14493,108 +14397,6 @@ export const TestimonialHeadingIndentFragmentFragmentDoc = gql`
   }
 }
     `;
-export const GetPageBySlugDocument = gql`
-    query GetPageBySlug($slug: ID!) {
-  page(id: $slug, idType: URI) {
-    id
-    title
-    flexibleContent {
-      flexible {
-        ...CallToActionFragment
-        ...CenteredImageFragment
-        ...CenteredTextFragment
-        ...ContactFragment
-        ...FourAsymetricProjectCardsFragment
-        ...FourCardsHeadingTextFragment
-        ...HeadingIndent2ColTextFragment
-        ...HeadingIndentFragment
-        ...HeadingSubheadingImageTextFragment
-        ...HeadingSubheadingTwoColTextFragment
-        ...HeadingTwoImgTwoTextFragment
-        ...ImageOnHorizontalButtonHoverFragment
-        ...ImageOnTextHoverFragment
-        ...ImageOnVerticalButtonHoverFragment
-        ...ImageOrVideoFragment
-        ...ImageRgbaHeadingButtonFragment
-        ...ImageTextButtonFragment
-        ...InfiniteLogosFragment
-        ...LatestNewsFragment
-        ...NextPageFragment
-        ...RgbaBgTextOverImageFragment
-        ...RightSubheadingTwoColTextFragment
-        ...StastsRgbaFragment
-        ...SubheadingIndent1ColsFragment
-        ...SubheadingIndent2ColsFragment
-        ...SubheadingOneColTextFragment
-        ...SubheadingRowsFragment
-        ...SubheadingTwoColTextFragment
-        ...TestimonialHeadingIndentFragment
-      }
-    }
-  }
-}
-    ${CallToActionFragmentFragmentDoc}
-${CenteredImageFragmentFragmentDoc}
-${CenteredTextFragmentFragmentDoc}
-${ContactFragmentFragmentDoc}
-${FourAsymetricProjectCardsFragmentFragmentDoc}
-${FourCardsHeadingTextFragmentFragmentDoc}
-${HeadingIndent2ColTextFragmentFragmentDoc}
-${HeadingIndentFragmentFragmentDoc}
-${HeadingSubheadingImageTextFragmentFragmentDoc}
-${HeadingSubheadingTwoColTextFragmentFragmentDoc}
-${HeadingTwoImgTwoTextFragmentFragmentDoc}
-${ImageOnHorizontalButtonHoverFragmentFragmentDoc}
-${ImageOnTextHoverFragmentFragmentDoc}
-${ImageOnVerticalButtonHoverFragmentFragmentDoc}
-${ImageOrVideoFragmentFragmentDoc}
-${ImageRgbaHeadingButtonFragmentFragmentDoc}
-${ImageTextButtonFragmentFragmentDoc}
-${InfiniteLogosFragmentFragmentDoc}
-${LatestNewsFragmentFragmentDoc}
-${NextPageFragmentFragmentDoc}
-${RgbaBgTextOverImageFragmentFragmentDoc}
-${RightSubheadingTwoColTextFragmentFragmentDoc}
-${StastsRgbaFragmentFragmentDoc}
-${SubheadingIndent1ColsFragmentFragmentDoc}
-${SubheadingIndent2ColsFragmentFragmentDoc}
-${SubheadingOneColTextFragmentFragmentDoc}
-${SubheadingRowsFragmentFragmentDoc}
-${SubheadingTwoColTextFragmentFragmentDoc}
-${TestimonialHeadingIndentFragmentFragmentDoc}`;
-
-/**
- * __useGetPageBySlugQuery__
- *
- * To run a query within a React component, call `useGetPageBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetPageBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetPageBySlugQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useGetPageBySlugQuery(baseOptions: Apollo.QueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables> & ({ variables: GetPageBySlugQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-      }
-export function useGetPageBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-        }
-export function useGetPageBySlugSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-        }
-export type GetPageBySlugQueryHookResult = ReturnType<typeof useGetPageBySlugQuery>;
-export type GetPageBySlugLazyQueryHookResult = ReturnType<typeof useGetPageBySlugLazyQuery>;
-export type GetPageBySlugSuspenseQueryHookResult = ReturnType<typeof useGetPageBySlugSuspenseQuery>;
-export type GetPageBySlugQueryResult = Apollo.QueryResult<GetPageBySlugQuery, GetPageBySlugQueryVariables>;
 export const GetAllInsightsDocument = gql`
     query GetAllInsights {
   insights(first: 100) {

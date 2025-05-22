@@ -12,7 +12,6 @@ import HeadingIndent2ColTextBlock from '../Components/FlexibleBlocks/HeadingInde
 import HeadingIndentBlock from '../Components/FlexibleBlocks/HeadingIndentBlock/HeadingIndentBlock';
 import HeadingSubheadingImageTextBlock from '../Components/FlexibleBlocks/HeadingSubheadingImageTextBlock/HeadingSubheadingImageTextBlock';
 import HeadingSubheadingTwoColTextBlock from '../Components/FlexibleBlocks/HeadingSubheadingTwoColTextBlock/HeadingSubheadingTwoColTextBlock';
-import HeadingTwoImgTwoTextBlock from '../Components/FlexibleBlocks/HeadingTwoImgTwoTextBlock/HeadingTwoImgTwoTextBlock';
 import ImageOnHorizontalButtonHoverBlock from '../Components/FlexibleBlocks/ImageOnHorizontalButtonHoverBlock/ImageOnHorizontalButtonHoverBlock';
 import ImageOnTextHoverBlock from '../Components/FlexibleBlocks/ImageOnTextHoverBlock/ImageOnTextHoverBlock';
 import ImageOnVerticalButtonHoverBlock from '../Components/FlexibleBlocks/ImageOnVerticalButtonHoverBlock/ImageOnVerticalButtonHoverBlock';
@@ -59,8 +58,6 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
             return <HeadingSubheadingImageTextBlock data={data} />;
     case FlexibleBlocksEnum.HEADINGSUBHEADINGTWOCOLTEXTBLOCK:
             return <HeadingSubheadingTwoColTextBlock data={data} />;
-    case FlexibleBlocksEnum.HEADINGTWOIMGTWOTEXTBLOCK:
-            return <HeadingTwoImgTwoTextBlock data={data} />;
     case FlexibleBlocksEnum.IMAGEONHORIZONTALBUTTONHOVERBLOCK:
             return <ImageOnHorizontalButtonHoverBlock data={data} />;
     case FlexibleBlocksEnum.IMAGEONTEXTHOVERBLOCK:
