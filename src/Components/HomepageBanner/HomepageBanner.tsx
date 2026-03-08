@@ -1,88 +1,89 @@
+// src/Components/HomepageBanner/HomepageBanner.tsx
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
+import Link from "next/link";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import type IHomepageBanner from "@/Types/Acf/HomepageBanner";
 import DynamicImage from "@/Common/DynamicImage/DynamicImage";
-import IHomepageBanner from "./IHomepageBanner";
-import getBackground from "@/Helpers/GetBackground";
+import LinkStrip from "../LinkStrip/LinkStrip";
 
-const HomepageBanner = ({ data }: IHomepageBanner) => {
-    const { image, topBigTitle, bannerOptions, h1, video } = data.homepageBanner.homepageBannerFields || {};
-    const bigTitleRef = useRef<HTMLSpanElement>(null);
-    const h1Ref = useRef<HTMLSpanElement>(null);
+type HomepageBannerProps = {
+    data: IHomepageBanner;
+};
 
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
+const HomepageBanner = ({ data }: HomepageBannerProps) => {
+    const { title, size, discover_more_link, gallery_slider = [] } = data;
 
-        if (bigTitleRef.current) {
-            const splitBig = new SplitText(bigTitleRef.current, {
-                type: "lines",
-                linesClass: "split-child",
-            });
-            bigTitleRef.current.parentElement?.classList.add("split-parent");
-
-            gsap.from(splitBig.lines, {
-                scrollTrigger: {
-                    trigger: bigTitleRef.current.parentElement,
-                    start: "top bottom",
-                    toggleActions: "play none none none",
-                },
-                yPercent: 100,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power4.out",
-                stagger: 0.1,
-            });
-        }
-
-        // Animate H1. it has been removed from wordpress by design purposes (speak with Lee)
-        if (h1Ref.current) {
-            const splitH1 = new SplitText(h1Ref.current, {
-                type: "lines",
-                linesClass: "split-child",
-            });
-            h1Ref.current.parentElement?.classList.add("split-parent");
-
-            gsap.from(splitH1.lines, {
-                scrollTrigger: {
-                    trigger: h1Ref.current.parentElement,
-                    start: "top bottom",
-                    toggleActions: "play none none none",
-                },
-                yPercent: 100,
-                opacity: 0,
-                duration: 1,
-                ease: "power4.out",
-                stagger: 0.1,
-                delay: 0.3,
-            });
-        }
-    }, []);
+    if (!gallery_slider.length) {
+        return null;
+    }
 
     return (
-        <section className="relative flex w-full items-center h-screen">
-            {getBackground({ bannerOptions, image, video })}
-            <div className="absolute inset-0 z-10 bg-[linear-gradient(0deg,_rgba(0,0,0,0.30)_0%,_rgba(0,0,0,0.30)_100%)]" />
-            <div className="relative z-20 w-full px-30">
-                <p className="grid max-w-full grid-cols-12 gap-20">
-                    <span className="col-span-12 overflow-hidden">
-                        <span ref={bigTitleRef} className="text-70 sm:text-100 lg:text-230 font-black leading-72 uppercase tracking-tighter text-white">
-                            {topBigTitle}
-                        </span>
-                    </span>
-                </p>
+        <section className="relative w-full overflow-hidden">
+            {/* Swiper background slider */}
+            <Swiper
+                modules={[Autoplay, Pagination]}
+                slidesPerView={1}
+                loop
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    el: ".homepage-banner-pagination", // use our own container
+                    clickable: true,
+                }}
+                allowTouchMove
+                className="absolute inset-0 -z-10"
+            >
+                {gallery_slider.map((img, index) => (
+                    <SwiperSlide key={img.id ?? index}>
+                        <div className="relative h-full w-full min-h-[60vh] lg:min-h-[70vh]">
+                            <DynamicImage data={img} index={index} className="object-cover w-full h-full" />
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
 
-                {h1 && (
-                    <h1 className="grid max-w-full grid-cols-12 gap-20">
-                        <span className="col-span-12 lg:col-span-7 overflow-hidden">
-                            <span ref={h1Ref} className="text-38 lg:text-58 font-semibold leading-97 tracking-tighter text-white">
-                                {h1}
-                            </span>
-                        </span>
-                    </h1>
-                )}
+            {/* Dark overlay for contrast */}
+            <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
+
+            {/* Bottom content */}
+            <div className="absolute inset-x-0 bottom-0 z-20">
+                <div className="relative flex flex-col lg:flex-row lg:justify-between items-start lg:items-end gap-30 p-30 lg:p-60">
+                    <div
+                        className="absolute inset-0 -z-20 bg-[linear-gradient(0deg,rgba(49,62,78,0.85)_0%,rgba(49,62,78,0.85)_100%),linear-gradient(0deg,#313E4E_0%,#313E4E_100%)] opacity-95"
+                        aria-hidden="true"
+                    />
+                    <div className="container mx-auto px-72">
+                        <div className="lg:max-w-6/12">
+                            {title && <h1 className="font-medium text-40 leading-120 text-white mb-10">{title}</h1>}
+                            {size && (
+                                <p className="text-white text-30 font-medium leading-120 px-20 py-10 border border-white rounded-full inline-block">{size}</p>
+                            )}
+                            <div className="homepage-banner-pagination flex items-center gap-10 mt-20" />
+                        </div>
+
+                        <div className="flex flex-col items-start lg:items-end gap-4 lg:ml-auto">
+                            {discover_more_link?.url && (
+                                <LinkStrip
+                                    href={discover_more_link.url}
+                                    target={discover_more_link.target || undefined}
+                                    className="text-orange text-20 leading-120 font-medium inline-flex items-center gap-10"
+                                >
+                                    <span>{discover_more_link.title || "Discover more"}</span>
+                                    <Image src="/long-arrow-right.svg" alt="decorative icon" width={20} height={20} />
+                                </LinkStrip>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

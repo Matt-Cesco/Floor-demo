@@ -1,4 +1,4 @@
-import { MediaItem } from "@/Graphql/generated";
+import MediaItem from "@/Types/MediaItem";
 
 export interface IDynamicVideo {
     video?: {

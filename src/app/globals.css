@@ -1,13 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "../theme-plugin.cjs";
 
 html {
   font-size: 10px;
 }
 
-@layer components {
-  .reveal-text {
-    overflow: hidden;
-  }
+
+.container {
+    max-width: 160rem;
+}
+
+/* Position and style bullets inside the homepage banner */
+.homepage-banner-pagination .swiper-pagination-bullet {
+    @apply w-15 h-15 rounded-full border-2 border-orange bg-transparent opacity-100 mx-0;
+}
+
+/* Active bullet: filled orange */
+.homepage-banner-pagination .swiper-pagination-bullet-active {
+    @apply bg-orange;
+}
+
+/* 2. Define static theme values (The "v4 Way") */
+@theme {
+    /* Fonts */
+    --font-articulat: "articulat-cf", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    /* Colors */
+    /* Note: In v4, nested colors are flattened with dashes automatically */
+    --color-white: #ffffff;
+    --color-black: #0c0c0c;
+    --color-gray: #32373A;
+    --color-gray-light: #D3D3D3;
+    --color-gray-dark: #313e4e;
+    --color-blue-light: #00FFFF;
+    --color-orange: #f08c50;
 }

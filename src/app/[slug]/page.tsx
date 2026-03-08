@@ -1,34 +1,39 @@
 import type { Metadata } from "next";
-import { getPageBySlug } from "@/Graphql/wordpressCMS/getPageBySlug";
-import { getBannerBySlug } from "@/Graphql/wordpressCMS/queries/getBannerBySlug";
+import { notFound } from "next/navigation";
+import { getFlexiblePageBySlug } from "@/lib/wp-flexible";
+import type { AllBlockDataTypes } from "@/Components/FlexibleBlocks/AllBlockDataTypes";
 import FlexibleBlocks from "@/Components/FlexibleBlocks/FlexibleBlocks";
 import Banner from "@/Components/Banner/Banner";
-import { notFound } from "next/navigation";
-import { generateYoastMetadata } from "@/Helpers/seoHelpers";
+import { getBannerBySlug } from "@/lib/acf/getBanner";
+import { generateYoastMetadata } from "@/lib/seoHelpers";
 
 interface PageProps {
-    params: {
-        slug: string;
-    };
+    // In your setup, params is a Promise – mirror that so TS stays happy
+    params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    return generateYoastMetadata({ slug: params.slug });
+export const revalidate = 60;
+
+// Yoast metadata
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+    const { slug } = await props.params;
+    return generateYoastMetadata({ slug });
 }
 
-const PageComponent = async ({ params }: PageProps) => {
-    const { slug } = params;
-    const [pageData, bannerData] = await Promise.all([getPageBySlug(slug), getBannerBySlug(slug)]);
-    if (!pageData) {
-        return notFound();
-    }
+export default async function Page(props: PageProps) {
+    const { slug } = await props.params;
+
+    // Fetch flexible content + banner in parallel
+    const [page, banner] = await Promise.all([getFlexiblePageBySlug(slug), getBannerBySlug(slug)]);
+
+    if (!page) notFound();
+
+    const flexible = (page.acf?.flexible ?? []) as AllBlockDataTypes[];
 
     return (
-        <>
-            {!(slug === "insights" || slug === "contact") && bannerData?.banner && <Banner data={bannerData.banner.bannerFields} />}
-            {pageData.flexibleContent?.flexible && <FlexibleBlocks allBlocks={pageData.flexibleContent.flexible} />}
-        </>
+        <main>
+            {banner && <Banner data={banner} />}
+            {flexible.length > 0 && <FlexibleBlocks allBlocks={flexible} />}
+        </main>
     );
-};
-
-export default PageComponent;
+}

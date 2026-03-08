@@ -1,31 +1,22 @@
-import { Gantari } from "next/font/google";
+import Header from "@/Components/Layout/Header/Header";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { getWebsiteSeo } from "@/Graphql/wordpressCMS/queries/getWebsiteSeo";
-import { getThemeOptions } from "@/Graphql/wordpressCMS/queries/getThemeOptions";
-import Header from "@/Components/Layout/Header/Header";
 import Footer from "@/Components/Layout/Footer/Footer";
-import ScrollProvider from "@/Components/ScrollProvider";
-
-export const revalidate = 120;
-
-const gantari = Gantari({ subsets: ["latin"] });
+import { getThemeOptions } from "@/lib/acf/getThemeOptions";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-    const [seo, footerData] = await Promise.all([getWebsiteSeo(), getThemeOptions()]);
+    const themeOptions = await getThemeOptions();
 
     return (
-        <html lang="en" className={gantari.className}>
+        <html lang="en" className="">
             <head>
-                {seo?.siteSeo?.googleTagManager && <GoogleTagManager gtmId={`${seo.siteSeo.googleTagManager}`} />}
-                {seo?.siteSeo?.googleVerification && <meta name="google-site-verification" content={`${seo.siteSeo.googleVerification}`}></meta>}
+                {themeOptions?.google_tag_manager && <GoogleTagManager gtmId={themeOptions.google_tag_manager} />}
+                {themeOptions?.google_verification && <meta name="google-site-verification" content={themeOptions.google_verification} />}
             </head>
-            <body className="bg-white dark:bg-blue-dark">
+            <body className="bg-white">
                 <Header />
-                <ScrollProvider>
-                    {children}
-                    {footerData && <Footer {...footerData} />}
-                </ScrollProvider>
+                <main>{children}</main>
+                <Footer />
             </body>
         </html>
     );

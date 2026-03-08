@@ -1,150 +1,37 @@
-"use client";
+import DynamicImage from "@/Common/DynamicImage/DynamicImage";
+import IBanner from "@/Types/Acf/Banner";
+import React from "react";
 
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
-import AnimatedLink from "../Layout/AnimatedLink";
-import getImageOrVideo from "@/Helpers/GetImageorVideo";
-import { BannerImageOptionsEnum, BannerOptionsEnum } from "./BannerOptionsEnum";
-import IBanner from "./IBanner";
+type BannerProps = {
+    data: IBanner;
+};
 
-const Banner = ({ data }: IBanner) => {
-    const { title, image, video, bannerOptions, imageSizeOptions, imageOrVideoOptions, showBrand, showDesign, showDigital, showPr } = data || {};
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const mediaWrapperRef = useRef<HTMLDivElement>(null);
+const Banner = ({ data }: BannerProps) => {
+    const { title, background_image, rgba_overlay } = data;
 
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
-
-        if (titleRef.current) {
-            const split = new SplitText(titleRef.current, { type: "lines", linesClass: "split-child" });
-            titleRef.current.parentElement?.classList.add("split-parent");
-            gsap.from(split.lines, {
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: "top bottom",
-                    toggleActions: "play none none none",
-                },
-                yPercent: 100,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power4.out",
-                stagger: 0.1,
-            });
-        }
-
-        if (mediaWrapperRef.current) {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: mediaWrapperRef.current,
-                    start: "top bottom",
-                    toggleActions: "restart none none reset",
-                },
-            });
-            tl.set(mediaWrapperRef.current, { autoAlpha: 1 });
-            tl.from(mediaWrapperRef.current, {
-                xPercent: 0,
-                duration: 1.5,
-                ease: "power2.out",
-            });
-            tl.from(mediaWrapperRef.current, {
-                xPercent: 100,
-                scale: 1,
-                duration: 1.5,
-                delay: -1.5,
-                ease: "power2.out",
-            });
-        }
-    }, []);
+    const overlayClass =
+        rgba_overlay === "orange"
+            ? "bg-[linear-gradient(180deg,#A55F37_0%,#F08C50_100%)] mix-blend-multiply"
+            : rgba_overlay === "blue"
+            ? "bg-[linear-gradient(0deg,#737E8E_0%,#737E8E_100%)] mix-blend-multiply"
+            : "bg-black/40"; // fallback (if not set)
 
     return (
-        <section className="pt-120 relative -z-20">
-            <div className="relative grid grid-cols-12 gap-20 px-30">
-                <div className="col-span-12 lg:col-span-5 lg:col-start-1">
-                    <h1
-                        ref={titleRef}
-                        className="relative z-10 text-blue-light dark:text-white text-40 lg:text-160 font-black leading-72 tracking-tight mt-75"
-                    >
-                        {title}
-                    </h1>
-                </div>
+        <section className="relative w-full min-h-[50vh] lg:max-h-[70vh] overflow-hidden">
+            {/* Background image */}
+            <div className="absolute inset-0 -z-20">
+                <DynamicImage data={background_image} className="object-cover w-full h-full" />
             </div>
 
-            {bannerOptions === BannerOptionsEnum.TITLEIMAGE && (
-                <div className="grid grid-cols-12 gap-20 px-30 -z-10 w-full mt-60 lg:mt-120">
-                    <div className="col-span-12 lg:col-span-1 lg:col-start-2">
-                        <div className="flex flex-col mt-16 space-y-6">
-                            {showDesign && (
-                                <AnimatedLink
-                                    href="/design"
-                                    className="group flex items-center text-21 font-black uppercase tracking-tight leading-95 text-blue-dark dark:text-white hover:text-green"
-                                >
-                                    Design
-                                    <span className="ml-4 group-hover:rotate-45 group-hover:ml-6 duration-300">
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="#009BDF" />
-                                        </svg>
-                                    </span>
-                                </AnimatedLink>
-                            )}
-                            {showDigital && (
-                                <AnimatedLink
-                                    href="/digital"
-                                    className="group flex items-center text-21 font-black uppercase tracking-tight leading-95 text-blue-dark dark:text-white hover:text-pink"
-                                >
-                                    Digital
-                                    <span className="ml-4 group-hover:rotate-45 group-hover:ml-6 duration-300">
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="#009BDF" />
-                                        </svg>
-                                    </span>
-                                </AnimatedLink>
-                            )}
-                            {showBrand && (
-                                <AnimatedLink
-                                    href="/brand"
-                                    className="group flex items-center text-21 font-black uppercase tracking-tight leading-95 text-blue-dark dark:text-white hover:text-orange"
-                                >
-                                    Brand
-                                    <span className="ml-4 group-hover:rotate-45 group-hover:ml-6 duration-300">
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="#009BDF" />
-                                        </svg>
-                                    </span>
-                                </AnimatedLink>
-                            )}
-                            {showPr && (
-                                <AnimatedLink
-                                    href="/pr"
-                                    className="group flex items-center text-21 font-black uppercase tracking-tight leading-95 text-blue-dark dark:text-white hover:text-purple"
-                                >
-                                    Pr
-                                    <span className="ml-4 group-hover:rotate-45 group-hover:ml-6 duration-300">
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="#009BDF" />
-                                        </svg>
-                                    </span>
-                                </AnimatedLink>
-                            )}
-                        </div>
-                    </div>
+            {/* Overlay (conditional) */}
+            <div className={`absolute inset-0 -z-10 ${overlayClass}`} aria-hidden="true" />
 
-                    <div className="col-span-12 lg:col-span-8 lg:col-start-5 overflow-hidden">
-                        <div ref={mediaWrapperRef} className="overflow-hidden w-full">
-                            {getImageOrVideo({
-                                videoOrImageOptions: imageOrVideoOptions,
-                                image,
-                                video,
-                                className:
-                                    imageSizeOptions === BannerImageOptionsEnum.SHORT
-                                        ? "aspect-[957/593] w-full object-cover"
-                                        : "aspect-[957/917] w-full object-cover",
-                            })}
-                        </div>
-                    </div>
+            {/* Bottom content */}
+            <div className="absolute inset-x-0 bottom-0 z-40">
+                <div className="flex justify-between items-end p-30 lg:p-60">
+                    <div className="lg:max-w-6/12">{title && <h1 className="font-medium text-40 leading-120 text-white mb-10">{title}</h1>}</div>
                 </div>
-            )}
+            </div>
         </section>
     );
 };

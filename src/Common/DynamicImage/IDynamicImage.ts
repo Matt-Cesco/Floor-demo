@@ -1,9 +1,9 @@
-import { MediaItem } from "@/Graphql/generated";
+import MediaItem from "@/Types/MediaItem";
 
 export interface IDynamicImage {
-  data?: {
-    node?: MediaItem | null;
-  } | null;
-  className?: string;
-  index?: number;
+    data?: MediaItem | null;
+    className?: string;
+    index?: number;
+    priority?: boolean;
+    loading?: "lazy" | "eager";
 }
