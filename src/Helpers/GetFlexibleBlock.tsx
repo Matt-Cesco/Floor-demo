@@ -4,9 +4,11 @@ import { AllBlockDataTypes } from "@/Components/FlexibleBlocks/AllBlockDataTypes
 import IFlexibleBlock from "@/Components/FlexibleBlocks/IFlexibleBlock";
 
 import SubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/SubheadingsCtaBlock";
+import SampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/SampleProcessBlock";
 import FourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/FourColumnsHeadingTextLinkBlock";
 import IntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IntentGridBlock";
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import ISampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/ISampleProcessBlock";
 import IFourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/IFourColumnsHeadingTextLinkBlock";
 import IIntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IIntentGridBlock";
 
@@ -19,6 +21,8 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   switch (data.acf_fc_layout) {
     case FlexibleBlocksEnum.SUBHEADINGSCTABLOCK:
       return <SubheadingsCtaBlock data={data as ISubheadingsCtaBlock} />;
+    case FlexibleBlocksEnum.SAMPLEPROCESSBLOCK:
+      return <SampleProcessBlock data={data as ISampleProcessBlock} />;
     case FlexibleBlocksEnum.FOURCOLUMNSHEADINGTEXTLINKBLOCK:
       return <FourColumnsHeadingTextLinkBlock data={data as IFourColumnsHeadingTextLinkBlock} />;
     case FlexibleBlocksEnum.INTENTGRIDBLOCK:
