@@ -1,7 +1,6 @@
-import Header from "@/Components/Layout/Header/Header";
+// import Header from "@/Components/Layout/Header/Header";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Footer from "@/Components/Layout/Footer/Footer";
 import { getThemeOptions } from "@/lib/acf/getThemeOptions";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -14,9 +13,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {themeOptions?.google_verification && <meta name="google-site-verification" content={themeOptions.google_verification} />}
             </head>
             <body className="bg-white">
-                <Header />
+                {/* <Header /> */}
                 <main>{children}</main>
-                <Footer />
             </body>
         </html>
     );

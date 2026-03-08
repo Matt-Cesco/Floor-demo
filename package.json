@@ -13,15 +13,15 @@
         "map": "node tools/generateSitemaps.js"
     },
     "dependencies": {
-        "@next/third-parties": "^16.0.7",
+        "@next/third-parties": "^16.1.6",
         "dotenv": "^17.2.3",
         "html-react-parser": "^5.2.10",
         "next": "^16.1.0",
         "npm": "^11.6.4",
         "react": "19.2.0",
         "react-dom": "19.2.0",
-        "swiper": "^12.0.3",
-        "react-hook-form": "^7.54.2"
+        "react-hook-form": "^7.54.2",
+        "swiper": "^12.0.3"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^6.1.0",

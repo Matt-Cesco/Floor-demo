@@ -3,12 +3,10 @@ import FlexibleBlocksEnum from "@/Components/FlexibleBlocks/FlexibleBlocksEnum";
 import { AllBlockDataTypes } from "@/Components/FlexibleBlocks/AllBlockDataTypes";
 import IFlexibleBlock from "@/Components/FlexibleBlocks/IFlexibleBlock";
 
-import ContentBlockCenteredTextBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredTextBlock/ContentBlockCenteredTextBlock";
-import ContentBlockCenteredLinkBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredLinkBlock/ContentBlockCenteredLinkBlock";
-import ContentBlockImageBlock from "@/Components/FlexibleBlocks/ContentBlockImageBlock/ContentBlockImageBlock";
-import IContentBlockCenteredTextBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredTextBlock/IContentBlockCenteredTextBlock";
-import IContentBlockCenteredLinkBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredLinkBlock/IContentBlockCenteredLinkBlock";
-import IContentBlockImageBlock from "@/Components/FlexibleBlocks/ContentBlockImageBlock/IContentBlockImageBlock";
+import SubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/SubheadingsCtaBlock";
+import FourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/FourColumnsHeadingTextLinkBlock";
+import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IFourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/IFourColumnsHeadingTextLinkBlock";
 
 const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   if (!data || !data.acf_fc_layout) {
@@ -17,12 +15,10 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   }
 
   switch (data.acf_fc_layout) {
-    case FlexibleBlocksEnum.CONTENTBLOCKCENTEREDTEXTBLOCK:
-      return <ContentBlockCenteredTextBlock data={data as IContentBlockCenteredTextBlock} />;
-    case FlexibleBlocksEnum.CONTENTBLOCKCENTEREDLINKBLOCK:
-      return <ContentBlockCenteredLinkBlock data={data as IContentBlockCenteredLinkBlock} />;
-    case FlexibleBlocksEnum.CONTENTBLOCKIMAGEBLOCK:
-      return <ContentBlockImageBlock data={data as IContentBlockImageBlock} />;
+    case FlexibleBlocksEnum.SUBHEADINGSCTABLOCK:
+      return <SubheadingsCtaBlock data={data as ISubheadingsCtaBlock} />;
+    case FlexibleBlocksEnum.FOURCOLUMNSHEADINGTEXTLINKBLOCK:
+      return <FourColumnsHeadingTextLinkBlock data={data as IFourColumnsHeadingTextLinkBlock} />;
     default:
       console.warn(`Unknown block layout: ${data.acf_fc_layout}`);
       return null;

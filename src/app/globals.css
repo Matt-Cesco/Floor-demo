@@ -1,36 +1,34 @@
 @import "tailwindcss";
 @plugin "../theme-plugin.cjs";
 
-html {
-  font-size: 10px;
+@layer base {
+    html {
+        font-size: 10px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
-
-.container {
-    max-width: 160rem;
-}
-
-/* Position and style bullets inside the homepage banner */
-.homepage-banner-pagination .swiper-pagination-bullet {
-    @apply w-15 h-15 rounded-full border-2 border-orange bg-transparent opacity-100 mx-0;
-}
-
-/* Active bullet: filled orange */
-.homepage-banner-pagination .swiper-pagination-bullet-active {
-    @apply bg-orange;
-}
-
-/* 2. Define static theme values (The "v4 Way") */
 @theme {
     /* Fonts */
-    --font-articulat: "articulat-cf", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    --font-articulat: "articulat-cf", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-serif: "Playfair Display", serif;
     /* Colors */
-    /* Note: In v4, nested colors are flattened with dashes automatically */
     --color-white: #ffffff;
     --color-black: #0c0c0c;
-    --color-gray: #32373A;
-    --color-gray-light: #D3D3D3;
+    --color-black-light: #161616;
+    --color-gray: #32373a;
+    --color-gold: #b88a3b;
+    --color-gray-light: #d3d3d3;
     --color-gray-dark: #313e4e;
-    --color-blue-light: #00FFFF;
+    --color-blue-light: #00ffff;
     --color-orange: #f08c50;
+
+    /* Scrims & Overlays */
+    --color-scrim: rgba(12, 12, 12, 0.85);
+}
+
+/* Custom Utilities for the Dark Scrim */
+@utility bg-hero-gradient {
+    background: linear-gradient(to right, var(--color-scrim) 0%, rgba(12, 12, 12, 0.4) 50%, transparent 100%);
 }

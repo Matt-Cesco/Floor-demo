@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import DynamicImage from "@/Common/DynamicImage/DynamicImage";
-import LinkStrip from "@/Components/LinkStrip/LinkStrip";
 import type IThemeOptions from "@/Types/Acf/ThemeOptions";
 import Link from "next/link";
 
@@ -40,14 +39,14 @@ const HeaderClient = ({ themeOptions }: HeaderClientProps) => {
                             if (!link) return null;
 
                             return (
-                                <LinkStrip
+                                <Link
                                     key={`${link.title}-${index}`}
                                     href={link.url}
                                     target={link.target}
                                     className="text-white text-18 font-medium leading-120 hover:underline"
                                 >
                                     {link.title}
-                                </LinkStrip>
+                                </Link>
                             );
                         })}
                     </nav>
@@ -96,7 +95,7 @@ const HeaderClient = ({ themeOptions }: HeaderClientProps) => {
                                 if (!link) return null;
 
                                 return (
-                                    <LinkStrip
+                                    <Link
                                         key={`${link.title}-${index}-mobile`}
                                         href={link.url}
                                         target={link.target || undefined}
@@ -104,7 +103,7 @@ const HeaderClient = ({ themeOptions }: HeaderClientProps) => {
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {link.title}
-                                    </LinkStrip>
+                                    </Link>
                                 );
                             })}
                         </nav>

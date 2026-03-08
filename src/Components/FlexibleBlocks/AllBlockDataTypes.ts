@@ -1,8 +1,6 @@
-import IContentBlockCenteredTextBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredTextBlock/IContentBlockCenteredTextBlock";
-import IContentBlockCenteredLinkBlock from "@/Components/FlexibleBlocks/ContentBlockCenteredLinkBlock/IContentBlockCenteredLinkBlock";
-import IContentBlockImageBlock from "@/Components/FlexibleBlocks/ContentBlockImageBlock/IContentBlockImageBlock";
+import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IFourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/IFourColumnsHeadingTextLinkBlock";
 
 export type AllBlockDataTypes =
-  IContentBlockCenteredTextBlock |
-  IContentBlockCenteredLinkBlock |
-  IContentBlockImageBlock;
+  ISubheadingsCtaBlock |
+  IFourColumnsHeadingTextLinkBlock;

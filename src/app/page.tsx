@@ -18,7 +18,6 @@ const PageComponent = async () => {
     const pageData = await getFlexiblePageBySlug(HOME_SLUG);
     const flexibleBlocks = pageData?.acf?.flexible ?? [];
 
-    // Fetch homepage banner ACF group (attached to the "home" page)
     const bannerData = await getHomepageBannerBySlug(HOME_SLUG);
 
     return (

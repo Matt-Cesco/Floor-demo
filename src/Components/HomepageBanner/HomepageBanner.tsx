@@ -1,90 +1,119 @@
-// src/Components/HomepageBanner/HomepageBanner.tsx
-"use client";
-
-import Link from "next/link";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
-
 import type IHomepageBanner from "@/Types/Acf/HomepageBanner";
 import DynamicImage from "@/Common/DynamicImage/DynamicImage";
-import LinkStrip from "../LinkStrip/LinkStrip";
+import Link from "next/link";
+import DynamicText from "@/Common/DynamicText/DynamicText";
 
 type HomepageBannerProps = {
     data: IHomepageBanner;
 };
 
 const HomepageBanner = ({ data }: HomepageBannerProps) => {
-    const { title, size, discover_more_link, gallery_slider = [] } = data;
-
-    if (!gallery_slider.length) {
-        return null;
-    }
+    const {
+        top_title,
+        title_first_line,
+        title_highlighted_word,
+        title_third_line,
+        strapline,
+        first_cta_link,
+        second_cta_link,
+        background_image,
+        bottom_badge_top_title,
+        bottom_badge_title,
+        bottom_badge_price,
+        bottom_badge_deleted_price,
+    } = data;
 
     return (
-        <section className="relative w-full overflow-hidden">
-            {/* Swiper background slider */}
-            <Swiper
-                modules={[Autoplay, Pagination]}
-                slidesPerView={1}
-                loop
-                autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    el: ".homepage-banner-pagination", // use our own container
-                    clickable: true,
-                }}
-                allowTouchMove
-                className="absolute inset-0 -z-10"
-            >
-                {gallery_slider.map((img, index) => (
-                    <SwiperSlide key={img.id ?? index}>
-                        <div className="relative h-full w-full min-h-[60vh] lg:min-h-[70vh]">
-                            <DynamicImage data={img} index={index} className="object-cover w-full h-full" />
+        <section className="relative min-h-850 w-full flex items-center overflow-hidden bg-black-light">
+            {background_image && (
+                <div className="absolute inset-0 z-0">
+                    <DynamicImage data={background_image} className="h-full w-full object-cover object-center" priority={true} />
+                    <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+                </div>
+            )}
+
+            <div className="relative z-10 mx-auto w-full px-40 py-180 grid grid-cols-1 lg:grid-cols-12 gap-20">
+                <div className="lg:col-start-3 lg:col-span-8 max-w-750">
+                    {top_title && (
+                        <div className="mb-32 flex items-center gap-12">
+                            <div className="flex text-amber-400 text-16 tracking-widest">★★★★★</div>
+                            <p className="text-12 font-semibold uppercase text-white/70 font-articulat tracking-widest">{top_title}</p>
                         </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                    )}
 
-            {/* Dark overlay for contrast */}
-            <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
+                    <h1 className="font-articulat text-60 md:text-75 font-semibold leading-100 tracking-tight text-white mb-40">
+                        {title_first_line} <br />
+                        <span className="font-serif italic text-white/50 font-normal">{title_highlighted_word}</span> {title_third_line}
+                    </h1>
 
-            {/* Bottom content */}
-            <div className="absolute inset-x-0 bottom-0 z-20">
-                <div className="relative flex flex-col lg:flex-row lg:justify-between items-start lg:items-end gap-30 p-30 lg:p-60">
-                    <div
-                        className="absolute inset-0 -z-20 bg-[linear-gradient(0deg,rgba(49,62,78,0.85)_0%,rgba(49,62,78,0.85)_100%),linear-gradient(0deg,#313E4E_0%,#313E4E_100%)] opacity-95"
-                        aria-hidden="true"
-                    />
-                    <div className="container mx-auto px-72">
-                        <div className="lg:max-w-6/12">
-                            {title && <h1 className="font-medium text-40 leading-120 text-white mb-10">{title}</h1>}
-                            {size && (
-                                <p className="text-white text-30 font-medium leading-120 px-20 py-10 border border-white rounded-full inline-block">{size}</p>
-                            )}
-                            <div className="homepage-banner-pagination flex items-center gap-10 mt-20" />
-                        </div>
+                    {strapline && <DynamicText data={strapline} pClassName="mb-48 max-w-550 text-18 font-400 leading-160 text-white/80 font-articulat" />}
 
-                        <div className="flex flex-col items-start lg:items-end gap-4 lg:ml-auto">
-                            {discover_more_link?.url && (
-                                <LinkStrip
-                                    href={discover_more_link.url}
-                                    target={discover_more_link.target || undefined}
-                                    className="text-orange text-20 leading-120 font-medium inline-flex items-center gap-10"
+                    <div className="mb-60 flex flex-col gap-16 sm:flex-row">
+                        {first_cta_link && (
+                            <Link
+                                href={first_cta_link.url}
+                                target={first_cta_link.target}
+                                className="group inline-flex items-center justify-center rounded-2xl bg-white px-40 py-20 text-16 font-semibold text-black transition-all hover:bg-gray-light"
+                            >
+                                <span>{first_cta_link.title}</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="ml-8 transition-transform duration-300 group-hover:translate-x-4"
                                 >
-                                    <span>{discover_more_link.title || "Discover more"}</span>
-                                    <Image src="/long-arrow-right.svg" alt="decorative icon" width={20} height={20} />
-                                </LinkStrip>
-                            )}
+                                    <path d="M5 12h14m-7-7 7 7-7 7" />
+                                </svg>
+                            </Link>
+                        )}
+                        {second_cta_link && (
+                            <Link
+                                href={second_cta_link.url}
+                                target={second_cta_link.target}
+                                className="inline-flex items-center justify-center rounded-2xl px-40 py-20 border border-white/20 bg-white/10 text-16 font-700 text-white backdrop-blur-md transition-all hover:bg-white/20"
+                            >
+                                {second_cta_link.title}
+                            </Link>
+                        )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-x-40 gap-y-16 border-t border-white/10 pt-40">
+                        <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
+                            <span className="text-white">✓</span> Free Samples
+                        </div>
+                        <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
+                            <span className="text-white">✓</span> Price Match Promise
+                        </div>
+                        <div className="flex items-center gap-12 text-10 font-bold uppercase tracking-15 text-white/50">
+                            <span className="bg-[#ffb3c7] text-black px-8 py-3 rounded-4 text-9 font-900">Klarna</span> Available
                         </div>
                     </div>
                 </div>
             </div>
+
+            {(bottom_badge_title || bottom_badge_price) && (
+                <div className="absolute bottom-80 right-80 z-20 hidden xl:block">
+                    <div className="rounded-2xl border border-white/10 bg-black/30 p-40 shadow-2xl backdrop-blur-xl text-white">
+                        <p className="mb-2 text-9 font-bold uppercase tracking-widest text-white/40 font-articulat">
+                            {bottom_badge_top_title || "Direct Value"}
+                        </p>
+                        <p className="text-22 font-bold mb-16 font-articulat">{bottom_badge_title}</p>
+                        <div className="flex items-baseline gap-12">
+                            <p className="text-18 font-bold leading-100">{bottom_badge_price}</p>
+                            {bottom_badge_deleted_price && <p className="text-15 text-white/30 font-semibold line-through">{bottom_badge_deleted_price}</p>}
+                        </div>
+                        <button className="mt-24 w-full rounded-2xl bg-white py-16 text-11 font-bold uppercase tracking-20 text-black hover:bg-gray-light transition-all">
+                            Order Free Sample
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
