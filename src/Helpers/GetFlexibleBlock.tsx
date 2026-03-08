@@ -5,8 +5,10 @@ import IFlexibleBlock from "@/Components/FlexibleBlocks/IFlexibleBlock";
 
 import SubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/SubheadingsCtaBlock";
 import FourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/FourColumnsHeadingTextLinkBlock";
+import IntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IntentGridBlock";
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
 import IFourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/IFourColumnsHeadingTextLinkBlock";
+import IIntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IIntentGridBlock";
 
 const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   if (!data || !data.acf_fc_layout) {
@@ -19,6 +21,8 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
       return <SubheadingsCtaBlock data={data as ISubheadingsCtaBlock} />;
     case FlexibleBlocksEnum.FOURCOLUMNSHEADINGTEXTLINKBLOCK:
       return <FourColumnsHeadingTextLinkBlock data={data as IFourColumnsHeadingTextLinkBlock} />;
+    case FlexibleBlocksEnum.INTENTGRIDBLOCK:
+      return <IntentGridBlock data={data as IIntentGridBlock} />;
     default:
       console.warn(`Unknown block layout: ${data.acf_fc_layout}`);
       return null;
