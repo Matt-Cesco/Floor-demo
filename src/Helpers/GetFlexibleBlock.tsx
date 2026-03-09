@@ -4,12 +4,14 @@ import { AllBlockDataTypes } from "@/Components/FlexibleBlocks/AllBlockDataTypes
 import IFlexibleBlock from "@/Components/FlexibleBlocks/IFlexibleBlock";
 
 import SubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/SubheadingsCtaBlock";
+import ReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/ReassuranceBlock";
 import ValueEvolutionBlock from "@/Components/FlexibleBlocks/ValueEvolutionBlock/ValueEvolutionBlock";
 import BestSellersBlock from "@/Components/FlexibleBlocks/BestSellersBlock/BestSellersBlock";
 import SampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/SampleProcessBlock";
 import FourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/FourColumnsHeadingTextLinkBlock";
 import IntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IntentGridBlock";
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/IReassuranceBlock";
 import IValueEvolutionBlock from "@/Components/FlexibleBlocks/ValueEvolutionBlock/IValueEvolutionBlock";
 import IBestSellersBlock from "@/Components/FlexibleBlocks/BestSellersBlock/IBestSellersBlock";
 import ISampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/ISampleProcessBlock";
@@ -25,6 +27,8 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   switch (data.acf_fc_layout) {
     case FlexibleBlocksEnum.SUBHEADINGSCTABLOCK:
       return <SubheadingsCtaBlock data={data as ISubheadingsCtaBlock} />;
+    case FlexibleBlocksEnum.REASSURANCEBLOCK:
+      return <ReassuranceBlock data={data as IReassuranceBlock} />;
     case FlexibleBlocksEnum.VALUEEVOLUTIONBLOCK:
       return <ValueEvolutionBlock data={data as IValueEvolutionBlock} />;
     case FlexibleBlocksEnum.BESTSELLERSBLOCK:

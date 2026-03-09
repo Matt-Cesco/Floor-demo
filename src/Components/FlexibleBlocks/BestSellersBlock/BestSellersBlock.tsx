@@ -40,7 +40,7 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
                     {best_selling_cards?.map((card, index) => (
                         <div
                             key={index}
-                            className={`group flex flex-col rounded-[2.5rem] border border-black/5 bg-white/70 p-24 backdrop-blur-xl transition-all duration-500 hover:-translate-y-4 hover:bg-white hover:shadow-2xl ${
+                            className={`group flex flex-col rounded-2xl border border-black/5 bg-white/70 p-24 backdrop-blur-xl transition-all duration-500 hover:-translate-y-4 hover:bg-white hover:shadow-2xl ${
                                 index % 2 === 1 ? "lg:mt-40" : ""
                             }`}
                         >

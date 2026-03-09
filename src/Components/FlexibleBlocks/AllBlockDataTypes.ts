@@ -1,4 +1,5 @@
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/IReassuranceBlock";
 import IValueEvolutionBlock from "@/Components/FlexibleBlocks/ValueEvolutionBlock/IValueEvolutionBlock";
 import IBestSellersBlock from "@/Components/FlexibleBlocks/BestSellersBlock/IBestSellersBlock";
 import ISampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/ISampleProcessBlock";
@@ -7,6 +8,7 @@ import IIntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IInten
 
 export type AllBlockDataTypes =
   ISubheadingsCtaBlock |
+  IReassuranceBlock |
   IValueEvolutionBlock |
   IBestSellersBlock |
   ISampleProcessBlock |

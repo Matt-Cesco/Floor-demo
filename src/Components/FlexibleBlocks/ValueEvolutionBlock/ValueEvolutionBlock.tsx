@@ -26,7 +26,7 @@ const ValueEvolutionBlock = ({ data }: IFlexibleBlock<IValueEvolutionBlock>) => 
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12">
                 <div className="lg:col-start-2 lg:col-span-10 grid grid-cols-1 lg:grid-cols-5 gap-24">
                     {/* First Card: The Model (2/5 Width) */}
-                    <div className="lg:col-span-2 flex flex-col justify-center rounded-[2.5rem] border border-black/5 bg-white/50 p-48 backdrop-blur-sm">
+                    <div className="lg:col-span-2 flex flex-col justify-center rounded-2xl border border-black/5 bg-white/50 p-48 backdrop-blur-sm">
                         {first_card_title && <h3 className="text-28 font-bold text-black-light font-articulat">{first_card_title}</h3>}
                         {first_card_text && (
                             <div className="mt-24">
@@ -36,7 +36,7 @@ const ValueEvolutionBlock = ({ data }: IFlexibleBlock<IValueEvolutionBlock>) => 
                     </div>
 
                     {/* Second Card: The Price Match Hero (3/5 Width) */}
-                    <div className="lg:col-span-3 flex flex-col justify-center rounded-[2.5rem] bg-black-light p-48 lg:p-64 text-white shadow-2xl relative overflow-hidden">
+                    <div className="lg:col-span-3 flex flex-col justify-center rounded-2xl bg-black-light p-48 lg:p-64 text-white shadow-2xl relative overflow-hidden">
                         {/* Aesthetic Branding Element */}
                         <div className="absolute -right-20 -bottom-20 text-[240px] font-bold text-white/3 font-articulat select-none pointer-events-none">
                             £
