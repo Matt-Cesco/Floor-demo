@@ -85,13 +85,13 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
 
                     <div className="flex flex-wrap gap-x-40 gap-y-16">
                         <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
-                            <span className="text-white">✓</span> Free Samples
+                            <span className="text-green-600">✓</span> Next day Samples
                         </div>
                         <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
-                            <span className="text-white">✓</span> Price Match Promise
+                            <span className="text-green-600">✓</span> Price Match Promise
                         </div>
-                        <div className="flex items-center gap-12 text-10 font-bold uppercase tracking-15 text-white/50">
-                            <span className="bg-[#ffb3c7] text-black px-8 py-3 rounded-4 text-9 font-900">Klarna</span> Available
+                        <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
+                            <span className="text-green-600">✓</span> Klarna
                         </div>
                     </div>
                 </div>

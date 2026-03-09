@@ -8,7 +8,7 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
     const { top_title, title, description, view_all_link, best_selling_cards } = data.best_sellers_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-white-light pt-60 pb-40 lg:pt-75 lg:pb-50">
+        <section className="relative w-full overflow-hidden bg-white pt-60 pb-40 lg:pt-75 lg:pb-50">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-40 mb-80">
                 <div className="lg:col-start-3 lg:col-span-9 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-32">
                     <div className="max-w-750">

@@ -8,7 +8,7 @@ const ValueEvolutionBlock = ({ data }: IFlexibleBlock<IValueEvolutionBlock>) => 
         data.value_evolution_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-white-light pt-60 pb-40 lg:pt-75 lg:pb-50">
+        <section className="relative w-full overflow-hidden bg-white pt-60 pb-40 lg:pt-75 lg:pb-50">
             {/* Header: Title starts at Col 3 */}
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 mb-80">
                 <div className="lg:col-start-3 lg:col-span-8">
@@ -34,7 +34,6 @@ const ValueEvolutionBlock = ({ data }: IFlexibleBlock<IValueEvolutionBlock>) => 
                             </div>
                         )}
                     </div>
-
                     {/* Second Card: The Price Match Hero (3/5 Width) */}
                     <div className="lg:col-span-3 flex flex-col justify-center rounded-2xl bg-black-light p-48 lg:p-64 text-white shadow-2xl relative overflow-hidden">
                         {/* Aesthetic Branding Element */}
