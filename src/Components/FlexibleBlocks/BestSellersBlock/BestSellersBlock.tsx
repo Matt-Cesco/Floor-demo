@@ -8,12 +8,12 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
     const { top_title, title, description, view_all_link, best_selling_cards } = data.best_sellers_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-[#F8F6F2] py-120 lg:py-180">
+        <section className="relative w-full overflow-hidden bg-white-light pt-60 pb-40 lg:pt-75 lg:pb-50">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-40 mb-80">
                 <div className="lg:col-start-3 lg:col-span-9 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-32">
                     <div className="max-w-750">
                         {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/50 font-articulat tracking-widest">{top_title}</p>}
-                        {title && <h2 className="font-articulat text-50 md:text-60 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
+                        {title && <h2 className="font-articulat text-40 md:text-50 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
                         {description && (
                             <div className="mt-24">
                                 <DynamicText data={description} pClassName="text-18 leading-160 text-black/60 font-articulat" />
@@ -56,7 +56,7 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
                             )}
 
                             <div className="flex flex-col gap-4">
-                                <h3 className="text-20 font-bold text-black-light font-articulat">{card.title}</h3>
+                                <h3 className="text-20 font-black text-black-light font-articulat">{card.title}</h3>
                                 {card.sub_title && <p className="text-14 text-black/50 font-medium font-articulat">{card.sub_title}</p>}
                             </div>
 

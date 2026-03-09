@@ -24,7 +24,7 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
     } = data;
 
     return (
-        <section className="relative min-h-850 w-full flex items-center overflow-hidden bg-black-light">
+        <section className="relative w-full flex items-center overflow-hidden bg-black-light">
             {background_image && (
                 <div className="absolute inset-0 z-0">
                     <DynamicImage data={background_image} className="h-full w-full object-cover object-center" priority={true} />
@@ -32,10 +32,10 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
                 </div>
             )}
 
-            <div className="relative z-10 mx-auto w-full px-40 py-180 grid grid-cols-1 lg:grid-cols-12 gap-20">
+            <div className="relative z-10 mx-auto w-full px-40 pt-160 pb-75 grid grid-cols-1 lg:grid-cols-12 gap-20">
                 <div className="lg:col-start-3 lg:col-span-8 max-w-750">
                     {top_title && (
-                        <div className="mb-32 flex items-center gap-12">
+                        <div className="mb-48 flex items-center gap-12">
                             <div className="flex text-amber-400 text-16 tracking-widest">★★★★★</div>
                             <p className="text-12 font-semibold uppercase text-white/70 font-articulat tracking-widest">{top_title}</p>
                         </div>
@@ -46,9 +46,9 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
                         <span className="font-serif italic text-white/50 font-normal">{title_highlighted_word}</span> {title_third_line}
                     </h1>
 
-                    {strapline && <DynamicText data={strapline} pClassName="mb-48 max-w-550 text-18 font-400 leading-160 text-white/80 font-articulat" />}
+                    {strapline && <DynamicText data={strapline} pClassName="mb-48 max-w-650 text-18 font-400 leading-160 text-white/80 font-articulat" />}
 
-                    <div className="mb-60 flex flex-col gap-16 sm:flex-row">
+                    <div className="mb-48 flex flex-col gap-16 sm:flex-row">
                         {first_cta_link && (
                             <Link
                                 href={first_cta_link.url}
@@ -83,7 +83,7 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
                         )}
                     </div>
 
-                    <div className="flex flex-wrap gap-x-40 gap-y-16 border-t border-white/10 pt-40">
+                    <div className="flex flex-wrap gap-x-40 gap-y-16">
                         <div className="flex items-center gap-8 text-10 font-bold uppercase tracking-15 text-white/50">
                             <span className="text-white">✓</span> Free Samples
                         </div>

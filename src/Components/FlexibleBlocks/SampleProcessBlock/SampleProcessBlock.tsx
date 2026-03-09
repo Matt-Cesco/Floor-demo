@@ -6,11 +6,11 @@ const SampleProcessBlock = ({ data }: IFlexibleBlock<ISampleProcessBlock>) => {
     const { top_title, title, cta_link, steps } = data.sample_process_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-[#F8F6F2] py-120 lg:py-180">
+        <section className="relative w-full overflow-hidden bg-white-light pt-60 pb-40 lg:pt-75 lg:pb-50">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-80">
                 <div className="lg:col-start-3 lg:col-span-8 flex flex-col items-center text-center">
                     {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/50 font-articulat tracking-widest">{top_title}</p>}
-                    {title && <h2 className="font-articulat text-50 md:text-75 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
+                    {title && <h2 className="font-articulat text-40 md:text-50 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
                 </div>
 
                 <div className="lg:col-start-2 lg:col-span-10 grid grid-cols-1 md:grid-cols-3 gap-24">
@@ -19,11 +19,11 @@ const SampleProcessBlock = ({ data }: IFlexibleBlock<ISampleProcessBlock>) => {
                             key={index}
                             className="flex flex-col gap-48 rounded-[2.5rem] bg-white/40 p-40 border border-black/5 transition-all hover:bg-white hover:shadow-xl"
                         >
-                            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 font-articulat">
+                            <span className="text-11 font-bold uppercase tracking-widest text-black/30 font-articulat">
                                 Step <span className="text-black-light">{step.number}</span>
                             </span>
                             <div className="flex flex-col gap-16">
-                                {step.title && <h3 className="text-28 font-semibold leading-120 text-black-light font-articulat">{step.title}</h3>}
+                                {step.title && <h3 className="text-26 font-extrabold leading-120 text-black-light font-articulat">{step.title}</h3>}
                                 {step.description && <p className="text-16 leading-160 text-black/60 font-articulat">{step.description}</p>}
                             </div>
                         </div>

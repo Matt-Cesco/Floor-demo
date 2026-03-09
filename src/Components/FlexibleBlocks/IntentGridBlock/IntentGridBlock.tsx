@@ -7,11 +7,11 @@ const IntentGridBlock = ({ data }: IFlexibleBlock<IIntentGridBlock>) => {
     const { top_title, title, columns } = data.intent_grid_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-[#F8F6F2] py-120 lg:py-180">
-            <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-20 mb-80">
+        <section className="relative w-full overflow-hidden bg-white-light pt-60 pb-40 lg:pt-75 lg:pb-50">
+            <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-20 mb-75">
                 <div className="lg:col-start-3 lg:col-span-8">
                     {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/50 font-articulat tracking-widest">{top_title}</p>}
-                    {title && <h2 className="font-articulat text-50 md:text-60 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
+                    {title && <h2 className="font-articulat text-40 md:text-50 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
                 </div>
             </div>
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-x-24">
