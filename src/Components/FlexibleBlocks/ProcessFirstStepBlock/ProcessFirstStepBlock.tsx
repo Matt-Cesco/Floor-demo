@@ -19,7 +19,7 @@ const ProcessFirstStepBlock = ({ data }: IFlexibleBlock<IProcessFirstStepBlock>)
                     {cards?.map((card, index) => (
                         <button
                             key={index}
-                            className="group flex flex-col justify-between rounded-[2.5rem] border border-black/5 bg-[#F8F6F2]/40 p-40 lg:p-48 text-left transition-all duration-500 hover:border-black-light hover:bg-white hover:shadow-2xl"
+                            className="group flex flex-col justify-between rounded-[2.5rem] border border-black/5 bg-cream/40 p-40 lg:p-48 text-left transition-all duration-500 hover:border-black-light hover:bg-white hover:shadow-2xl"
                         >
                             <div>
                                 {card.title && <h3 className="text-24 lg:text-28 font-bold text-black-light font-articulat">{card.title}</h3>}

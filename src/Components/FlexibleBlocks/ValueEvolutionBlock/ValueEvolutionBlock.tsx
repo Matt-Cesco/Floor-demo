@@ -13,7 +13,7 @@ const ValueEvolutionBlock = ({ data }: IFlexibleBlock<IValueEvolutionBlock>) => 
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 mb-80">
                 <div className="lg:col-start-3 lg:col-span-8">
                     {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/50 font-articulat tracking-widest">{top_title}</p>}
-                    {title && <h2 className="font-articulat text-50 md:text-75 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
+                    {title && <h2 className="font-articulat text-40 md:text-50 font-semibold leading-100 tracking-tight text-black-light">{title}</h2>}
                     {text && (
                         <div className="mt-32 max-w-600">
                             <DynamicText data={text} pClassName="text-18 leading-160 text-black/60 font-articulat" />
