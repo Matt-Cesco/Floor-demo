@@ -7,7 +7,7 @@ const ReassuranceBlock = ({ data }: IFlexibleBlock<IReassuranceBlock>) => {
     const { text_number_customer, text_happy_customer, link_reviews, item } = data.reassurance_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-black-light pt-60 pb-40 lg:pt-75 lg:pb-50 text-white">
+        <section className="relative w-full overflow-hidden bg-black-light py-80 lg:py-100 text-white">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-60">
                 {/* Header: Large Number & Reviews Link */}
                 <div className="lg:col-start-2 lg:col-span-10 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-40 gap-24">

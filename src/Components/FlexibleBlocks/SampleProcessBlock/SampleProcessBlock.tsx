@@ -6,7 +6,7 @@ const SampleProcessBlock = ({ data }: IFlexibleBlock<ISampleProcessBlock>) => {
     const { top_title, title, cta_link, steps } = data.sample_process_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-cream pt-60 pb-40 lg:pt-75 lg:pb-50">
+        <section className="relative w-full overflow-hidden bg-cream py-100 lg:py-140">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-80">
                 <div className="lg:col-start-3 lg:col-span-8 flex flex-col items-center text-center">
                     {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/50 font-articulat tracking-widest">{top_title}</p>}

@@ -32,7 +32,7 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
                 </div>
             )}
 
-            <div className="relative z-10 mx-auto w-full px-40 pt-160 pb-75 grid grid-cols-1 lg:grid-cols-12 gap-20">
+            <div className="relative z-10 mx-auto w-full pt-120 pb-80 lg:pt-180 lg:pb-120 grid grid-cols-1 lg:grid-cols-12 gap-20">
                 <div className="lg:col-start-3 lg:col-span-8 max-w-750">
                     {top_title && (
                         <div className="mb-48 flex items-center gap-12">
@@ -52,8 +52,8 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
                         {first_cta_link && (
                             <Link
                                 href={first_cta_link.url}
-                                target={first_cta_link.target}
-                                className="group inline-flex items-center justify-center rounded-2xl bg-white px-40 py-20 text-16 font-semibold text-black transition-all hover:bg-gray-light"
+                                target={first_cta_link.target || "_self"}
+                                className="group inline-flex items-center justify-center rounded-2xl bg-white px-40 py-20 text-16 font-semibold text-black transition-all hover:bg-gray-light font-articulat"
                             >
                                 <span>{first_cta_link.title}</span>
                                 <svg

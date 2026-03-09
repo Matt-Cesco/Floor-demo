@@ -1,5 +1,6 @@
 export enum FlexibleBlocksEnum {
   SUBHEADINGSCTABLOCK = "subheadings_cta",
+  PROCESSFIRSTSTEPBLOCK = "process_first_step",
   FINALCONVERSIONBLOCK = "final_conversion",
   REASSURANCEBLOCK = "reassurance",
   VALUEEVOLUTIONBLOCK = "value_evolution",
