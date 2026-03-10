@@ -9,7 +9,6 @@ const ReassuranceBlock = ({ data }: IFlexibleBlock<IReassuranceBlock>) => {
     return (
         <section className="relative w-full overflow-hidden bg-black-light py-80 lg:py-100 text-white">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-60">
-                {/* Header: Large Number & Reviews Link */}
                 <div className="lg:col-start-2 lg:col-span-10 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-40 gap-24">
                     <div className="flex items-baseline gap-16">
                         {text_number_customer && (
@@ -31,7 +30,6 @@ const ReassuranceBlock = ({ data }: IFlexibleBlock<IReassuranceBlock>) => {
                     )}
                 </div>
 
-                {/* Reassurance Items: 6-Column Grid */}
                 <div className="lg:col-start-2 lg:col-span-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-32 gap-y-48">
                     {item?.map((reassurance, index) => (
                         <div key={index} className="flex flex-col gap-16">

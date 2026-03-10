@@ -19,8 +19,7 @@ const FinalConversionBlock = ({ data }: IFlexibleBlock<IFinalConversionBlock>) =
     } = data.final_conversion_fields || {};
 
     return (
-        <section className="relative w-full overflow-hidden bg-cream py-120 lg:py-180 border-t border-black/5">
-            {/* Header: Centered on Column 3 for premium guttering */}
+        <section className="relative w-full overflow-hidden bg-cream py-120 lg:py-160 border-t border-black/5">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 mb-100 text-center lg:text-left">
                 <div className="lg:col-start-3 lg:col-span-8">
                     {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/40 font-articulat tracking-[0.25em]">{top_title}</p>}
@@ -33,10 +32,8 @@ const FinalConversionBlock = ({ data }: IFlexibleBlock<IFinalConversionBlock>) =
                 </div>
             </div>
 
-            {/* Path Grid: Cards start at Col 2 to span 10 cols with breathable gaps */}
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12">
                 <div className="lg:col-start-2 lg:col-span-10 grid grid-cols-1 md:grid-cols-2 gap-32 lg:gap-48">
-                    {/* Left Card: The Discovery Path (The Expert Tool) */}
                     <div className="group flex flex-col justify-between rounded-[3rem] bg-white p-48 lg:p-72 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)]">
                         <div>
                             {left_card_tag && (
@@ -62,7 +59,6 @@ const FinalConversionBlock = ({ data }: IFlexibleBlock<IFinalConversionBlock>) =
                         )}
                     </div>
 
-                    {/* Right Card: The Direct Path (The Samples) */}
                     <div className="group flex flex-col justify-between rounded-[3rem] border border-black/5 bg-white/40 p-48 lg:p-72 backdrop-blur-md transition-all duration-700 hover:bg-white hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)]">
                         <div>
                             {right_card_tag && (

@@ -8,17 +8,12 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
     const { top_title, title, description, view_all_link, best_selling_cards } = data.best_sellers_fields || {};
 
     return (
-        /* Spacing: Using the Section Break scale (py-180) to reset user focus */
-        <section className="relative w-full overflow-hidden bg-white py-120 lg:py-180">
+        <section className="relative w-full overflow-hidden bg-white py-120 lg:py-160">
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12 gap-y-40 mb-100">
-                {/* Alignment: Header spans 9 columns starting at Col 3 */}
                 <div className="lg:col-start-3 lg:col-span-9 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-48">
                     <div className="max-w-750">
                         {top_title && <p className="mb-32 text-12 font-semibold uppercase text-black/40 font-articulat tracking-[0.25em]">{top_title}</p>}
-                        {title && (
-                            /* Font Size: Applying the 55px scale to section headers */
-                            <h2 className="font-articulat text-40 md:text-55 font-semibold leading-110 tracking-tight text-black-light">{title}</h2>
-                        )}
+                        {title && <h2 className="font-articulat text-40 md:text-55 font-semibold leading-110 tracking-tight text-black-light">{title}</h2>}
                         {description && (
                             <div className="mt-32">
                                 <DynamicText data={description} pClassName="text-18 leading-160 text-black/60 font-articulat" />
@@ -31,7 +26,6 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
                             <Link
                                 href={view_all_link.url}
                                 target={view_all_link.target || "_self"}
-                                /* Button Style: Secondary Uppercase Label */
                                 className="inline-flex h-56 items-center justify-center rounded-2xl border border-black/10 bg-white px-40 text-12 font-bold uppercase tracking-widest text-black-light transition-all hover:bg-black hover:text-white hover:shadow-xl"
                             >
                                 {view_all_link.title || "View All"}
@@ -42,19 +36,17 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
             </div>
 
             <div className="relative z-10 mx-auto w-full px-40 grid grid-cols-1 lg:grid-cols-12">
-                {/* Grid: 10 columns (Col 2-11) for premium breathing room */}
                 <div className="lg:col-start-2 lg:col-span-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32">
                     {best_selling_cards?.map((card, index) => (
                         <div
                             key={index}
-                            /* Layout: "Masonry-lite" offset on odd cards creates a boutique editorial feel */
-                            className={`group flex flex-col rounded-[2.5rem] border border-black/5 bg-[#F8F6F2]/30 p-32 transition-all duration-700 hover:bg-white hover:shadow-2xl ${
+                            className={`group flex flex-col rounded-[2.5rem] border border-black/5 bg-cream/30 p-32 transition-all duration-700 hover:bg-white hover:shadow-2xl ${
                                 index % 2 === 1 ? "lg:mt-60" : ""
                             }`}
                         >
                             {card.image && (
-                                <div className="mb-24 overflow-hidden rounded-[1.5rem] bg-black/5">
-                                    <div className="relative aspect-[4/5] w-full">
+                                <div className="mb-24 overflow-hidden rounded-2xl bg-black/5">
+                                    <div className="relative aspect-4/5 w-full">
                                         <DynamicImage
                                             data={card.image}
                                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -68,8 +60,7 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
                                 {card.sub_title && <p className="text-14 text-black/40 font-medium font-articulat tracking-wide">{card.sub_title}</p>}
                             </div>
 
-                            {/* Price Anchor: Direct Value Messaging */}
-                            <div className="mt-32 rounded-2xl bg-white p-24 shadow-sm border border-black/[0.03]">
+                            <div className="mt-32 rounded-2xl bg-white p-24 shadow-sm border border-black/3">
                                 <p className="text-10 font-bold uppercase tracking-[0.2em] text-black/30 font-articulat">Direct price</p>
                                 <div className="mt-12 flex items-baseline justify-between">
                                     <p className="text-26 font-bold text-black-light font-articulat">
@@ -87,7 +78,6 @@ const BestSellersBlock = ({ data }: IFlexibleBlock<IBestSellersBlock>) => {
                                     <Link
                                         href={card.sample_link.url}
                                         target={card.sample_link.target || "_self"}
-                                        /* Sample CTA: Standard uppercase utility button */
                                         className="inline-flex h-56 items-center justify-center rounded-2xl bg-black-light text-12 font-bold uppercase tracking-widest text-white transition-all hover:bg-black hover:shadow-lg"
                                     >
                                         Order Free Sample

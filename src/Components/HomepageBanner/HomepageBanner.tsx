@@ -98,7 +98,7 @@ const HomepageBanner = ({ data }: HomepageBannerProps) => {
             </div>
 
             {(bottom_badge_title || bottom_badge_price) && (
-                <div className="absolute bottom-80 right-80 z-20 hidden xl:block">
+                <div className="absolute bottom-80 right-80 z-20 hidden">
                     <div className="rounded-2xl border border-white/10 bg-black/30 p-40 shadow-2xl backdrop-blur-xl text-white">
                         <p className="mb-2 text-9 font-bold uppercase tracking-widest text-white/40 font-articulat">
                             {bottom_badge_top_title || "Direct Value"}
