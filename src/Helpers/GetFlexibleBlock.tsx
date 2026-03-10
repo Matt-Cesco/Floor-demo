@@ -4,6 +4,7 @@ import { AllBlockDataTypes } from "@/Components/FlexibleBlocks/AllBlockDataTypes
 import IFlexibleBlock from "@/Components/FlexibleBlocks/IFlexibleBlock";
 
 import SubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/SubheadingsCtaBlock";
+import InstagramGalleryBlock from "@/Components/FlexibleBlocks/InstagramGalleryBlock/InstagramGalleryBlock";
 import ProcessFirstStepBlock from "@/Components/FlexibleBlocks/ProcessFirstStepBlock/ProcessFirstStepBlock";
 import FinalConversionBlock from "@/Components/FlexibleBlocks/FinalConversionBlock/FinalConversionBlock";
 import ReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/ReassuranceBlock";
@@ -13,6 +14,7 @@ import SampleProcessBlock from "@/Components/FlexibleBlocks/SampleProcessBlock/S
 import FourColumnsHeadingTextLinkBlock from "@/Components/FlexibleBlocks/FourColumnsHeadingTextLinkBlock/FourColumnsHeadingTextLinkBlock";
 import IntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IntentGridBlock";
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IInstagramGalleryBlock from "@/Components/FlexibleBlocks/InstagramGalleryBlock/IInstagramGalleryBlock";
 import IProcessFirstStepBlock from "@/Components/FlexibleBlocks/ProcessFirstStepBlock/IProcessFirstStepBlock";
 import IFinalConversionBlock from "@/Components/FlexibleBlocks/FinalConversionBlock/IFinalConversionBlock";
 import IReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/IReassuranceBlock";
@@ -31,6 +33,8 @@ const GetFlexibleBlock = ({ data }: IFlexibleBlock<AllBlockDataTypes>) => {
   switch (data.acf_fc_layout) {
     case FlexibleBlocksEnum.SUBHEADINGSCTABLOCK:
       return <SubheadingsCtaBlock data={data as ISubheadingsCtaBlock} />;
+    case FlexibleBlocksEnum.INSTAGRAMGALLERYBLOCK:
+      return <InstagramGalleryBlock data={data as IInstagramGalleryBlock} />;
     case FlexibleBlocksEnum.PROCESSFIRSTSTEPBLOCK:
       return <ProcessFirstStepBlock data={data as IProcessFirstStepBlock} />;
     case FlexibleBlocksEnum.FINALCONVERSIONBLOCK:

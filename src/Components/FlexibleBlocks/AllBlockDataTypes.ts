@@ -1,4 +1,5 @@
 import ISubheadingsCtaBlock from "@/Components/FlexibleBlocks/SubheadingsCtaBlock/ISubheadingsCtaBlock";
+import IInstagramGalleryBlock from "@/Components/FlexibleBlocks/InstagramGalleryBlock/IInstagramGalleryBlock";
 import IProcessFirstStepBlock from "@/Components/FlexibleBlocks/ProcessFirstStepBlock/IProcessFirstStepBlock";
 import IFinalConversionBlock from "@/Components/FlexibleBlocks/FinalConversionBlock/IFinalConversionBlock";
 import IReassuranceBlock from "@/Components/FlexibleBlocks/ReassuranceBlock/IReassuranceBlock";
@@ -10,6 +11,7 @@ import IIntentGridBlock from "@/Components/FlexibleBlocks/IntentGridBlock/IInten
 
 export type AllBlockDataTypes =
   ISubheadingsCtaBlock |
+  IInstagramGalleryBlock |
   IProcessFirstStepBlock |
   IFinalConversionBlock |
   IReassuranceBlock |
